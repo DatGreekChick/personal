@@ -5,7 +5,7 @@
   "description": "My personal website featuring my portfolio and writing pieces.",
   "main": "main.js",
   "scripts": {
-    "prepare": "firebase use --add",
+    "prepare": "firebase use elenicodes",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node config/dev",
     "build": "webpack -d --config config/webpack.config.js",
@@ -24,7 +24,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.3.0",
     "chokidar": "^1.7.0",
-    "compression-webpack-plugin": "^1.1.8",
     "css-loader": "^0.28.9",
     "file-loader": "^1.1.9",
     "firebase-admin": "^5.5.1",
