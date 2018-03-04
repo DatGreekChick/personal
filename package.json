@@ -4,12 +4,11 @@
   "version": "0.0.1",
   "description": "My personal website featuring my portfolio and my writing pieces.",
   "main": "main.js",
-  "sideEffects": false,
   "scripts": {
     "prepare": "firebase use eleni",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node config/dev",
-    "build": "webpack -p --config config/webpack.config.js",
+    "build": "webpack -d --config config/webpack.config.js",
     "watch": "npm run build -- -w",
     "build-prod": "webpack -p --config config/webpack.config.js",
     "watch-prod": "npm run build-prod -- -w",
@@ -40,8 +39,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^4.0.0",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^2.9.7",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
     "firebase": "^4.8.0",
