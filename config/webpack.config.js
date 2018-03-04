@@ -10,8 +10,8 @@ const config = env => ({
   output: {
     filename: 'bundle.js',
     path: `${parent}/public`,
-    hotUpdateChunkFilename: `${parent}/hot/hot-update.js`,
-    hotUpdateMainFilename: `${parent}/hot/hot-update.json`,
+    hotUpdateChunkFilename: '../hot/hot-update.js',
+    hotUpdateMainFilename: '../hot/hot-update.json',
   },
   context: parent,
   resolve: {
