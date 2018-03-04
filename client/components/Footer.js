@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { socialLinks } from "~/content/secrets"
+import { socialLinks } from '~/content/secrets'
 import '~/public/assets/styles/footer.css'
 
 export default () =>
   <div className='footer' role='contentinfo'>
     <span className='copyright'>
-      &copy; {`${(new Date()).getFullYear()} Eleni Arvanitis`}
+      &copy {`${(new Date()).getFullYear()} Eleni Arvanitis`}
     </span>
     <div>
       {

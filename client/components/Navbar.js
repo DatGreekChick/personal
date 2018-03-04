@@ -7,9 +7,9 @@ const logo = '/assets/img/ea-logo-cream.png'
     , nav = ['About', 'Work', 'Articles', 'Contact']
 
 export default () =>
-  <nav role='navigation' className="nav-bar">
+  <nav role='navigation' className='nav-bar'>
     <NavLink to='/'>
-      <img className="logo" src={logo} alt="ea-logo-cream"/>
+      <img className='logo' src={logo} alt='ea-logo-cream'/>
     </NavLink>
     {
       nav.map(link => {
