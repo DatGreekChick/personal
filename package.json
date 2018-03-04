@@ -7,12 +7,11 @@
   "scripts": {
     "prepare": "firebase use --add",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dev",
-    "build": "webpack -d",
-    "watch-lib": "npm run build-lib -- -w",
-    "build-lib": "webpack --config webpack.prod.js",
-    "build-lib-prod": "npm run build-lib -- -p",
-    "build-prod": "npm run build-lib-prod",
+    "start": "node config/dev",
+    "build": "webpack -d --config config/webpack.config.js",
+    "watch": "npm run build -- -w",
+    "build-prod": "webpack -p --config config/webpack.config.js",
+    "watch-prod": "npm run build-prod -- -w",
     "deploy": "npm run build-prod && npx firebase deploy"
   },
   "author": "Eleni Arvanitis",
@@ -40,8 +39,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^4.0.0",
     "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^2.9.7",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
     "firebase": "^4.8.0",
