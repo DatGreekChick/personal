@@ -3,11 +3,14 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { siteKey, action } from '~/content/secrets'
 
 export default class Form extends Component {
-  state = { name: '', email: '', message: '', 'g-recaptcha-response': '' }
+  state = {
+    name: '',
+    email: '',
+    message: '',
+    'g-recaptcha-response': ''
+  }
 
   handleChange = propertyName => evt => {
-    console.log(`${propertyName}: ${this.state[propertyName]}`)
-
     this.setState({
       ...this.state,
       [propertyName]: evt.target.value
@@ -31,7 +34,7 @@ export default class Form extends Component {
           ]
 
     return <form id='gform' onSubmit={this.handleSubmit}
-                 action={action} method="POST">
+                 action={action} method='POST'>
       {
         inputs.map(input => <label className='form-label' key={input.type}>
           <input className='form-input' type={input.type}
