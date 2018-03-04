@@ -1,16 +1,17 @@
-'use strict'
 const webpack = require('webpack')
-  , babel = require('./babel.config')
-  , { dirname } = require('path')
-  , parent = dirname(__dirname)
-  , { isHot, isProd } = require('./env.config')
-  , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+    , babel = require('./babel.config')
+    , { dirname } = require('path')
+    , parent = dirname(__dirname)
+    , { isHot, isProd } = require('./env.config')
+    , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 const config = env => ({
   entry: entries(env, `${parent}/main.js`),
   output: {
     filename: 'bundle.js',
     path: `${parent}/public`,
+    hotUpdateChunkFilename: `${parent}/hot/hot-update.js`,
+    hotUpdateMainFilename: `${parent}/hot/hot-update.json`,
   },
   context: parent,
   resolve: {
