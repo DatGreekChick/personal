@@ -4,7 +4,7 @@ const babel = module.exports = env => ({
   loader: 'babel-loader',
   options: {
     presets: [
-      ['env', { modules: false }],
+      ['env', { modules: false, targets: { uglify: true } }],
       'stage-2',
       'react',
     ],
