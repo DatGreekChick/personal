@@ -39,14 +39,7 @@
     <div id="main" role="main">
     </div>
     <script async defer src="bundle.js"></script>
-    <script>
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/sw.js')
-          .then(() => console.log("Service Worker Registered"))
-          .catch(err => console.error('Error registering service worker:', err))
-      }
-    </script>
+    <script src="ifServiceWorker.js"></script>
   </body>
   <noscript>Your browser doesn't support JavaScript!</noscript>
 </html>

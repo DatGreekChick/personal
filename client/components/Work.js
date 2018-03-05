@@ -1,9 +1,10 @@
 import React from 'react'
 import Expand from './Expand'
+import windowTrick from '~/client/window'
 import '~/public/assets/styles/work.css'
 
 export default () => {
-  window.scroll(0,0)
+  windowTrick()
 
   return <div className='work'>
     <a href='/assets/Eleni-Arvanitis-Resume.pdf' target='_blank'>

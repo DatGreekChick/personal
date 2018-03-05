@@ -9,9 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node config/dev",
     "build": "webpack -d --config config/webpack.config.js",
-    "watch": "npm run build -- -w",
     "build-prod": "webpack -p --config config/webpack.config.js",
-    "watch-prod": "npm run build-prod -- -w",
     "deploy": "npm run build-prod && npx firebase deploy"
   },
   "author": "Eleni Arvanitis",
