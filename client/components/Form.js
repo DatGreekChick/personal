@@ -29,8 +29,8 @@ export default class Form extends Component {
   render() {
     const { name, email, message } = this.state
           , inputs = [
-            { type: 'text', name: 'Name', value: name, placeholder: 'Bilbo Baggins' },
-            { type: 'email', name: 'Email', value: email, placeholder: 'burglar@shire.com' },
+            { type: 'text', name: 'name', value: name, placeholder: 'Bilbo Baggins' },
+            { type: 'email', name: 'email', value: email, placeholder: 'burglar@shire.com' },
           ]
 
     return <form id='gform' onSubmit={this.handleSubmit}
