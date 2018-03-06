@@ -9,7 +9,7 @@ content/
 # Compilation artifacts
 public/bundle.js
 public/bundle.js.map
-public/sw.js
+public/serviceWorker.js
 
 # Resume
 public/assets/Eleni-Arvanitis-Resume.pdf
