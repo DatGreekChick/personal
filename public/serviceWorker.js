@@ -1,9 +1,17 @@
 const urlsToCache = [
   '/',
-  '/styles/main.css',
-  '/script/main.js'
+  '/assets/styles/index.css',
+  '/assets/styles/about.css',
+  '/assets/styles/arrows.css',
+  '/assets/styles/button.css',
+  '/assets/styles/contact.css',
+  '/assets/styles/expand.css',
+  '/assets/styles/footer.css',
+  '/assets/styles/home.css',
+  '/assets/styles/navbar.css',
+  '/assets/styles/work.css',
 ]
-    , CACHE_NAME = 'my-site-cache-v1'
+    , CACHE_NAME = 'v1'
 
 self.addEventListener('install', evt => {
   // Perform install steps
