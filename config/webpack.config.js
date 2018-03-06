@@ -53,7 +53,7 @@ const plugins = env => isHot(env) ? [
   new SWPrecacheWebpackPlugin({
     cacheId: 'v1',
     dontCacheBustUrlsMatching: /\.\w{8}\./,
-    filename: 'sw.js',
+    filename: 'serviceWorker.js',
     minify: true,
     navigateFallback: 'https://eleniarvanitis.com/index.html',
     staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],
