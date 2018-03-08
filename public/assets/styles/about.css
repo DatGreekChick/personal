@@ -17,3 +17,9 @@
     font-size: 17px;
     color: ghostwhite;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .about {
+        margin: 0 auto;
+    }
+}

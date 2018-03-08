@@ -7,9 +7,11 @@
   "scripts": {
     "prepare": "firebase use elenicodes",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node config/dev",
-    "build": "webpack -d --config config/webpack.config.js",
-    "build-prod": "webpack -p --config config/webpack.config.js",
+    "start": "node dev",
+    "watch": "npm run build -- -w",
+    "serve": "npm run watch && npx firebase serve -p 5001",
+    "build": "webpack -d",
+    "build-prod": "webpack -p",
     "deploy": "npm run build-prod && npx firebase deploy"
   },
   "author": "Eleni Arvanitis",
@@ -34,8 +36,8 @@
     "through2": "^2.0.3",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^0.6.2",
-    "webpack": "^4.0.0",
-    "webpack-cli": "^2.0.9",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {

@@ -36,9 +36,9 @@ export default class Expand extends Component {
             <br/><br/>
             {
               project.technologies.map(technology => {
-                return <span className='tech' key={technology}>
+                return <div className='tech' key={technology}>
                   {technology.toUpperCase()}
-                </span>
+                </div>
               })
             }
             <br/><br/>
