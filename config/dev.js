@@ -63,7 +63,7 @@ firebaseServe.stderr.pipe(process.stderr)
 firebaseUrl
   .then(FIREBASE_SERVE_URL => {
     const devServer = spawn('🌍  webpack dev server',
-      'npx', ['webpack-dev-server', ...process.argv.slice(2)], {
+      'npx', ['webpack-dev-server --config config/webpack.config.js', ...process.argv.slice(2)], {
       env: Object.assign({
         NODE_ENV: 'development',
         FORCE_COLOR: 3,
