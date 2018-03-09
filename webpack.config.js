@@ -1,22 +1,19 @@
 const webpack = require('webpack')
     , babel = require('./babel.config')
-    , { dirname } = require('path')
-    , parent = dirname(__dirname)
     , { isHot, isProd } = require('./env.config')
     , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 const config = env => ({
-  entry: entries(env, `${parent}/main.js`),
+  entry: entries(env, './main.js'),
   output: {
     filename: 'bundle.js',
-    path: `${parent}/public`,
+    path: `${__dirname}/public`,
     hotUpdateChunkFilename: '../hot/hot-update.js',
     hotUpdateMainFilename: '../hot/hot-update.json',
   },
-  context: parent,
   resolve: {
     extensions: [ '.jsx', '.js', '.json' ],
-    alias: { '~': parent }
+    alias: { '~': __dirname }
   },
   devServer: devServer(env),
   module: {
@@ -53,7 +50,7 @@ const plugins = env => isHot(env) ? [
   new SWPrecacheWebpackPlugin({
     cacheId: 'v1',
     dontCacheBustUrlsMatching: /\.\w{8}\./,
-    filename: 'sw.js',
+    filename: 'serviceWorker.js',
     minify: true,
     navigateFallback: 'https://eleniarvanitis.com/index.html',
     staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],

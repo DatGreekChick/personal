@@ -26,3 +26,9 @@ hr {
 button {
     margin: 3% auto 5% auto;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .article {
+        padding: 10px 10%;
+    }
+}
