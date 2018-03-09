@@ -1,6 +1,5 @@
 const webpack = require('webpack')
     , babel = require('./babel.config')
-    , { dirname } = require('path')
     , { isHot, isProd } = require('./env.config')
     , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
