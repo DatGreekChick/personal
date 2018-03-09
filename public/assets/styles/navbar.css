@@ -55,8 +55,4 @@ a.underline.active {
         max-width: 20%;
         max-height: 20%;
     }
-
-    a.underline:hover:before {
-        color: ghostwhite;
-    }
 }

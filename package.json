@@ -10,7 +10,7 @@
     "start": "node dev",
     "watch": "npm run build -- -w",
     "serve": "npm run watch && npx firebase serve -p 5001",
-    "build": "webpack -d",
+    "build": "webpack --mode development",
     "build-prod": "webpack --mode production",
     "deploy": "npm run build-prod && npx firebase deploy"
   },
