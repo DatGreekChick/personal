@@ -5,22 +5,12 @@
   "description": "My personal website featuring my portfolio and writing pieces.",
   "main": "main.js",
   "scripts": {
-<<<<<<< HEAD
     "prepare": "firebase use elenicodes",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dev",
     "watch": "npm run build -- -w",
     "build": "webpack --mode development",
     "build-prod": "webpack --mode production",
-=======
-    "prepare": "firebase use eleni",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node config/dev",
-    "build": "webpack -d --config config/webpack.config.js",
-    "watch": "npm run build -- -w",
-    "build-prod": "webpack -p --config config/webpack.config.js",
-    "watch-prod": "npm run build-prod -- -w",
->>>>>>> 6c2738204663d213a01999f137a400fa5973fe4a
     "deploy": "npm run build-prod && npx firebase deploy"
   },
   "author": "Eleni Arvanitis",
@@ -45,15 +35,9 @@
     "through2": "^2.0.3",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^0.6.2",
-<<<<<<< HEAD
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
-=======
-    "webpack": "^4.0.0",
-    "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^2.9.7"
->>>>>>> 6c2738204663d213a01999f137a400fa5973fe4a
   },
   "dependencies": {
     "firebase": "^4.8.0",
