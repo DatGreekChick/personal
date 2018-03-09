@@ -3,40 +3,42 @@ import '~/public/assets/styles/expand.css'
 import db from '~/content/fire'
 
 export default class Expand extends Component {
-  state = { projects: [], isHidden: true, selectedElem: '' }
+  state = { projects: [], isHidden: true, selectedProject: '' }
 
   componentWillMount() {
     db.ref('work')
       .once('value', snap => {
         for (let i = 0; i < snap.val().length; i++) {
-          this.setState({ projects: [...this.state.projects, snap.val()[i]] })
+          this.setState({
+            projects: [...this.state.projects, snap.val()[i]]
+          })
         }
       })
   }
 
   toggle = evt => this.setState({
     isHidden: !this.state.isHidden,
-    selectedElem: evt.target.innerText
+    selectedProject: evt.target.innerText
   })
 
   render() {
-    const { projects, isHidden, selectedElem } = this.state
+    const { projects, isHidden, selectedProject } = this.state
 
     return projects.map(project => {
       return <div key={project.name} className='project'>
         <span className='line' onClick={this.toggle}>
             {project.name.toUpperCase()}
         </span>
-        { !isHidden && selectedElem === project.name.toUpperCase()
+        { !isHidden && selectedProject === project.name.toUpperCase()
           ? <div className='detail'>
             <p className='role'>{project.role}</p>
             <p className='description'>{project.description}</p>
             <br/><br/>
             {
               project.technologies.map(technology => {
-                return <span className='tech' key={technology}>
+                return <div className='tech' key={technology}>
                   {technology.toUpperCase()}
-                </span>
+                </div>
               })
             }
             <br/><br/>

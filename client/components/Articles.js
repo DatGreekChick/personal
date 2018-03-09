@@ -9,8 +9,10 @@ export default class Articles extends Component {
   componentDidMount() {
     db.ref('articles')
       .once('value', snap => {
-        for (let i = snap.val().length - 1; i > -1; i--) {
-          this.setState({ articles: [...this.state.articles, snap.val()[i]] })
+        for (let i = snap.val().length - 1; i > -1; --i) {
+          this.setState({
+            articles: [...this.state.articles, snap.val()[i]]
+          })
         }
       })
   }

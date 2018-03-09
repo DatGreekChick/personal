@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { siteKey, action } from '~/content/secrets'
+import { siteKey, link } from '~/content/secrets'
 
 export default class Form extends Component {
-  state = { name: '', email: '', message: '', 'g-recaptcha-response': '' }
+  state = {
+    name: '',
+    email: '',
+    message: '',
+    'g-recaptcha-response': ''
+  }
 
   handleChange = propertyName => evt => {
-    console.log(`${propertyName}: ${this.state[propertyName]}`)
-
     this.setState({
       ...this.state,
       [propertyName]: evt.target.value
@@ -20,18 +23,19 @@ export default class Form extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault()
-    this.setState({ name: '',  email: '', message: '' })
+
+    const { name, email, message } = this.state
+    fetch(`${link}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`)
   }
 
   render() {
     const { name, email, message } = this.state
           , inputs = [
-            { type: 'text', name: 'Name', value: name, placeholder: 'Bilbo Baggins' },
-            { type: 'email', name: 'Email', value: email, placeholder: 'burglar@shire.com' },
+            { type: 'text', name: 'name', value: name, placeholder: 'Bilbo Baggins' },
+            { type: 'email', name: 'email', value: email, placeholder: 'burglar@shire.com' },
           ]
 
-    return <form id='gform' onSubmit={this.handleSubmit}
-                 action={action} method="POST">
+    return <form id='gform' onSubmit={this.handleSubmit}>
       {
         inputs.map(input => <label className='form-label' key={input.type}>
           <input className='form-input' type={input.type}

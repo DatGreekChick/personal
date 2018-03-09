@@ -26,7 +26,7 @@ const env = vars => ({
 
 // Build functions
 spawn('🤖 build library',
-  'npm', ['run', 'watch-lib'], forceColor)
+  'npm', ['run', 'watch'], forceColor)
     .toConsole()
 
 // Run `firebase serve`

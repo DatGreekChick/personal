@@ -1,16 +1,18 @@
 node_modules
-content/secrets.js
-content/about.js
 
 # Emacs save files
 *~
 
+# Firebase and other info
+content/
+
 # Compilation artifacts
 public/bundle.js
 public/bundle.js.map
-public/prod.js
-public/prod.js.gz
-public/sw.js
+public/serviceWorker.js
 
 # Resume
 public/assets/Eleni-Arvanitis-Resume.pdf
+
+# Hot module json files
+hot/

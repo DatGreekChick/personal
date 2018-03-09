@@ -50,3 +50,18 @@ input, textarea {
     padding-top: 5%;
     font-size: 22px;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    h2 {
+        font-size: 49pt;
+        margin: 5% auto 15% auto;
+    }
+
+    input, textarea {
+        width: calc(100%/1);
+    }
+
+    .contact-footer {
+        display: none;
+    }
+}
