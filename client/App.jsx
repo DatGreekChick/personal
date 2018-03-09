@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import React from 'react'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 
 import '~/public/assets/styles/index.css'
 import '~/public/assets/styles/button.css'
