@@ -47,3 +47,15 @@ button.resume-button {
     align-items: center;
     margin: 4% auto;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .line {
+        line-height: 1;
+        padding: 2% 10%;
+    }
+
+    .line:before,
+    .line:after {
+        border: none;
+    }
+}
