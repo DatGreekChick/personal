@@ -4,11 +4,23 @@
   "version": "1.0.0",
   "description": "My personal website featuring my portfolio and writing pieces.",
   "main": "main.js",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/jest.transform.js"
+    },
+    "moduleNameMapper": {
+      "~(.*)$": "<rootDir>/$1",
+      "\\.(css)": "identity-obj-proxy"
+    },
+    "testEnvironment": "node",
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
+  },
   "scripts": {
     "prepare": "firebase use elenicodes",
-    "test": "mocha --compilers js:babel-core/register",
+    "test": "NODE_ENV=test && jest",
     "test:watch": "npm test --watch",
-    "test:coverage": "npm run test:watch --coverage",
     "start": "node dev",
     "watch": "npm run build -- -w",
     "build": "webpack --mode development",
@@ -22,10 +34,12 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "chai": "^4.1.2",
     "chalk": "^2.3.0",
     "chokidar": "^1.7.0",
     "css-loader": "^0.28.9",
@@ -34,7 +48,11 @@
     "file-loader": "^1.1.9",
     "firebase-admin": "^5.5.1",
     "firebase-tools": "^3.16.0",
-    "mocha": "^5.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.2",
+    "jest-cli": "^22.4.2",
+    "jsdom": "11.6.2",
+    "jsdom-global": "3.0.2",
     "react-async-script": "^0.9.1",
     "react-hot-loader": "^3.1.2",
     "react-test-renderer": "^16.2.0",

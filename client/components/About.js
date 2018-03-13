@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { aboutHeader, aboutText1, aboutText2 } from '~/content/about'
-import '~/public/assets/styles/about.css'
+// import '~/public/assets/styles/about.css'
 
 export default () =>
   <div className='about'>
