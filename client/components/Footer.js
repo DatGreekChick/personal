@@ -13,7 +13,7 @@ export default () =>
         socialLinks.map(link => <a key={link[0]} className='icons'
                                    href={link[0]} rel='noopener'
                                    target='_blank'>
-          {link[1]}
+          <img src={link[1]} alt={link[1]}/>
         </a>)
       }
     </div>
