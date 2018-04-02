@@ -20,7 +20,7 @@
   "scripts": {
     "prepare": "firebase use elenicodes",
     "test": "NODE_ENV=test && jest",
-    "test:watch": "npm test --watch",
+    "test:watch": "npm test -- --watch",
     "start": "node dev",
     "watch": "npm run build -- -w",
     "build": "webpack --mode development",
