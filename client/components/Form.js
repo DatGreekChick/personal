@@ -21,9 +21,7 @@ export default class Form extends Component {
     this.setState({ 'g-recaptcha-response': req })
   }
 
-  handleSubmit = evt => {
-    evt.preventDefault()
-
+  handleSubmit = () => {
     const { name, email, message } = this.state
     fetch(`${link}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`)
   }
