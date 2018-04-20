@@ -48,7 +48,7 @@ a.underline.active {
 
 @media (min-width: 320px) and (max-width: 480px) {
     .nav-bar {
-        font-size: 14px;
+        font-size: 16pt;
     }
 
     .logo {
