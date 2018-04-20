@@ -5,6 +5,7 @@ const webpack = require('webpack')
 
 const config = env => ({
   entry: entries(env, './main.js'),
+  mode: isHot(env) ? 'development' : 'production',
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/public`,
