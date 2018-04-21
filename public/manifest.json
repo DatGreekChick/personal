@@ -9,8 +9,20 @@
   "theme_color": "#e0bf9f",
   "description": "Eleni Arvanitis, Engineer, Dreamer, Greek, Portfolio, Writing pieces",
   "icons": [{
-    "src": "favicon.ico",
-    "sizes": "192x192",
-    "type": "image/ico"
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/ico"
+    }, {
+      "src": "favicon.ico",
+      "sizes": "512x512",
+      "type": "image/ico"
+    }, {
+      "src": "/assets/img/ea-logo-cream.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "/assets/img/ea-logo-cream.png",
+      "sizes": "512x512",
+      "type": "image/png"
   }]
 }
