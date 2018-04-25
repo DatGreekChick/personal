@@ -53,3 +53,7 @@ As I was in production, I discovered Google Chrome' Lighthouse and wanted to see
 ## React Google Recaptcha
 
 I have implemented a form on `/contact` that populates any submissions into a Google doc for simplicity. The Google recaptcha library helps verify a human's (online) humanity so as to prevent bots from submitting information into the doc.
+
+## Testing
+
+For testing, switch to the `testing` branch, which has my css import statements commented out in my various components.
