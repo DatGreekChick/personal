@@ -9,11 +9,11 @@ For information on my journey to becoming a Software Engineer, feel free to read
 - Babel
 - Enzyme
 - Firebase (real-time database, hosting)
-- Fontawesome
+- FontAwesome
 - Jest
 - Progressive Web App
 - React
-- React Dom
+- React DOM
 - React Google Recaptcha
 - React Hot Loader
 - React Router DOM
