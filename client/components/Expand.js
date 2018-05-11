@@ -50,7 +50,7 @@ export default class Expand extends Component {
                               ? link['code']
                               : link['youtube']
                                 ? link['youtube'] : link['demo']
-                          } target='_blank'>
+                          } target='_blank' rel='noopener'>
                   <button className='project-links'>
                     {
                       link['code']
