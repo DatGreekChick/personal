@@ -1,5 +1,5 @@
 const urlsToCache = [
-  '/',
+  '.',
   '/assets/styles/index.css',
   '/assets/styles/about.css',
   '/assets/styles/arrows.css',
