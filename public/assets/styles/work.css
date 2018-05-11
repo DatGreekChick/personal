@@ -50,7 +50,8 @@ button.resume-button {
 
 @media (min-width: 320px) and (max-width: 480px) {
     .project {
-        padding: 8% 0;
+        padding: 7% 0;
+        font-size: 23pt;
     }
 
     .line {

@@ -31,4 +31,8 @@
     .about {
         margin: 0 auto;
     }
+
+    .about-header {
+        font-size: 30pt;
+    }
 }
