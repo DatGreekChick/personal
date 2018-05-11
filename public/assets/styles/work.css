@@ -1,7 +1,7 @@
 .project {
     align-items: center;
     justify-content: center;
-    padding: 18px 0;
+    padding: 2% 0;
     font-size: 28pt;
     font-weight: 800;
     text-align: center;
@@ -49,13 +49,17 @@ button.resume-button {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+    .project {
+        padding: 8% 0;
+    }
+
     .line {
-        line-height: 1;
-        padding: 2% 10%;
+        line-height: normal;
     }
 
     .line:before,
     .line:after {
         border: none;
+        left: 0;
     }
 }
