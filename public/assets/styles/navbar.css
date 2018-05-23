@@ -37,7 +37,8 @@ a.underline:hover:before {
 }
 
 a.underline.active {
-    color: #e0bf9f;
+    border-bottom: 1.5px solid #e0bf9f;
+    color: inherit;
 }
 
 .logo {
