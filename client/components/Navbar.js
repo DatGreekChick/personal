@@ -12,10 +12,10 @@ export default () =>
       <img className='logo' src={logo} alt='ea-logo-cream'/>
     </NavLink>
     {
-      nav.map(link => {
-        return <NavLink key={link} to={`/${link.toLowerCase()}`}
-                        className='underline'>{`${link}`}
+      nav.map(link =>
+        <NavLink key={link} to={`/${link.toLowerCase()}`}
+                 className='underline'>{`${link}`}
         </NavLink>
-      })
+      )
     }
   </nav>
