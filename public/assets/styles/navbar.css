@@ -8,6 +8,7 @@
     align-items: right;
     margin: 0; padding: 1rem 0;
     width: 100%;
+    vertical-align: text-top;
 }
 
 a {
@@ -42,8 +43,8 @@ a.underline.active {
 }
 
 .logo {
-    width: 40%; max-height: 35%;
-    display: inline;
+    min-width: 50px; max-height: 70px;
+    display: inline-flex;
     float: left;
 }
 
@@ -53,7 +54,7 @@ a.underline.active {
     }
 
     .logo {
-        max-width: 15%;
-        max-height: 75%;
+        max-width: 25px;
+        max-height: 40px;
     }
 }
