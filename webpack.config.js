@@ -37,6 +37,18 @@ const config = env => ({
       use: 'raw-loader',
     }]
   },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   plugins: plugins(env),
 })
 
@@ -56,7 +68,6 @@ const plugins = env => isHot(env) ? [
     navigateFallback: 'https://eleniarvanitis.com/index.html',
     staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],
   }),
-  new webpack.optimize.UglifyJsPlugin(),
   new webpack.optimize.ModuleConcatenationPlugin(),
 ]
 
