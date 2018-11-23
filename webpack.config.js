@@ -2,6 +2,7 @@ const webpack = require('webpack')
     , babel = require('./babel.config')
     , { isHot, isProd } = require('./env.config')
     , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+    , UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const config = env => ({
   entry: entries(env, './main.js'),
@@ -37,6 +38,13 @@ const config = env => ({
       use: 'raw-loader',
     }]
   },
+  optimization: {
+    mergeDuplicateChunks: true,
+    removeEmptyChunks: true,
+    minimizer: [
+      new UglifyJSPlugin({ parallel: true })
+    ]
+  },
   plugins: plugins(env),
 })
 
@@ -56,8 +64,6 @@ const plugins = env => isHot(env) ? [
     navigateFallback: 'https://eleniarvanitis.com/index.html',
     staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],
   }),
-  new webpack.optimize.UglifyJsPlugin(),
-  new webpack.optimize.ModuleConcatenationPlugin(),
 ]
 
 function devServer(env) {
