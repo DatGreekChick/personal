@@ -4,10 +4,11 @@ const babel = module.exports = env => ({
   loader: 'babel-loader',
   options: {
     presets: [
-      ['env', { modules: false, targets: { uglify: true } }],
-      'stage-2',
-      'react',
+      ['@babel/preset-env', { modules: false, targets: { uglify: true } }],
+      '@babel/preset-react',
     ],
     plugins: isHot(env) && ['react-hot-loader/babel']
   }
 })
+
+export default babel
