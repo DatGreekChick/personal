@@ -8,16 +8,14 @@ const logo = '/assets/img/ea-logo-cream.png'
 
 export default () =>
   <nav role='navigation' className='nav-bar'>
+    <NavLink key='home' to='/'>
+      <img className='logo' src={logo} alt='ea-logo-cream'/>
+    </NavLink>
     {
       nav.map(link =>
-        link === '/'
-          ? <NavLink key={link} to={link}>
-             <img className='logo' src={logo} alt='ea-logo-cream'/>
-            </NavLink>
-          : <NavLink key={link} to={`/${link.toLowerCase()}`}
-                     className='underline'>
-             {`${link}`}
-            </NavLink>
+        <NavLink key={link} to={`/${link.toLowerCase()}`} className='underline'>
+           {`${link}`}
+        </NavLink>
       )
     }
   </nav>
