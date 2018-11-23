@@ -4,7 +4,10 @@ import '~/public/assets/styles/articles.css'
 import db from '~/content/fire'
 
 export default class Articles extends Component {
-  state = { articles: [] }
+  constructor() {
+    super()
+    this.state = { articles: [] }
+  }
 
   componentDidMount() {
     db.ref('articles')
