@@ -10,5 +10,3 @@ const babel = module.exports = env => ({
     plugins: isHot(env) && ['react-hot-loader/babel']
   }
 })
-
-export default babel
