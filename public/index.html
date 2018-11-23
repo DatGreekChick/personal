@@ -3,7 +3,7 @@
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113073503-1"></script>
-    <script>
+    <script async>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -16,6 +16,9 @@
     <meta http-equiv="Content-Type" content="text/html">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Description"
+          content="Eleni Arvanitis, My personal website to showcase my writing and portfolio pieces,
+                   Contact me for job opportunities or insight">
     <meta name="theme-color" content="#e0bf9f">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,13 +36,23 @@
     <title>Eleni Arvanitis: Engineer - Dreamer - Greek</title>
 
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet" media="all">
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div id="main" role="main">
     </div>
     <script async defer src="bundle.js"></script>
-    <script src="ifServiceWorker.js" type="es6"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/serviceWorker.js')
+          .then(() => console.log('Service Worker Registered'))
+          .catch(err => console.error('Error registering service worker:', err))
+      }
+    </script>
   </body>
-  <noscript>Your browser doesn't support JavaScript!</noscript>
+  <noscript>
+    Please enable JavaScript in order for your browser to view the content of this page.
+  </noscript>
 </html>

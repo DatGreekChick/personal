@@ -1,4 +1,5 @@
 import React from 'react'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import { socialLinks } from '~/content/secrets'
 import '~/public/assets/styles/footer.css'
@@ -13,7 +14,7 @@ export default () =>
         socialLinks.map(link => <a key={link[0]} className='icons'
                                    href={link[0]} rel='noopener'
                                    target='_blank'>
-          <img src={link[1]} alt={link[1]}/>
+          <FontAwesomeIcon icon={link[1]}/>
         </a>)
       }
     </div>

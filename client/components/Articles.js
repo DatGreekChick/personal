@@ -27,7 +27,7 @@ export default class Articles extends Component {
           <h3 className='article-title'>{article.title}</h3>
           <p className='date-posted'>{article['date-posted']}</p>
           <p className='description'>{article.description}</p><br/>
-          <a href={article.link} target='_blank'>
+          <a href={article.link} target='_blank' rel='noopener'>
             <button>Read More ↗</button>
           </a>
           <hr/>

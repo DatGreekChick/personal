@@ -8,6 +8,7 @@
     align-items: right;
     margin: 0; padding: 1rem 0;
     width: 100%;
+    vertical-align: text-top;
 }
 
 a {
@@ -37,22 +38,23 @@ a.underline:hover:before {
 }
 
 a.underline.active {
-    color: #e0bf9f;
+    border-bottom: 1.5px solid #e0bf9f;
+    color: inherit;
 }
 
 .logo {
-    max-width: 35%; max-height: 35%;
-    display: inline;
+    min-width: 25px; max-height: 35px;
+    display: inline-flex;
     float: left;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
     .nav-bar {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .logo {
-        max-width: 20%;
-        max-height: 20%;
+        max-width: 25px;
+        max-height: 40px;
     }
 }
