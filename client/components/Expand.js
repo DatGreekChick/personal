@@ -3,10 +3,7 @@ import '~/public/assets/styles/expand.css'
 import db from '~/content/fire'
 
 export default class Expand extends Component {
-  constructor() {
-    super()
-    this.state = { projects: [], isHidden: true, selectedProject: '' }
-  }
+    state = { projects: [], isHidden: true, selectedProject: '' }
 
   componentWillMount() {
     db.ref('work')

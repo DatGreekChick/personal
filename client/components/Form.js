@@ -3,15 +3,12 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { siteKey, link } from '~/content/secrets'
 
 export default class Form extends Component {
-  constructor() {
-    super()
-    this.state = {
+    state = {
       name: '',
       email: '',
       message: '',
       'g-recaptcha-response': ''
     }
-  }
 
   handleChange = propertyName => evt => {
     this.setState({
