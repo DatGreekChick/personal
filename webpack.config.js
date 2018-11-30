@@ -4,6 +4,11 @@ const webpack = require('webpack')
     , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
     , UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
+const entries = (env, entry) =>
+  isHot(env)
+    ? ['react-hot-loader/patch', entry]
+    : entry
+
 const config = env => ({
   entry: entries(env, './main.js'),
   mode: isHot(env) ? 'development' : 'production',
@@ -47,11 +52,6 @@ const config = env => ({
   },
   plugins: plugins(env),
 })
-
-const entries = (env, entry) =>
-  isHot(env)
-    ? ['react-hot-loader/patch', entry]
-    : entry
 
 const plugins = env => isHot(env) ? [
   new webpack.HotModuleReplacementPlugin,  // Enable HMR globally
