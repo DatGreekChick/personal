@@ -39,7 +39,6 @@ const config = env => ({
       use: [
         'style-loader', {
           loader: 'css-loader',
-          options: { minimize: true }
       }],
     }, {
       test: /\.(txt|md|markdown)$/,
