@@ -15,6 +15,7 @@ const config = env => ({
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/public`,
+    publicPath: '/',
     hotUpdateChunkFilename: '../hot/hot-update.js',
     hotUpdateMainFilename: '../hot/hot-update.json',
   },
@@ -27,7 +28,10 @@ const config = env => ({
     rules: [{
       test: /jsx?$/,
       exclude: /node_modules/,
-      use: babel(env),
+      use: [{
+        loader: 'babel-loader',
+        options: babel,
+      }],
     }, {
       test: /\.(jpeg|jpg|png|)$/,
       use: 'url-loader',
@@ -36,7 +40,6 @@ const config = env => ({
       use: [
         'style-loader', {
           loader: 'css-loader',
-          options: { minimize: true }
       }],
     }, {
       test: /\.(txt|md|markdown)$/,
@@ -70,6 +73,7 @@ function devServer(env) {
   if (isProd(env)) return
   const { FIREBASE_SERVE_URL } = env
   return {
+    disableHostCheck: true,
     hot: true,
     proxy: FIREBASE_SERVE_URL && {
       "/": FIREBASE_SERVE_URL

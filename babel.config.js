@@ -14,13 +14,12 @@ const plugins = [
   '@babel/plugin-proposal-json-strings',
 ]
 
-const babel = module.exports = env => ({
-  loader: 'babel-loader',
-  options: {
-    presets: [
-      ['@babel/preset-env', { modules: false, targets: { uglify: true } }],
-      '@babel/preset-react',
-    ],
-    plugins: isHot(env) ? ['react-hot-loader/babel', ...plugins] : plugins
-  }
-})
+const babel = module.exports = {
+  presets: [
+    ['@babel/preset-env', { modules: false, forceAllTransforms: true }],
+    '@babel/preset-react',
+  ],
+  plugins: isHot(process.env)
+    ? ['react-hot-loader/babel', ...plugins]
+    : plugins
+}
