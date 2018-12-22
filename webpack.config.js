@@ -15,6 +15,7 @@ const config = env => ({
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/public`,
+    publicPath: '/',
     hotUpdateChunkFilename: '../hot/hot-update.js',
     hotUpdateMainFilename: '../hot/hot-update.json',
   },
