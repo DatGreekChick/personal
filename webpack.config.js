@@ -27,7 +27,10 @@ const config = env => ({
     rules: [{
       test: /jsx?$/,
       exclude: /node_modules/,
-      use: babel(env),
+      use: [{
+        loader: 'babel-loader',
+        options: babel,
+      }],
     }, {
       test: /\.(jpeg|jpg|png|)$/,
       use: 'url-loader',
