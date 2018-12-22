@@ -72,6 +72,7 @@ function devServer(env) {
   if (isProd(env)) return
   const { FIREBASE_SERVE_URL } = env
   return {
+    disableHostCheck: true,
     hot: true,
     proxy: FIREBASE_SERVE_URL && {
       "/": FIREBASE_SERVE_URL
