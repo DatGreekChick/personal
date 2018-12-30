@@ -5,6 +5,7 @@ node_modules
 
 # Firebase and other info
 content/
+.firebase/
 
 # Compilation artifacts
 public/bundle.js
