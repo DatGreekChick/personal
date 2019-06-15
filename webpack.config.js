@@ -21,7 +21,10 @@ const config = env => ({
   },
   resolve: {
     extensions: [ '.jsx', '.js', '.json' ],
-    alias: { '~': __dirname }
+    alias: {
+      '~': __dirname,
+      'react-dom': '@hot-loader/react-dom',
+    }
   },
   devServer: devServer(env),
   module: {
