@@ -5,7 +5,7 @@ import db from '~/content/fire'
 export default class Expand extends Component {
     state = { projects: [], isHidden: true, selectedProject: '' }
 
-  componentWillMount() {
+  componentDidUpdate() {
     db.ref('work')
       .once('value', snap => {
         for (let i = 0; i < snap.val().length; i++) {
