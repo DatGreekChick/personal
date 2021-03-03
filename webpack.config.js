@@ -1,8 +1,7 @@
 const webpack = require('webpack')
     , babel = require('./babel.config')
     , { isHot, isProd } = require('./env.config')
-    , SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
-    , UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+    , { GenerateSW } = require('workbox-webpack-plugin')
 
 const entries = (env, entry) =>
   isHot(env)
@@ -52,9 +51,9 @@ const config = env => ({
   optimization: {
     mergeDuplicateChunks: true,
     removeEmptyChunks: true,
-    minimizer: [
-      new UglifyJSPlugin({ parallel: true })
-    ]
+    // minimizer: [
+    //   new UglifyJSPlugin({ parallel: true })
+    // ]
   },
   plugins: plugins(env),
 })
@@ -62,13 +61,11 @@ const config = env => ({
 const plugins = env => isHot(env) ? [
   new webpack.HotModuleReplacementPlugin,  // Enable HMR globally
 ] : [
-  new SWPrecacheWebpackPlugin({
-    cacheId: 'v1',
-    dontCacheBustUrlsMatching: /\.\w{8}\./,
-    filename: 'serviceWorker.js',
-    minify: true,
-    navigateFallback: 'https://eleniarvanitis.com/index.html',
-    staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/],
+  new GenerateSW({
+    // these options encourage the ServiceWorkers to get in there fast
+    // and not allow any straggling "old" SWs to hang around
+    clientsClaim: true,
+    skipWaiting: true,
   }),
 ]
 
