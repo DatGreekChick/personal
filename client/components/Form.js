@@ -1,28 +1,26 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { siteKey, link } from '~/content/secrets'
 
-export default class Form extends Component {
-  state = {
+export default () => {
+  const [state, setState] = useState({
     name: '',
     email: '',
     message: '',
     'g-recaptcha-response': '',
-  }
+  })
 
-  handleChange = propertyName => evt => {
-    this.setState({
-      ...this.state,
+  const handleChange = propertyName => evt => {
+    setState({
+      ...state,
       [propertyName]: evt.target.value,
     })
   }
 
-  verifyHumanity = req => {
-    this.setState({ 'g-recaptcha-response': req })
-  }
+  const verifyHumanity = req =>
+    setState({ ...state, 'g-recaptcha-response': req })
 
-  handleSubmit = () => {
-    const { name, email, message } = this.state
+  const handleSubmit = () => {
     fetch(
       `${link}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(
         email
@@ -30,57 +28,54 @@ export default class Form extends Component {
     )
   }
 
-  render() {
-    const { name, email, message } = this.state
-    const inputs = [
-      {
-        type: 'text',
-        name: 'name',
-        value: name,
-        placeholder: 'Bilbo Baggins',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        value: email,
-        placeholder: 'burglar@shire.com',
-      },
-    ]
+  const inputs = [
+    {
+      type: 'text',
+      name: 'name',
+      value: name,
+      placeholder: 'Bilbo Baggins',
+    },
+    {
+      type: 'email',
+      name: 'email',
+      value: email,
+      placeholder: 'burglar@shire.com',
+    },
+  ]
 
-    return (
-      <form id='gform' onSubmit={this.handleSubmit}>
-        {inputs.map(input => (
-          <label className='form-label' key={input.type}>
-            <input
-              className='form-input'
-              type={input.type}
-              name={input.name}
-              required
-              onChange={this.handleChange(input.name.toLowerCase())}
-              placeholder={input.placeholder}
-              value={input.value}
-            />
-            <br />
-          </label>
-        ))}
-        <label className='form-label'>
-          <textarea
+  return (
+    <form id='gform' onSubmit={handleSubmit}>
+      {inputs.map(({ type, name, placeholder, value }) => (
+        <label className='form-label' key={type}>
+          <input
             className='form-input'
-            name='message'
-            placeholder="We're looking for a wizard to travel with us to the Lonely Mountain"
-            value={message}
-            onChange={this.handleChange('message')}
+            type={type}
+            name={name}
+            required
+            onChange={handleChange(name.toLowerCase())}
+            placeholder={placeholder}
+            value={value}
           />
           <br />
         </label>
-        <ReCAPTCHA
-          ref='recaptcha'
-          sitekey={siteKey}
-          theme='dark'
-          onChange={this.verifyHumanity}
+      ))}
+      <label className='form-label'>
+        <textarea
+          className='form-input'
+          name='message'
+          placeholder="We're looking for a wizard to travel with us to the Lonely Mountain"
+          value={message}
+          onChange={handleChange('message')}
         />
-        <button type='submit'>Submit</button>
-      </form>
-    )
-  }
+        <br />
+      </label>
+      <ReCAPTCHA
+        ref='recaptcha'
+        sitekey={siteKey}
+        theme='dark'
+        onChange={verifyHumanity}
+      />
+      <button type='submit'>Submit</button>
+    </form>
+  )
 }
