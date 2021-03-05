@@ -12,16 +12,18 @@ import Articles from '~/client/components/Articles'
 import Contact from '~/client/components/Contact'
 import Footer from '~/client/components/Footer'
 
-export default () => <Router>
-  <div>
-    <Navbar/>
-    <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/about' component={About}/>
-      <Route exact path='/work' component={Work}/>
-      <Route exact path='/articles' component={Articles}/>
-      <Route exact path='/contact' component={Contact}/>
-    </Switch>
-    <Footer/>
-  </div>
-</Router>
+export default () => (
+  <Router>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/work' component={Work} />
+        <Route exact path='/articles' component={Articles} />
+        <Route exact path='/contact' component={Contact} />
+      </Switch>
+      <Footer />
+    </div>
+  </Router>
+)

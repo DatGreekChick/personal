@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { aboutHeader, aboutText1, aboutText2 } from '~/content/about'
 import '~/public/assets/styles/about.css'
 
-export default () =>
+export default () => (
   <div className='about'>
     <p className='about-header'>{aboutHeader}</p>
     <p className='about-text'>{aboutText1}</p>
@@ -12,3 +12,4 @@ export default () =>
       <button>See my work</button>
     </NavLink>
   </div>
+)
