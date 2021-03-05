@@ -9,7 +9,8 @@ function main() {
     <AppContainer>
       <App />
     </AppContainer>,
-    document.getElementById('main'))
+    document.getElementById('main')
+  )
 }
 
 main()

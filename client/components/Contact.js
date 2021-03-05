@@ -10,19 +10,23 @@ import '~/public/assets/styles/arrows.css'
 export default () => {
   windowTrick()
 
-  return <div className='contact'>
-    <h2>Let's Work Together!</h2>
-    <div className='contact-form'>
-      <span><Form/></span>
-      <div className='contact-footer'>
-        {
-          callToContact.map(line => <span key={line}>
-            {line}
-          <br/></span>)
-        }
-        <div className='arrows'>
+  return (
+    <div className='contact'>
+      <h2>Let's Work Together!</h2>
+      <div className='contact-form'>
+        <span>
+          <Form />
+        </span>
+        <div className='contact-footer'>
+          {callToContact.map(line => (
+            <span key={line}>
+              {line}
+              <br />
+            </span>
+          ))}
+          <div className='arrows'></div>
         </div>
       </div>
     </div>
-  </div>
+  )
 }
