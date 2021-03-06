@@ -25,7 +25,7 @@ export default () => {
           direction='up'
           inline={true}
           text={me[idx % me.length]}
-          springConfig={presets.wobbly}
+          springConfig={presets.gentle}
         />
       </span>
       <p className='home-description'>{description}</p>

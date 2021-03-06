@@ -10,7 +10,7 @@ export default () => {
   const [snapshots, loading, error] = useList(db.ref('work'))
 
   const toggle = evt => {
-    setIsHidden(false)
+    setIsHidden(!isHidden)
     setSelectedProject(evt.target.innerText)
   }
 
@@ -20,9 +20,9 @@ export default () => {
     return (
       <div key={project.name} className='project'>
         {error && <strong>Error: {error}</strong>}
-        {loading && <span>List: Loading...</span>}
+        {loading && <span>Loading...</span>}
         {!loading && snapshots && (
-          <React.Fragment>
+          <>
             <span className='line' onClick={toggle}>
               {project.name.toUpperCase()}
             </span>
@@ -67,7 +67,7 @@ export default () => {
                 })}
               </div>
             ) : null}
-          </React.Fragment>
+          </>
         )}
       </div>
     )

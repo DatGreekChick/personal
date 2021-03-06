@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
+import React, { useState, useRef } from 'react'
+import Recaptcha from 'react-recaptcha'
 import { siteKey, link } from '~/content/secrets'
 
 export default () => {
@@ -19,6 +19,8 @@ export default () => {
 
   const verifyHumanity = req =>
     setState({ ...state, 'g-recaptcha-response': req })
+
+  const {name, email, message} = state
 
   const handleSubmit = () => {
     fetch(
@@ -42,6 +44,8 @@ export default () => {
       placeholder: 'burglar@shire.com',
     },
   ]
+
+  let captcha = useRef(null)
 
   return (
     <form id='gform' onSubmit={handleSubmit}>
@@ -69,13 +73,13 @@ export default () => {
         />
         <br />
       </label>
-      <ReCAPTCHA
-        ref='recaptcha'
+      <Recaptcha
+        ref={captcha}
         sitekey={siteKey}
         theme='dark'
         onChange={verifyHumanity}
       />
-      <button type='submit'>Submit</button>
+      <button type='submit' onClick={() => captcha.reset()}>Submit</button>
     </form>
   )
 }
