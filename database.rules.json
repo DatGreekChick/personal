@@ -1,6 +1,12 @@
 {
   "rules": {
-    ".read": true,
-    ".write": false
+    "work": {
+      ".read": true,
+      ".write": false
+    },
+    "articles": {
+      ".read": true,
+      ".write": false
+    }
   }
 }
