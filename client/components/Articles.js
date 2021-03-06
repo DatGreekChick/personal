@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
 import '~/public/assets/styles/articles.css'

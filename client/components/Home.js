@@ -10,7 +10,7 @@ export default () => {
 
   useEffect(() => {
     const intervalId = setInterval(
-      () => setIdx(idx => ++idx),
+      () => setIdx(Math.floor(Math.random() * Math.floor(me.length))),
       3000 // every 3 seconds
     )
     return () => clearTimeout(intervalId)

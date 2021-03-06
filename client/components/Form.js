@@ -20,7 +20,7 @@ export default () => {
   const verifyHumanity = req =>
     setState({ ...state, 'g-recaptcha-response': req })
 
-  const {name, email, message} = state
+  const { name, email, message } = state
 
   const handleSubmit = () => {
     fetch(
@@ -79,7 +79,9 @@ export default () => {
         theme='dark'
         onChange={verifyHumanity}
       />
-      <button type='submit' onClick={() => captcha.reset()}>Submit</button>
+      <button type='submit' onClick={() => captcha.reset()}>
+        Submit
+      </button>
     </form>
   )
 }
