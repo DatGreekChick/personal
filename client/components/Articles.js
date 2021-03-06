@@ -9,7 +9,7 @@ export default () => {
 
   return (
     <div className='all-articles'>
-      {snapshots.map(snap => {
+      {snapshots.reverse().map(snap => {
         const article = snap.val()
 
         return (
