@@ -21,6 +21,14 @@
     "arrowParens": "avoid",
     "proseWrap": "always"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,md,css}": ["prettier --write"]
+  },
   "author": "Eleni Arvanitis",
   "license": "ISC",
   "devDependencies": {

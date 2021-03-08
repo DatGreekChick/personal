@@ -10,7 +10,7 @@ const config = env => ({
   entry: entries(env, './main.js'),
   mode: isHot(env) ? 'development' : 'production',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: `${__dirname}/public`,
     publicPath: '/',
     hotUpdateChunkFilename: '../hot/hot-update.js',
@@ -58,9 +58,9 @@ const config = env => ({
   optimization: {
     mergeDuplicateChunks: true,
     removeEmptyChunks: true,
-    // minimizer: [
-    //   new UglifyJSPlugin({ parallel: true })
-    // ]
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
   },
   plugins: plugins(env),
 })
