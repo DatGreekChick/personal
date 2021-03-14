@@ -1,58 +1,61 @@
 .contact {
-    overflow: hidden;
-    padding: 0 5%;
+  overflow: hidden;
+  padding: 0 5%;
+  padding-bottom: 3%;
 }
 
 h2 {
-    font-size: 60pt;
+  font-size: 60pt;
 }
 
 .contact-form {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 #gform {
-    flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
 input {
-    -webkit-backface-visibility: hidden;
-    font-size: 22pt;
+  -webkit-backface-visibility: hidden;
+  font-size: 22pt;
 }
 
 textarea {
-    resize: vertical;
-    min-height: 65px;
-    max-height: 300px;
+  resize: vertical;
+  min-height: 65px;
+  max-height: 300px;
 }
 
-input, textarea {
-    font-size: 22px;
-    width: calc(100%/0.5);
-    padding: 5px 0;
-    background: transparent;
-    border: transparent;
-    border-bottom: 1.5px solid gray;
+input,
+textarea {
+  font-size: 22px;
+  width: calc(100% / 0.5);
+  padding: 5px 0;
+  background: transparent;
+  border: transparent;
+  border-bottom: 1.5px solid gray;
 }
 
 .form-input {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .form-input:focus {
-    border-bottom: 1.5px solid #e0bf9f;
-    transition: all 0.25s ease-in-out;
+  border-bottom: 1.5px solid #e0bf9f;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    h2 {
-        font-size: 49pt;
-        margin: 5% auto 15% auto;
-    }
+  h2 {
+    font-size: 49pt;
+    margin: 5% auto 15% auto;
+  }
 
-    input, textarea {
-        width: calc(100%/0.75);
-    }
+  input,
+  textarea {
+    width: calc(100% / 0.75);
+  }
 }

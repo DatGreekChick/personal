@@ -1,18 +1,19 @@
 .footer {
-    position: fixed;
-    margin-bottom: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2%;
-    display: flex;
-    justify-content: space-between;
+  position: fixed;
+  margin-bottom: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .copyright {
-    color: #858686;
+  color: #858686;
 }
 
 .icons {
-    padding-left: 12px;
+  padding-left: 12px;
 }

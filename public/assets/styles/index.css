@@ -1,18 +1,29 @@
 body {
-    background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
 }
 
-body, h2, h3, p, button, span, input, textarea {
-    font-family: 'Open Sans', sans-serif;
-    color: ghostwhite;
+body,
+h2,
+h3,
+p,
+button,
+span,
+input,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+  color: ghostwhite;
+}
+
+body {
+  padding-bottom: 3%;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    body {
-        background-image: none;
-    }
+  body {
+    background-image: none;
+  }
 }

@@ -21,8 +21,8 @@ const firebaseUrl = new Promise(r => (resolveFirebaseUrl = r)).then(strip)
 const localServerRe = /(?:Local server|Server listening): (.*)/
 
 const env = vars => ({
-    env: Object.assign(vars, process.env),
-  })
+  env: Object.assign(vars, process.env),
+})
 const forceColor = env({ FORCE_COLOR: 3 })
 
 // Build functions
