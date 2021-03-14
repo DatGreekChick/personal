@@ -135,6 +135,7 @@ sketch
 
 # Compilation artifacts
 public/bundle.js
+public/main.bundle.js*
 public/bundle.js.map
 
 # Resume
