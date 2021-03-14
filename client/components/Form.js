@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import Recaptcha from 'react-recaptcha'
+import { useToasts } from 'react-toast-notifications'
+
 import emailjs from 'emailjs-com'
 
 import { siteKey, serviceId, templateId, userId } from '~/content/secrets'
 
 export default () => {
+  const { addToast } = useToasts()
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -27,8 +30,8 @@ export default () => {
 
     emailjs
       .sendForm(serviceId, templateId, evt.target, userId)
-      .then(res => console.log('Success!', res))
-      .catch(err => console.log(err.text))
+      .then(() => addToast('Email sent!', { appearance: 'success' }))
+      .catch(err => addToast(err.text, { appearance: 'error' }))
   }
 
   const inputs = [
