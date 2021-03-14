@@ -1,14 +1,17 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import Recaptcha from 'react-recaptcha'
-import { siteKey, link } from '~/content/secrets'
+import emailjs from 'emailjs-com'
+
+import { siteKey, serviceId, templateId, userId } from '~/content/secrets'
 
 export default () => {
   const [state, setState] = useState({
     name: '',
     email: '',
     message: '',
-    'g-recaptcha-response': '',
   })
+
+  emailjs.init(userId)
 
   const handleChange = propertyName => evt => {
     setState({
@@ -17,17 +20,15 @@ export default () => {
     })
   }
 
-  const verifyHumanity = req =>
-    setState({ ...state, 'g-recaptcha-response': req })
-
   const { name, email, message } = state
 
-  const handleSubmit = () => {
-    fetch(
-      `${link}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(
-        email
-      )}&message=${encodeURIComponent(message)}`
-    )
+  const sendEmail = evt => {
+    evt.preventDefault()
+
+    emailjs
+      .sendForm(serviceId, templateId, evt.target, userId)
+      .then(res => console.log('Success!', res))
+      .catch(err => console.log(err.text))
   }
 
   const inputs = [
@@ -43,45 +44,49 @@ export default () => {
       value: email,
       placeholder: 'burglar@shire.com',
     },
+    {
+      type: null,
+      name: 'message',
+      value: message,
+      placeholder:
+        "We're looking for a wizard to travel with us to the Lonely Mountain",
+    },
   ]
 
-  let captcha = useRef(null)
-
   return (
-    <form id='gform' onSubmit={handleSubmit}>
+    <form onSubmit={sendEmail}>
       {inputs.map(({ type, name, placeholder, value }) => (
-        <label className='form-label' key={type}>
-          <input
-            className='form-input'
-            type={type}
-            name={name}
-            required
-            onChange={handleChange(name.toLowerCase())}
-            placeholder={placeholder}
-            value={value}
-          />
+        <label className='form-label' key={name}>
+          {name !== 'message' ? (
+            <input
+              className='form-input'
+              type={type}
+              name={name}
+              required
+              onChange={handleChange(name.toLowerCase())}
+              placeholder={placeholder}
+              value={value}
+            />
+          ) : (
+            <textarea
+              className='form-input'
+              name={name}
+              required
+              onChange={handleChange(name.toLowerCase())}
+              placeholder={placeholder}
+              value={value}
+            />
+          )}
           <br />
         </label>
       ))}
-      <label className='form-label'>
-        <textarea
-          className='form-input'
-          name='message'
-          placeholder="We're looking for a wizard to travel with us to the Lonely Mountain"
-          value={message}
-          onChange={handleChange('message')}
-        />
-        <br />
-      </label>
       <Recaptcha
-        ref={captcha}
         sitekey={siteKey}
+        size='compact'
         theme='dark'
-        onChange={verifyHumanity}
+        render='explicit'
       />
-      <button type='submit' onClick={() => captcha.reset()}>
-        Submit
-      </button>
+      <button type='submit'>Submit</button>
     </form>
   )
 }
