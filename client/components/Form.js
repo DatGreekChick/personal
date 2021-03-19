@@ -15,8 +15,8 @@ export default () => {
     token: '',
   })
 
-  const verifyHumanity = token => setState({ token })
-  useEffect(() => loadReCaptcha(siteKey, verifyHumanity), [])
+  const verifyHumanity = token => setState({ ...state, token })
+  useEffect(token => loadReCaptcha(siteKey, verifyHumanity(token)), [])
 
   const handleChange = propertyName => evt => {
     setState({
@@ -85,7 +85,11 @@ export default () => {
           <br />
         </label>
       ))}
-      <ReCaptcha sitekey={siteKey} action='main' />
+      <ReCaptcha
+        sitekey={siteKey}
+        action='main'
+        verifyCallback={verifyHumanity}
+      />
       <button type='submit'>Submit</button>
     </form>
   )
