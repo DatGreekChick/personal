@@ -14,10 +14,6 @@ h2 {
   justify-content: space-between;
 }
 
-#gform {
-  flex-flow: column nowrap;
-}
-
 input {
   -webkit-backface-visibility: hidden;
   font-size: 22pt;
@@ -46,6 +42,15 @@ textarea {
 .form-input:focus {
   border-bottom: 1.5px solid #e0bf9f;
   transition: all 0.25s ease-in-out;
+}
+
+.grecaptcha-badge {
+  opacity: 0;
+}
+
+.disclaimer {
+  font-size: 6px;
+  font-style: italic;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
