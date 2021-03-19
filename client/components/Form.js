@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Recaptcha from 'react-recaptcha'
+import React, { useState, useEffect } from 'react'
+import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3'
 import { useToasts } from 'react-toast-notifications'
 
 import emailjs from 'emailjs-com'
@@ -12,9 +12,11 @@ export default () => {
     name: '',
     email: '',
     message: '',
+    token: '',
   })
 
-  emailjs.init(userId)
+  const verifyHumanity = token => setState({ token })
+  useEffect(() => loadReCaptcha(siteKey, verifyHumanity), [])
 
   const handleChange = propertyName => evt => {
     setState({
@@ -23,8 +25,7 @@ export default () => {
     })
   }
 
-  const { name, email, message } = state
-
+  emailjs.init(userId)
   const sendEmail = evt => {
     evt.preventDefault()
 
@@ -34,6 +35,7 @@ export default () => {
       .catch(err => addToast(err.text, { appearance: 'error' }))
   }
 
+  const { name, email, message } = state
   const inputs = [
     {
       type: 'text',
@@ -68,7 +70,7 @@ export default () => {
               required
               onChange={handleChange(name.toLowerCase())}
               placeholder={placeholder}
-              value={value}
+              value={value || ''}
             />
           ) : (
             <textarea
@@ -77,18 +79,13 @@ export default () => {
               required
               onChange={handleChange(name.toLowerCase())}
               placeholder={placeholder}
-              value={value}
+              value={value || ''}
             />
           )}
           <br />
         </label>
       ))}
-      <Recaptcha
-        sitekey={siteKey}
-        size='compact'
-        theme='dark'
-        render='explicit'
-      />
+      <ReCaptcha sitekey={siteKey} action='main' />
       <button type='submit'>Submit</button>
     </form>
   )
