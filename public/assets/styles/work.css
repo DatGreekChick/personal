@@ -82,3 +82,10 @@ button.resume-button {
     left: 0;
   }
 }
+
+@media (min-width: 480px) and (max-width: 1024px) {
+  .project {
+    padding: 4% 0;
+    font-size: 23pt;
+  }
+}

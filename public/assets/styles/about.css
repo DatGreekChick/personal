@@ -22,9 +22,12 @@
 @media (min-width: 320px) and (max-width: 1024px) {
   .about {
     margin: 0 auto;
+    padding-left: 8%;
+    padding-right: 8%;
   }
 
   .about-header {
     font-size: 30pt;
+    margin-top: 1.5%;
   }
 }
