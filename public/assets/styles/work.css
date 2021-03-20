@@ -41,13 +41,6 @@
   padding-top: 5px;
 }
 
-button.resume-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin: 4% auto;
-}
-
 @media (min-width: 480px) and (max-width: 1024px) {
   .project {
     padding: 6% 0;

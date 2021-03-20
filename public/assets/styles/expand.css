@@ -27,10 +27,6 @@
   display: inline-block;
 }
 
-button.project-links {
-  margin: 4% 2% 0 2%;
-}
-
 @media (min-width: 320px) and (max-width: 480px) {
   .tech {
     padding: 4% 7%;

@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import TextTransition, { presets } from 'react-text-transition'
 
-import '~/public/assets/styles/home.css'
+import Button from '~/client/components/Button'
+
 import { me, description } from '~/content/about'
+
+import '~/public/assets/styles/home.css'
 
 export default () => {
   const [idx, setIdx] = useState(0)
@@ -30,7 +33,7 @@ export default () => {
       </span>
       <p className='home-description'>{description}</p>
       <NavLink to='/contact'>
-        <button>Say hi</button>
+        <Button text='Say hi' />
       </NavLink>
     </div>
   )

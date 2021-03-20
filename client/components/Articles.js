@@ -1,7 +1,10 @@
 import React from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
+import Button from '~/client/components/Button'
+
 import '~/public/assets/styles/articles.css'
+
 import db from '~/content/fire'
 
 export default () => {
@@ -23,7 +26,7 @@ export default () => {
                 <p className='description'>{article.description}</p>
                 <br />
                 <a href={article.link} target='_blank' rel='noopener'>
-                  <button>Read More ↗</button>
+                  <Button text='Read More ↗' />
                 </a>
                 <hr />
               </>

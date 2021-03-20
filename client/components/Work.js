@@ -1,7 +1,10 @@
 import React from 'react'
+
 import Expand from './Expand'
 import windowTrick from '~/client/window'
+
 import '~/public/assets/styles/work.css'
+import { ResumeButton } from '~/client/styles/button'
 
 export default () => {
   windowTrick()
@@ -13,7 +16,7 @@ export default () => {
         target='_blank'
         rel='noopener'
       >
-        <button className='resume-button'>View Resume</button>
+        <ResumeButton>View Resume</ResumeButton>
       </a>
       <Expand />
     </div>
