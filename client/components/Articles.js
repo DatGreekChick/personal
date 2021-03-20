@@ -4,7 +4,13 @@ import { useList } from 'react-firebase-hooks/database'
 import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
 
-import '~/public/assets/styles/articles.css'
+import {
+  ArticleTitle,
+  DatePosted,
+  Description,
+  StyledHr,
+  Article,
+} from '~/client/styles/articles'
 
 import db from '~/content/fire'
 
@@ -12,19 +18,19 @@ export default () => {
   const [snapshots, loading, error] = useList(db.ref('articles'))
 
   return (
-    <div className='all-articles'>
+    <>
       {snapshots.reverse().map(snap => {
         const article = snap.val()
 
         return (
-          <div key={article.title} className='article'>
+          <Article key={article.title}>
             {error && <strong>Error: {error}</strong>}
             {loading && <span>Loading...</span>}
             {!loading && snapshots && (
               <>
-                <h3 className='article-title'>{article.title}</h3>
-                <p className='date-posted'>{article['date-posted']}</p>
-                <p className='description'>{article.description}</p>
+                <ArticleTitle>{article.title}</ArticleTitle>
+                <DatePosted>{article['date-posted']}</DatePosted>
+                <Description>{article.description}</Description>
                 <br />
                 <Link href={article.link}>
                   <Button text='Read More ↗' />
@@ -32,9 +38,9 @@ export default () => {
                 <hr />
               </>
             )}
-          </div>
+          </Article>
         )
       })}
-    </div>
+    </>
   )
 }
