@@ -5,7 +5,7 @@ For information on my journey to becoming a Software Engineer, check out my
 
 ---
 
-# Tech Stack/NPM Packages Used
+## Tech Stack/NPM Packages Used
 
 - React
 - React Hot Loader
@@ -17,22 +17,22 @@ For information on my journey to becoming a Software Engineer, check out my
 - FontAwesome
 - Jest
 
-## Frontend
+### Frontend
 
 The frontend starts in [`main.js`]. The root of the react app is in [`App.jsx`].
 
-### a word about ~
+#### a word about ~
 
 The webpack config aliases `~` to mean "the root of the app". For example, you
 can `import firebase from '~/fire'` anywhere in the app, without worrying about
 how many `..`s to have in the relative path.
 
-## Firebase
+### Firebase
 
 I used firebase here so that I could have a seamless deployment process, but I
 also wanted a more modular file structure.
 
-## Hot Loading
+### Hot Loading
 
 Hot module replacement is enabled. The only `react-hot-loader` plugin necessary
 for this app - due to Webpack 4+ - is `new webpack.HotModuleReplacementPlugin`
@@ -41,20 +41,20 @@ to enable hot reloading globally. It is applied in [`webpack.config.js`].
 The React components will update in place after saving, without losing their
 state.
 
-### Hot Updates
+#### Hot Updates
 
 A `hot` directory is in place so as to keep any and all hot updates in a `.js`
 and a `.json` file for respective alterations. This way, the updates don't
 populate in the `public` directory and cause mayhem.
 
-## Progressive Web App (PWA)
+### Progressive Web App (PWA)
 
 At some point in the development process, I discovered Google Chrome's
 Lighthouse and wanted to see 100 in my scores for all their available audits.
 So, upon visiting my page, there is a service worker registered, which caches
 the root and all styles. I now have a :100:.
 
-## React Google Recaptcha
+### React Google Recaptcha
 
 I have implemented a form on `/contact` that sends submissions directly to my
 email using `emailjs`. The Google ReCAPTCHA library helps verify a human's
@@ -66,7 +66,7 @@ ReCAPTCHA v3, which is invisible.
 values, rendering this entire functionality useless until `emailjs` updates to
 allow the user to choose between ReCAPTCHA versions.
 
-## Testing
+### Testing
 
 For testing, switch to the `testing` branch, which has my css import statements
 commented out in my various components.
