@@ -1,6 +1,7 @@
 import React from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
+import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
 
 import '~/public/assets/styles/articles.css'
@@ -25,9 +26,9 @@ export default () => {
                 <p className='date-posted'>{article['date-posted']}</p>
                 <p className='description'>{article.description}</p>
                 <br />
-                <a href={article.link} target='_blank' rel='noopener'>
+                <Link href={article.link}>
                   <Button text='Read More ↗' />
-                </a>
+                </Link>
                 <hr />
               </>
             )}

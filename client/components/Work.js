@@ -1,6 +1,8 @@
 import React from 'react'
 
+import Link from './Link'
 import Expand from './Expand'
+
 import windowTrick from '~/client/window'
 
 import '~/public/assets/styles/work.css'
@@ -10,15 +12,11 @@ export default () => {
   windowTrick()
 
   return (
-    <div className='work'>
-      <a
-        href='/assets/Eleni-Arvanitis-Resume.pdf'
-        target='_blank'
-        rel='noopener'
-      >
+    <>
+      <Link href='/assets/Eleni-Arvanitis-Resume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
-      </a>
+      </Link>
       <Expand />
-    </div>
+    </>
   )
 }
