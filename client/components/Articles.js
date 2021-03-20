@@ -31,7 +31,6 @@ export default () => {
                 <ArticleTitle>{article.title}</ArticleTitle>
                 <DatePosted>{article['date-posted']}</DatePosted>
                 <Description>{article.description}</Description>
-                <br />
                 <Link href={article.link}>
                   <Button text='Read More ↗' />
                 </Link>
