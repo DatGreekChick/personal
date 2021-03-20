@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
+import { ProjectLink } from '~/client/components/Button'
+
 import '~/public/assets/styles/expand.css'
+
 import db from '~/content/fire'
 
 export default () => {
@@ -43,26 +46,7 @@ export default () => {
                 <br />
                 {project.links.map((link, i) => {
                   return (
-                    <a
-                      key={`${project.name}-link${i}`}
-                      href={
-                        link['code']
-                          ? link['code']
-                          : link['youtube']
-                          ? link['youtube']
-                          : link['demo']
-                      }
-                      target='_blank'
-                      rel='noopener'
-                    >
-                      <button className='project-links'>
-                        {link['code']
-                          ? 'code'
-                          : link['youtube']
-                          ? 'youtube'
-                          : 'demo'}
-                      </button>
-                    </a>
+                    <ProjectLink key={`${project.name}-link${i}`} link={link} />
                   )
                 })}
               </div>

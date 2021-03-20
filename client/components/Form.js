@@ -4,6 +4,8 @@ import { useToasts } from 'react-toast-notifications'
 
 import emailjs from 'emailjs-com'
 
+import { SubmitButton } from '~/client/components/Button'
+
 import { siteKey, serviceId, templateId, userId } from '~/content/secrets'
 
 export default () => {
@@ -90,7 +92,7 @@ export default () => {
         action='main'
         verifyCallback={verifyHumanity}
       />
-      <button type='submit'>Submit</button>
+      <SubmitButton text='Submit' />
     </form>
   )
 }
