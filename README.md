@@ -1,4 +1,4 @@
-<p style="text-align: center;"># personal</p>
+<p style="text-align: center"># personal</p>
 
 For information on my journey to becoming a Software Engineer, check out my
 [Medium article on Codeburst].
