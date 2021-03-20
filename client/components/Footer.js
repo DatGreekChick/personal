@@ -7,9 +7,7 @@ import { socialLinks } from '~/content/secrets'
 
 export default () => (
   <Footer role='contentinfo'>
-    <Copyright>
-      &copy; {`${new Date().getFullYear()} Eleni Konior`}
-    </Copyright>
+    <Copyright>&copy; {`${new Date().getFullYear()} Eleni Konior`}</Copyright>
     <div>
       {socialLinks.map(link => (
         <Icon

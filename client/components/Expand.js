@@ -44,11 +44,9 @@ export default () => {
                 })}
                 <br />
                 <br />
-                {project.links.map((link, i) => {
-                  return (
-                    <ProjectLink key={`${project.name}-link${i}`} link={link} />
-                  )
-                })}
+                {project.links.map((link, i) => (
+                  <ProjectLink key={`${project.name}-link${i}`} link={link} />
+                ))}
               </div>
             ) : null}
           </>
