@@ -5,17 +5,16 @@ For information on my journey to becoming a Software Engineer, check out my
 
 ---
 
-## Tech Stack/NPM Packages Used
+## Tech Stack
 
-- React
-- React Hot Loader
-- Firebase (real-time database, hosting)
-- EmailJS
-- Webpack v5
-- Babel
-- Enzyme
-- FontAwesome
-- Jest
+- ⚛️ React
+  - React Hot Loader/HMR
+- 🔥 Firebase
+  - Real-time database
+  - Hosting
+- 📧 EmailJS
+- 🕸 Webpack v5
+- 🤖 Babel
 
 ### Frontend
 
@@ -27,25 +26,14 @@ The webpack config aliases `~` to mean "the root of the app". For example, you
 can `import firebase from '~/fire'` anywhere in the app, without worrying about
 how many `..`s to have in the relative path.
 
-### Firebase
-
-I used firebase here so that I could have a seamless deployment process, but I
-also wanted a more modular file structure.
-
 ### Hot Loading
 
-Hot module replacement is enabled. The only `react-hot-loader` plugin necessary
-for this app - due to Webpack 4+ - is `new webpack.HotModuleReplacementPlugin`
-to enable hot reloading globally. It is applied in [`webpack.config.js`].
+Hot module replacement is enabled, using `react-hot-loader` as the Babel plugin
+and adding `new webpack.HotModuleReplacementPlugin` to enable hot reloading
+globally. The latter is applied in [`webpack.config.js`].
 
 The React components will update in place after saving, without losing their
 state.
-
-#### Hot Updates
-
-A `hot` directory is in place so as to keep any and all hot updates in a `.js`
-and a `.json` file for respective alterations. This way, the updates don't
-populate in the `public` directory and cause mayhem.
 
 ### Progressive Web App (PWA)
 
