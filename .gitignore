@@ -141,5 +141,5 @@ public/bundle.js.map
 # Resume
 public/assets/Eleni-Arvanitis-Resume.pdf
 
-# Hot module json files
-hot/
+# Hot module hash files
+public/*.hot-update.js*
