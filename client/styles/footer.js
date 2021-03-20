@@ -1,4 +1,6 @@
-.footer {
+import styled from 'styled-components'
+
+export const Footer = styled.footer`
   position: fixed;
   margin-bottom: 0;
   bottom: 0;
@@ -8,12 +10,12 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 1);
-}
+`
 
-.copyright {
+export const Copyright = styled.span`
   color: #858686;
-}
+`
 
-.icons {
+export const Icon = styled.a`
   padding-left: 12px;
-}
+`

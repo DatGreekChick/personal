@@ -11,6 +11,7 @@ const urlsToCache = [
     '/assets/styles/work.css',
     '/assets/img/ea-logo-cream.png',
     '/client/styles/button.js',
+    '/client/styles/footer.js',
     'main.bundle.js',
     'index.html',
     'https://fonts.googleapis.com/css?family=Open+Sans:300,800',

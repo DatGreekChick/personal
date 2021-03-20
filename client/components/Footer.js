@@ -1,19 +1,19 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { Footer, Copyright, Icon } from '~/client/styles/footer'
+
 import { socialLinks } from '~/content/secrets'
-import '~/public/assets/styles/footer.css'
 
 export default () => (
-  <div className='footer' role='contentinfo'>
-    <span className='copyright'>
+  <Footer role='contentinfo'>
+    <Copyright>
       &copy; {`${new Date().getFullYear()} Eleni Konior`}
-    </span>
+    </Copyright>
     <div>
       {socialLinks.map(link => (
-        <a
+        <Icon
           key={link[0]}
-          className='icons'
           href={link[0]}
           rel='noopener'
           target='_blank'
@@ -21,8 +21,8 @@ export default () => (
           role='presentation'
         >
           <FontAwesomeIcon icon={link[1]} />
-        </a>
+        </Icon>
       ))}
     </div>
-  </div>
+  </Footer>
 )
