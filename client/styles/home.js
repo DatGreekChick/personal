@@ -34,8 +34,8 @@ export const Description = styled.p`
   font-weight: 300;
   margin: 10% 0 0 0;
   padding: 0 0 10% 0;
-  
-  @media (min-width: 480px) and (max-width: 1024px) {
+
+  @media (min-width: 320px) and (max-width: 1024px) {
     margin-top: 5%;
     padding-bottom: 5%;
   }

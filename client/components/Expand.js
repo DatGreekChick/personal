@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
 import { ProjectLink } from '~/client/components/Button'
-
-import '~/public/assets/styles/expand.css'
+import { Project, Lines, Role, Description, Detail, Tech } from '~/client/styles/work'
 
 import db from '~/content/fire'
 
@@ -18,40 +17,33 @@ export default () => {
   }
 
   return snapshots.map(snap => {
-    const project = snap.val()
+    // snap.val() == a project from the table
+    const { name, role, description, technologies, links } = snap.val()
 
     return (
-      <div key={project.name} className='project'>
+      <Project key={name}>
         {error && <strong>Error: {error}</strong>}
         {loading && <span>Loading...</span>}
         {!loading && snapshots && (
           <>
-            <span className='line' onClick={toggle}>
-              {project.name.toUpperCase()}
-            </span>
-            {!isHidden && selectedProject === project.name.toUpperCase() ? (
-              <div className='detail'>
-                <p className='role'>{project.role}</p>
-                <p className='description'>{project.description}</p>
+            <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
+            {!isHidden && selectedProject === name.toUpperCase() ? (
+              <Detail>
+                <Role>{role}</Role>
+                <Description>{description}</Description>
                 <br />
-                <br />
-                {project.technologies.map(technology => {
-                  return (
-                    <div className='tech' key={technology}>
-                      {technology.toUpperCase()}
-                    </div>
-                  )
-                })}
-                <br />
-                <br />
-                {project.links.map((link, i) => (
-                  <ProjectLink key={`${project.name}-link${i}`} link={link} />
+                {technologies.map(technology => (
+                  <Tech key={technology}>{technology.toUpperCase()}</Tech>
                 ))}
-              </div>
+                <br />
+                {links.map((link, i) => (
+                  <ProjectLink key={`${name}-${link}${i}`} link={link} />
+                ))}
+              </Detail>
             ) : null}
           </>
         )}
-      </div>
+      </Project>
     )
   })
 }
