@@ -19,7 +19,7 @@ export const StyledHr = styled.hr`
 
 export const Article = styled.div`
   padding: 10px 20%;
-  
+
   @media (min-width: 320px) and (max-width: 1024px) {
     padding: 10px 8%;
   }

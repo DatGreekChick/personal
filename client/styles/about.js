@@ -18,7 +18,7 @@ export const AboutHeader = styled.p`
   font-size: 35pt;
   font-weight: 800;
   margin-bottom: 4%;
-  
+
   @media (min-width: 320px) and (max-width: 1024px) {
     font-size: 30pt;
   }
