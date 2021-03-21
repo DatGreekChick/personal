@@ -1,8 +1,6 @@
 const urlsToCache = [
     '.',
     '/assets/styles/index.css',
-    '/assets/styles/about.css',
-    '/assets/styles/arrows.css',
     '/assets/styles/contact.css',
     '/assets/styles/expand.css',
     '/assets/styles/footer.css',
@@ -13,6 +11,7 @@ const urlsToCache = [
     '/client/styles/button.js',
     '/client/styles/footer.js',
     '/client/styles/articles.js',
+    '/client/styles/about.js',
     'main.bundle.js',
     'index.html',
     'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
