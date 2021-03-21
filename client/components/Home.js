@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import TextTransition, { presets } from 'react-text-transition'
+import { presets } from 'react-text-transition'
 
 import Button from '~/client/components/Button'
+import { Me, Carousel, Description } from '~/client/styles/home'
 
 import { me, description } from '~/content/about'
 
@@ -20,21 +21,20 @@ export default () => {
   }, [])
 
   return (
-    <div className='me'>
+    <Me>
       <span>
         I am <span />
-        <TextTransition
-          className='carousel-items'
+        <Carousel
           direction='up'
           inline={true}
           text={me[idx % me.length]}
           springConfig={presets.gentle}
         />
       </span>
-      <p className='home-description'>{description}</p>
+      <Description>{description}</Description>
       <NavLink to='/contact'>
         <Button text='Say hi' />
       </NavLink>
-    </div>
+    </Me>
   )
 }
