@@ -7,8 +7,6 @@ import { Me, Carousel, Description } from '~/client/styles/home'
 
 import { me, description } from '~/content/about'
 
-import '~/public/assets/styles/home.css'
-
 export default () => {
   const [idx, setIdx] = useState(0)
 
