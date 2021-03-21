@@ -18,6 +18,12 @@ body {
   padding-bottom: 3%;
 }
 
+a {
+  text-decoration: none;
+  position: relative;
+  color: ghostwhite;
+}
+
 *:focus {
   outline: none;
 }
