@@ -13,7 +13,7 @@ export const Button = styled.button`
   transition: 0.4s;
   background-color: transparent;
   color: ghostwhite;
-  
+
   :after {
     position: absolute;
     transition: 0.4s;
@@ -26,17 +26,17 @@ export const Button = styled.button`
     transform: skewX(20deg);
     z-index: -1;
   }
-  
+
   :hover {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.9);
   }
-  
+
   :hover:after {
     left: -10%;
     width: 150%;
   }
-  
+
   :focus {
     outline: none;
   }
