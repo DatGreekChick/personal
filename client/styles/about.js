@@ -17,17 +17,13 @@ export const About = styled.div`
 export const AboutHeader = styled.p`
   font-size: 35pt;
   font-weight: 800;
-  color: ghostwhite;
   margin-bottom: 4%;
   
   @media (min-width: 320px) and (max-width: 1024px) {
     font-size: 30pt;
-    margin-top: 1.5%;
   }
 `
 
 export const AboutText = styled.p`
-  font-weight: 300;
   font-size: 14pt;
-  color: ghostwhite;
 `
