@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
 import { ProjectLink } from '~/client/components/Button'
-import { Project, Lines, Role, Description, Detail, Tech } from '~/client/styles/work'
+import {
+  Project,
+  Lines,
+  Role,
+  Description,
+  Detail,
+  Tech,
+} from '~/client/styles/work'
 
 import db from '~/content/fire'
 
