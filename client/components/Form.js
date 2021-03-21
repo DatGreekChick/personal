@@ -5,8 +5,31 @@ import { useToasts } from 'react-toast-notifications'
 import emailjs from 'emailjs-com'
 
 import { SubmitButton } from '~/client/components/Button'
+import { Input, TextArea } from '~/client/styles/contact'
 
 import { siteKey, serviceId, templateId, userId } from '~/content/secrets'
+
+const getInputs = ({ name, email, message }) => [
+  {
+    type: 'text',
+    name: 'name',
+    value: name,
+    placeholder: 'Bilbo Baggins',
+  },
+  {
+    type: 'email',
+    name: 'email',
+    value: email,
+    placeholder: 'burglar@shire.com',
+  },
+  {
+    type: null,
+    name: 'message',
+    value: message,
+    placeholder:
+      "We're looking for a wizard to travel with us to the Lonely Mountain",
+  },
+]
 
 export default () => {
   const { addToast } = useToasts()
@@ -37,56 +60,28 @@ export default () => {
       .catch(err => addToast(err.text, { appearance: 'error' }))
   }
 
-  const { name, email, message } = state
-  const inputs = [
-    {
-      type: 'text',
-      name: 'name',
-      value: name,
-      placeholder: 'Bilbo Baggins',
-    },
-    {
-      type: 'email',
-      name: 'email',
-      value: email,
-      placeholder: 'burglar@shire.com',
-    },
-    {
-      type: null,
-      name: 'message',
-      value: message,
-      placeholder:
-        "We're looking for a wizard to travel with us to the Lonely Mountain",
-    },
-  ]
-
+  const inputs = getInputs(state)
   return (
     <form onSubmit={sendEmail}>
-      {inputs.map(({ type, name, placeholder, value }) => (
-        <label className='form-label' key={name}>
-          {name !== 'message' ? (
-            <input
-              className='form-input'
-              type={type}
-              name={name}
-              required
-              onChange={handleChange(name.toLowerCase())}
-              placeholder={placeholder}
-              value={value || ''}
-            />
-          ) : (
-            <textarea
-              className='form-input'
-              name={name}
-              required
-              onChange={handleChange(name.toLowerCase())}
-              placeholder={placeholder}
-              value={value || ''}
-            />
-          )}
-          <br />
-        </label>
-      ))}
+      {inputs.map(({ type, name, placeholder, value }) => {
+        const inputProps = {
+          name,
+          placeholder,
+          value: value || '',
+          onChange: handleChange(name.toLowerCase()),
+        }
+
+        return (
+          <label key={name}>
+            {name !== 'message' ? (
+              <Input type={type} required {...inputProps} />
+            ) : (
+              <TextArea required {...inputProps} />
+            )}
+            <br />
+          </label>
+        )
+      })}
       <ReCaptcha
         sitekey={siteKey}
         action='main'
