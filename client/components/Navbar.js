@@ -1,20 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import '~/public/assets/styles/navbar.css'
+import { Nav, Logo, StyledNavLink } from '~/client/styles/nav'
 
 const logo = '/assets/img/ea-logo-cream.png'
-const nav = ['About', 'Work', 'Articles', 'Contact']
+const links = ['About', 'Work', 'Articles', 'Contact']
 
 export default () => (
-  <nav role='navigation' className='nav-bar'>
-    <NavLink key='home' to='/'>
-      <img className='logo' src={logo} alt='ea-logo-cream' />
+  <Nav role='navigation'>
+    <NavLink to='/'>
+      <Logo src={logo} alt='ea-logo-cream' />
     </NavLink>
-    {nav.map(link => (
-      <NavLink key={link} to={`/${link.toLowerCase()}`} className='underline'>
-        {`${link}`}
-      </NavLink>
+    {links.map(link => (
+      <StyledNavLink key={link} to={`/${link.toLowerCase()}`}>
+        {link}
+      </StyledNavLink>
     ))}
-  </nav>
+  </Nav>
 )
