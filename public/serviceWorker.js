@@ -12,6 +12,7 @@ const urlsToCache = [
     '/client/styles/footer.js',
     '/client/styles/articles.js',
     '/client/styles/about.js',
+    '/client/styles/contact.js',
     'main.bundle.js',
     'index.html',
     'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
