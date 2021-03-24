@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { Button, ProjectLinkButton, ResumeButton } from '~/client/styles/button'
+import Link from '~/client/components/Link'
+
+import { Button, ProjectLinkButton, SubmitButton } from '~/client/styles/button'
 
 export default ({ text }) => <Button>{text}</Button>
-export const SubmitButton = ({ text }) => <Button type='submit'>{text}</Button>
+export const Submit = () => <SubmitButton type='submit'>Submit</SubmitButton>
 
 const determineProjectButtonLink = ({ code, youtube, demo }) =>
   code ? code : youtube ? youtube : demo
@@ -16,8 +18,8 @@ export const ProjectLink = ({ link }) => {
   const text = determineProjectButtonText(link)
 
   return (
-    <a href={href} target='_blank' rel='noopener'>
+    <Link href={href}>
       <ProjectLinkButton>{text}</ProjectLinkButton>
-    </a>
+    </Link>
   )
 }

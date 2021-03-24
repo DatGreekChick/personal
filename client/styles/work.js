@@ -11,7 +11,7 @@ export const Project = styled.div`
 
   @media (min-width: 320) and (max-width: 1024px) {
     padding: 6% 0;
-    font-size: 22pt;
+    font-size: 20pt;
   }
 `
 
@@ -47,20 +47,21 @@ export const Lines = styled.span`
     padding-top: 5px;
   }
 
-  @media (min-width: 480px) and (max-width: 1024px) {
-    :before,
-    :after {
-      width: 30%;
-    }
-  }
-
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 0px) and (max-width: 480px) {
     line-height: normal;
+    font-size: 20pt;
 
     :before,
     :after {
       border: none;
       left: 0;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 1024px) {
+    :before,
+    :after {
+      width: 22%;
     }
   }
 `
@@ -70,7 +71,7 @@ export const Detail = styled.div`
   flex-wrap: wrap;
   font-size: 15px;
   font-weight: 300;
-  padding: 5px 15%;
+  padding: 5px 10%;
   cursor: default;
 `
 

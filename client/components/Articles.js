@@ -34,7 +34,7 @@ export default () => {
                 <Link href={article.link}>
                   <Button text='Read More ↗' />
                 </Link>
-                <hr />
+                <StyledHr />
               </>
             )}
           </Article>

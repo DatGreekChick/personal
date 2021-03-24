@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Contact = styled.div`
   overflow: hidden;
-  padding: 0 5%;
-  padding-bottom: 3%;
+  padding: 0 5% 3% 5%;
 `
 
 export const ContactForm = styled.div`
@@ -13,9 +12,9 @@ export const ContactForm = styled.div`
 `
 
 const inputAndTextAreaStyles = `
-  font-size: 18pt;
+  font-size: 16pt;
   width: calc(100% / 0.5);
-  padding: 5px 0;
+  padding: 1% 0;
   background: transparent;
   border: transparent;
   border-bottom: 1.5px solid gray;
@@ -53,6 +52,6 @@ export const H2 = styled.h2`
 `
 
 export const Disclaimer = styled.p`
-  font-size: 6px;
+  font-size: 5pt;
   font-style: italic;
 `
