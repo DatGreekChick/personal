@@ -40,15 +40,32 @@ export const Button = styled.button`
   :focus {
     outline: none;
   }
+
+  @media (min-width: 0px) and (max-width: 767px) {
+    padding: 3% 7.5%;
+    font-size: medium;
+  }
 `
 
 export const ResumeButton = styled(Button)`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 4% auto;
+
+  @media (min-width: 768px) {
+    padding: 1% 3%;
+  }
 `
 
 export const ProjectLinkButton = styled(Button)`
-  margin: 4% 2% 0 2%;
+  margin: 4% 1% 0 1%;
+
+  @media (min-width: 0px) and (max-width: 767px) {
+    margin: 7% 1% 0 1%;
+  }
+`
+
+export const SubmitButton = styled(Button)`
+  margin: 10% auto;
+  padding: 4% 12%;
 `
