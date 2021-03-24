@@ -15,7 +15,7 @@ export const Description = styled.p`
 
 export const StyledHr = styled.hr`
   border-color: #e0bf9f;
-  margin-top: 7%;
+  margin-top: 4%;
 `
 
 export const Article = styled.div`
