@@ -2,7 +2,7 @@ const urlsToCache = [
     '.',
     '/assets/styles/index.css',
     '/assets/styles/contact.css',
-    '/assets/img/ea-logo-cream.png',
+    '/assets/img/CreamLogo.png',
     '/client/styles/home.js',
     '/client/styles/button.js',
     '/client/styles/nav.js',

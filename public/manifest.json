@@ -1,13 +1,13 @@
 {
   "dir": "rtl",
   "lang": "en-US",
-  "short_name": "Eleni A",
-  "name": "Eleni Arvanitis - Engineer - Dreamer - Greek",
+  "short_name": "Eleni K",
+  "name": "Eleni Konior - Engineer - Dreamer - Greek",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#e0bf9f",
-  "description": "Eleni Arvanitis, Engineer, Dreamer, Greek, Portfolio, Writing pieces",
+  "description": "Eleni Konior, Engineer, Dreamer, Greek, Portfolio, Writing pieces",
   "icons": [{
       "src": "favicon.ico",
       "sizes": "192x192",
