@@ -7,14 +7,12 @@ For information on my journey to becoming a Software Engineer, check out my
 
 ## Tech Stack
 
-- ⚛️ React
-  - React Hot Loader/HMR
-- 🔥 Firebase
-  - Real-time database
-  - Hosting
-- 📧 EmailJS
-- 🕸 Webpack v5
-- 🤖 Babel
+- ⚛️ [React]/[React Hot Loader] (HMR) for speed, scalability, and simplicity
+- 🔥 [Firebase] for painless deployment and real-time data storage/display
+- 💅🏾 [`styled-components`] for easy CSS stylin'
+- 📧 [EmailJS] for server-less contact form submissions direct to my inbox
+- 🕸 [Webpack] v5 for bundling all assets
+- 🤖 [Babel] for backwards compatible compilation
 
 ### Frontend
 
@@ -61,6 +59,13 @@ commented out in my various components.
 
 [medium article on codeburst]:
   https://codeburst.io/five-ways-becoming-a-software-engineer-made-me-a-wizard-de1060fc04d4
+[react]: https://reactjs.org/
+[react hot loader]: https://github.com/gaearon/react-hot-loader
+[firebase]: https://firebase.google.com/
+[`styled-components`]: https://styled-components.com/
+[emailjs]: https://www.emailjs.com/
+[webpack]: https://webpack.js.org/
+[babel]: https://babeljs.io/
 [`main.js`]: ./main.js
 [`app.jsx`]: client/App.jsx
 [`webpack.config.js`]: webpack.config.js
