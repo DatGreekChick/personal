@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { Link } from '~/client/styles/link'
+
 export default props => (
-  <a rel='noopener' target='_blank' {...props}>
+  <Link rel='noopener' target='_blank' {...props}>
     {props.children}
-  </a>
+  </Link>
 )

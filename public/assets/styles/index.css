@@ -3,6 +3,7 @@ body {
 }
 
 body,
+a,
 h2,
 h3,
 p,
@@ -18,15 +19,14 @@ body {
   padding-bottom: 5%;
 }
 
-a {
-  text-decoration: none;
-  position: relative;
-  color: ghostwhite;
-}
-
 *:focus {
   outline: none;
 }
+
+.grecaptcha-badge {
+  opacity: 0;
+}
+
 
 @media (min-width: 320px) and (max-width: 480px) {
   body {
