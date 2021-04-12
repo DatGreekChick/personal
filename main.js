@@ -18,4 +18,5 @@ function main() {
 
 main()
 
+// eslint-disable-next-line no-undef
 module.hot && module.hot.accept('~/client/App', main)
