@@ -93,7 +93,7 @@ sketch
 public/*.bundle.js*
 
 # Resume
-public/assets/Eleni-Arvanitis-Resume.pdf
+public/assets/EleniArvanitisKoniorResume.pdf
 
 # Hot module hash files
 public/*.hot-update.js*
