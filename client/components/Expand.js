@@ -19,8 +19,24 @@ export default () => {
   const [snapshots, loading, error] = useList(db.ref('work'))
 
   const toggle = evt => {
-    setIsHidden(!isHidden)
-    setSelectedProject(evt.target.innerText)
+    const project = evt.target.innerText
+
+    if (!selectedProject) {
+      setSelectedProject(project)
+    } else if (selectedProject && project !== selectedProject) {
+      // if there's a project expanded, but a different project was clicked
+      // then hide the current project, set the new project, then expand
+      // that new project
+      setIsHidden(true)
+      setSelectedProject(project)
+      setIsHidden(false)
+    }
+
+    // if there isn't already a project expanded, or the same project
+    // was clicked, then set isHidden to the opposite value
+    if (!selectedProject || selectedProject === project) {
+      setIsHidden(!isHidden)
+    }
   }
 
   return snapshots.map(snap => {
