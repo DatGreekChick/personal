@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <>
-      <Link href='/assets/Eleni-Arvanitis-Resume.pdf'>
+      <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
       </Link>
       <Suspense fallback={<Loading />}>
