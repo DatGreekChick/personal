@@ -13,9 +13,9 @@ module.exports = {
   },
   plugins: ['react'],
   settings: {
-      "react": {
-          "version": "detect",
-      },
+    react: {
+      version: 'detect',
+    },
   },
   rules: {
     'react/display-name': 0,
