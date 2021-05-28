@@ -1,5 +1,6 @@
-import React from 'react'
-import Form from './Form'
+import React, { lazy, Suspense } from 'react'
+import Loading from './Loading'
+const Form = lazy(() => import('./Form'))
 
 import windowTrick from '~/client/window'
 
@@ -13,10 +14,12 @@ export default () => {
 
   return (
     <Contact>
-      <H2>Let's Work Together!</H2>
+      <H2>Let&apos;s Work Together!</H2>
       <ContactForm>
         <span>
-          <Form />
+          <Suspense fallback={<Loading />}>
+            <Form />
+          </Suspense>
           <Disclaimer>{reCaptchaMessage}</Disclaimer>
         </span>
       </ContactForm>

@@ -1,7 +1,8 @@
 const webpack = require('webpack')
+const { GenerateSW } = require('workbox-webpack-plugin')
+
 const babel = require('./babel.config')
 const { isHot, isProd } = require('./env.config')
-const { GenerateSW } = require('workbox-webpack-plugin')
 
 const entries = (env, entry) =>
   isHot(env) ? ['react-hot-loader/patch', entry] : entry
@@ -56,9 +57,19 @@ const config = env => ({
   optimization: {
     mergeDuplicateChunks: true,
     removeEmptyChunks: true,
-    // splitChunks: {
-    //   chunks: 'all',
-    // },
+    runtimeChunk: 'single',
+    splitChunks: {
+      maxInitialRequests: 20, // for HTTP2
+      maxAsyncRequests: 20, // for HTTP2
+      minSize: 40,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   plugins: plugins(env),
 })
@@ -81,6 +92,7 @@ function devServer(env) {
   if (isProd(env)) return
   const { FIREBASE_SERVE_URL } = env
   return {
+    compress: true,
     disableHostCheck: true,
     hot: true,
     proxy: FIREBASE_SERVE_URL && {
