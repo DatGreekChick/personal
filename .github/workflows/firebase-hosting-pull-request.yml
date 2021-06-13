@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           npm i -g firebase-tools
-          firebase login
+          firebase login:ci
           npm i
           npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
