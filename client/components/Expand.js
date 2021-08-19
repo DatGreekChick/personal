@@ -50,7 +50,7 @@ export default () => {
         {!loading && snapshots && (
           <>
             <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
-            {!isHidden && selectedProject === name.toUpperCase() ? (
+            {!isHidden && selectedProject === name.toUpperCase() && (
               <Detail>
                 <Role>{role}</Role>
                 <Description>{description}</Description>
@@ -63,7 +63,7 @@ export default () => {
                   <ProjectLink key={`${name}-${link}${i}`} link={link} />
                 ))}
               </Detail>
-            ) : null}
+            )}
           </>
         )}
       </Project>

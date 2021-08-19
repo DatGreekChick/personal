@@ -17,29 +17,30 @@ import db from '~/content/fire'
 export default () => {
   const [snapshots, loading, error] = useList(db.ref('articles'))
 
-  return (
-    <>
-      {snapshots.reverse().map(snap => {
-        const article = snap.val()
+  // store the records in an array, otherwise using snapshots.reverse() will
+  // cause the records to switch order every time the route is clicked
+  const reversed = []
+  snapshots.forEach(snap => reversed.push(snap))
 
-        return (
-          <Article key={article.title}>
-            {error && <strong>Error: {error}</strong>}
-            {loading && <span>Loading...</span>}
-            {!loading && snapshots && (
-              <>
-                <ArticleTitle>{article.title}</ArticleTitle>
-                <DatePosted>{article['date-posted']}</DatePosted>
-                <Description>{article.description}</Description>
-                <Link href={article.link}>
-                  <Button text='Read More ↗' />
-                </Link>
-                <StyledHr />
-              </>
-            )}
-          </Article>
-        )
-      })}
-    </>
-  )
+  return reversed.reverse().map(snap => {
+    const article = snap.val()
+
+    return (
+      <Article key={article.title}>
+        {error && <strong>Error: {error}</strong>}
+        {loading && <span>Loading...</span>}
+        {!loading && snapshots && (
+          <>
+            <ArticleTitle>{article.title}</ArticleTitle>
+            <DatePosted>{article['date-posted']}</DatePosted>
+            <Description>{article.description}</Description>
+            <Link href={article.link}>
+              <Button text='Read More ↗' />
+            </Link>
+            <StyledHr />
+          </>
+        )}
+      </Article>
+    )
+  })
 }
