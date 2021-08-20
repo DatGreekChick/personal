@@ -93,7 +93,7 @@ function devServer(env) {
   const { FIREBASE_SERVE_URL } = env
   return {
     compress: true,
-    disableHostCheck: true,
+    allowedHosts: 'all',
     hot: true,
     proxy: FIREBASE_SERVE_URL && {
       '/': FIREBASE_SERVE_URL,
