@@ -1,8 +1,7 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 
 import Link from './Link'
-import Loading from './Loading'
-const Expand = lazy(() => import('./Expand'))
+import Expand from './Expand'
 
 import { ResumeButton } from '~/client/styles/button'
 
@@ -16,9 +15,7 @@ export default () => {
       <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
       </Link>
-      <Suspense fallback={<Loading />}>
-        <Expand />
-      </Suspense>
+      <Expand />
     </>
   )
 }

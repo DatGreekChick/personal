@@ -3,6 +3,7 @@ import { useList } from 'react-firebase-hooks/database'
 
 import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
+import Loading from '~/client/components/Loading'
 
 import {
   ArticleTitle,
@@ -28,7 +29,7 @@ export default () => {
     return (
       <Article key={article.title}>
         {error && <strong>Error: {error}</strong>}
-        {loading && <span>Loading...</span>}
+        {loading && <Loading />}
         {!loading && snapshots && (
           <>
             <ArticleTitle>{article.title}</ArticleTitle>

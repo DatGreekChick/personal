@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useList } from 'react-firebase-hooks/database'
 
+import Loading from './Loading'
 import { ProjectLink } from '~/client/components/Button'
 import {
   Project,
@@ -46,7 +47,7 @@ export default () => {
     return (
       <Project key={name}>
         {error && <strong>Error: {error}</strong>}
-        {loading && <span>Loading...</span>}
+        {loading && <Loading />}
         {!loading && snapshots && (
           <>
             <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
