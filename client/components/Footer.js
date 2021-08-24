@@ -17,6 +17,7 @@ export default () => (
           target='_blank'
           tabIndex='0'
           role='presentation'
+          color={link[2]}
         >
           <FontAwesomeIcon icon={link[1]} />
         </Icon>
