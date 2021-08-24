@@ -18,4 +18,8 @@ export const Copyright = styled.span`
 
 export const Icon = styled.a`
   padding-left: 12px;
+
+  :hover {
+    color: ${props => props.color};
+  }
 `
