@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Button = styled.button`
   flex: 1 1 auto;
-  margin: 2% auto;
+  margin: 10px auto;
   padding: 10px 25px;
   border: 2px solid #e0bf9f;
   text-align: center;
@@ -42,7 +42,6 @@ export const Button = styled.button`
   }
 
   @media (min-width: 0px) and (max-width: 767px) {
-    padding: 3% 7.5%;
     font-size: medium;
   }
 `
@@ -51,10 +50,6 @@ export const ResumeButton = styled(Button)`
   position: relative;
   display: flex;
   align-items: center;
-
-  @media (min-width: 768px) {
-    padding: 1% 3%;
-  }
 `
 
 export const ProjectLinkButton = styled(Button)`
