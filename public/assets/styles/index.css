@@ -25,6 +25,7 @@ body {
 
 .grecaptcha-badge {
   opacity: 0;
+  left: 0;
 }
 
 
