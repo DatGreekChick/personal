@@ -16,7 +16,7 @@ For information on my journey to becoming a Software Engineer, check out my
 
 ### Frontend
 
-The frontend starts in [`main.js`]. The root of the react app is in [`App.jsx`].
+The frontend starts in [`main.js`]. The root of the React app is in [`App.jsx`].
 
 #### a word about ~
 
@@ -44,13 +44,8 @@ the root and all styles. I now have a :100:.
 
 I have implemented a form on `/contact` that sends submissions directly to my
 email using `emailjs`. The Google ReCAPTCHA library helps verify a human's
-(online) humanity so as to prevent bots from submitting the form. It uses
-ReCAPTCHA v3, which is invisible.
-
-**⚠️ Note:** This is currently not working in tandem with `emailjs`, as
-`emailjs` only supports v2. The email will send a message, but no name or email
-values, rendering this entire functionality useless until `emailjs` updates to
-allow the user to choose between ReCAPTCHA versions.
+(online) humanity to prevent bots from submitting the form. It uses ReCAPTCHA
+v3, which is invisible.
 
 ### Testing
 
@@ -66,6 +61,6 @@ commented out in my various components.
 [emailjs]: https://www.emailjs.com/
 [webpack]: https://webpack.js.org/
 [babel]: https://babeljs.io/
-[`main.js`]: ./main.js
+[`main.js`]: main.js
 [`app.jsx`]: client/App.jsx
 [`webpack.config.js`]: webpack.config.js

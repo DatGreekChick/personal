@@ -33,12 +33,13 @@ const getInputs = ({ name, email, message }) => [
 
 export default () => {
   const { addToast } = useToasts()
-  const [state, setState] = useState({
+  const initialState = {
     name: '',
     email: '',
     message: '',
     token: '',
-  })
+  }
+  const [state, setState] = useState(initialState)
 
   const verifyHumanity = token => setState({ ...state, token })
   useEffect(token => loadReCaptcha(siteKey, verifyHumanity(token)), [])
@@ -54,10 +55,19 @@ export default () => {
   const sendEmail = evt => {
     evt.preventDefault()
 
+    const emailTemplate = {
+      to_name: 'Eleni',
+      from_name: state.name,
+      message: state.message,
+      reply_to: state.email,
+    }
+
     emailjs
-      .sendForm(serviceId, templateId, evt.target, userId)
+      .send(serviceId, templateId, emailTemplate)
       .then(() => addToast('Email sent!', { appearance: 'success' }))
       .catch(err => addToast(err.text, { appearance: 'error' }))
+
+    setState(initialState)
   }
 
   const inputs = getInputs(state)
