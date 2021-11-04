@@ -66,8 +66,7 @@ export default () => {
       .send(serviceId, templateId, emailTemplate)
       .then(() => addToast('Email sent!', { appearance: 'success' }))
       .catch(err => addToast(err.text, { appearance: 'error' }))
-
-    setState(initialState)
+      .finally(() => setState(initialState))
   }
 
   const inputs = getInputs(state)
