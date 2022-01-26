@@ -1,5 +1,6 @@
 import React from 'react'
 import { useList } from 'react-firebase-hooks/database'
+import { ref } from 'firebase/database'
 
 import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
@@ -16,7 +17,7 @@ import {
 import db from '~/content/fire'
 
 export default () => {
-  const [snapshots, loading, error] = useList(db.ref('articles'))
+  const [snapshots, loading, error] = useList(ref(db, 'articles'))
 
   // store the records in an array, otherwise using snapshots.reverse() will
   // cause the records to switch order every time the route is clicked
