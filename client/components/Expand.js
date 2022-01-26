@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useList } from 'react-firebase-hooks/database'
+import { ref } from 'firebase/database'
 
 import Loading from './Loading'
 import { ProjectLink } from '~/client/components/Button'
@@ -17,7 +18,7 @@ import db from '~/content/fire'
 export default () => {
   const [isHidden, setIsHidden] = useState(true)
   const [selectedProject, setSelectedProject] = useState('')
-  const [snapshots, loading, error] = useList(db.ref('work'))
+  const [snapshots, loading, error] = useList(ref(db, 'work'))
 
   const toggle = evt => {
     const project = evt.target.innerText

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 
 import '~/public/assets/styles/index.css'
 
@@ -15,13 +15,13 @@ export default () => (
   <Router>
     <div>
       <Navbar />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/work' component={Work} />
-        <Route exact path='/articles' component={Articles} />
-        <Route exact path='/contact' component={Contact} />
-      </Switch>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/work' element={<Work />} />
+        <Route exact path='/articles' element={<Articles />} />
+        <Route exact path='/contact' element={<Contact />} />
+      </Routes>
       <Footer />
     </div>
   </Router>
