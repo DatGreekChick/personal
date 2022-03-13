@@ -16,5 +16,10 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ELENICODES }}'
+          siteKey: '${{ secrets.RECAPTCHA_SITE_KEY }}'
+          secretKey: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
+          serviceId: '${{ secrets.EMAILJS_SERVICE_ID }}'
+          templateId: '${{ secrets.EMAILJS_TEMPLATE_ID }}'
+          userId: '${{ secrets.EMAILJS_USER_ID }}'
           channelId: live
           projectId: elenicodes
