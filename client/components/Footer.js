@@ -1,10 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithubAlt } from '@fortawesome/free-brands-svg-icons/faGitHubAlt'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
-import { faMediumM } from '@fortawesome/free-brands-svg-icons/faMediumM'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
+import { faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faMediumM, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import { Footer, Copyright, Icon } from '~/client/styles/footer'
 
