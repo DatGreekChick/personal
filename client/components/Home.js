@@ -44,13 +44,13 @@ export default () => {
       </span>
       <Description>
         After graduating from NYU with a B.A. in Economics, I decided to tap
-        into my creative side and follow in my parents' entrepreneurial
+        into my creative side and follow in my parents&apos; entrepreneurial
         footsteps by launching a graphic design company. I learned so much
         during that time, but everything I created was static. Craving to expand
         my technical capabilities coupled with a desire to build dynamic apps
-        and a love for languages, I became a software engineer. Presently, I'm
-        taking a few weeks off to recharge before starting my new role as a
-        Software Engineer at Cisco Meraki on the Dashboard Features team!
+        and a love for languages, I became a software engineer. Presently,
+        I&apos;m taking a few weeks off to recharge before starting my new role
+        as a Software Engineer at Cisco Meraki on the Dashboard Features team!
       </Description>
       <NavLink to='/contact'>
         <Button text='Say hi' />

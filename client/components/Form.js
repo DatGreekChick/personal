@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 import React, { useState, useEffect } from 'react'
 import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3'
 import { useToasts } from 'react-toast-notifications'
