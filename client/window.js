@@ -1,7 +1,4 @@
-let windowTrick = () => {}
-
-if (window && typeof window === 'object') {
-  windowTrick = () => window.scroll(0, 0)
-}
+const windowTrick = () =>
+  window && typeof window === 'object' ? window.scroll(0, 0) : {}
 
 export default windowTrick
