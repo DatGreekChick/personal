@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3'
 import { useToasts } from 'react-toast-notifications'
 
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
 
 import { Submit } from '~/client/components/Button'
 import { Input, TextArea } from '~/client/styles/contact'
@@ -51,7 +51,6 @@ export default () => {
     })
   }
 
-  emailjs.init(userId)
   const sendEmail = evt => {
     evt.preventDefault()
 
@@ -63,7 +62,7 @@ export default () => {
     }
 
     emailjs
-      .send(serviceId, templateId, emailTemplate)
+      .send(serviceId, templateId, emailTemplate, userId)
       .then(() => addToast('Email sent!', { appearance: 'success' }))
       .catch(err => addToast(err.text, { appearance: 'error' }))
       .finally(() => setState(initialState))
