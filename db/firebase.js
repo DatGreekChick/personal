@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 import firebase from 'firebase/compat/app'
 import { getDatabase } from 'firebase/database'
 

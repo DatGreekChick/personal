@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint --fix",
     "prepare": "firebase use elenicodes && husky install",
     "prettier": "npx prettier --write \"./**/*.{js,jsx,md}\"",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "start": "node dev",
     "watch": "npm run build -- -w"
   },
