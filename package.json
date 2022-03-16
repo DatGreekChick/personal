@@ -11,7 +11,7 @@
     "deploy": "npm run build:prod && npx firebase deploy",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "npm run lint --fix",
-    "prepare": "firebase use elenicodes",
+    "prepare": "firebase use elenicodes && husky install",
     "prettier": "npx prettier --write \"./**/*.{js,jsx,md}\"",
     "test": "jest",
     "start": "node dev",
@@ -25,14 +25,10 @@
     "arrowParens": "avoid",
     "proseWrap": "always"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test && lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx}": [
       "npm run prettier --",
+      "npm test",
       "npm run lint:fix --",
       "git add --"
     ],
