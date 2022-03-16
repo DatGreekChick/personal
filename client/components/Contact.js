@@ -5,9 +5,6 @@ import windowTrick from '~/client/window'
 
 import { Contact, ContactForm, H2, Disclaimer } from '~/client/styles/contact'
 
-const reCaptchaMessage = `This site is protected by reCAPTCHA and
-the Google Privacy Policy and Terms of Service apply.`
-
 export default () => {
   windowTrick()
 
@@ -17,7 +14,10 @@ export default () => {
       <ContactForm>
         <span>
           <Form />
-          <Disclaimer>{reCaptchaMessage}</Disclaimer>
+          <Disclaimer>
+            This site is protected by reCAPTCHA and the Google Privacy Policy
+            and Terms of Service apply.
+          </Disclaimer>
         </span>
       </ContactForm>
     </Contact>
