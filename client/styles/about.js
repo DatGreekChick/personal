@@ -28,6 +28,6 @@ export const AboutHeader = styled.p`
   }
 `
 
-export const AboutText = styled.p`
+export const AboutText = styled.div`
   font-size: 14pt;
 `
