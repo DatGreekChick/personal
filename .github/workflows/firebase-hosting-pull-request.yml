@@ -11,11 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - run: 'npm ci && npm run build:prod'
         env:
-          siteKey: '${{ secrets.RECAPTCHA_SITE_KEY }}'
-          secretKey: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
-          serviceId: '${{ secrets.EMAILJS_SERVICE_ID }}'
-          templateId: '${{ secrets.EMAILJS_TEMPLATE_ID }}'
-          userId: '${{ secrets.EMAILJS_USER_ID }}'
+          RECAPTCHA_SITE_KEY: '${{ secrets.RECAPTCHA_SITE_KEY }}'
+          EMAILJS_SERVICE_ID: '${{ secrets.EMAILJS_SERVICE_ID }}'
+          EMAILJS_TEMPLATE_ID: '${{ secrets.EMAILJS_TEMPLATE_ID }}'
+          EMAILJS_USER_ID: '${{ secrets.EMAILJS_USER_ID }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
