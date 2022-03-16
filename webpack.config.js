@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
+const DotEnv = require('dotenv-webpack')
 
 const babel = require('./babel.config')
 const { isHot, isProd } = require('./env.config')
@@ -77,12 +78,14 @@ const config = env => ({
 const plugins = env =>
   isHot(env)
     ? [
+        new DotEnv(),
         new webpack.HotModuleReplacementPlugin(), // Enable HMR globally
       ]
     : [
+        new DotEnv(),
         new GenerateSW({
-          // these options encourage the ServiceWorkers to get in there fast
-          // and not allow any straggling "old" SWs to hang around
+          // these options encourage the ServiceWorkers to get in fast and
+          // disallow any straggling "old" ServiceWorkers to hang around
           clientsClaim: true,
           skipWaiting: true,
         }),
