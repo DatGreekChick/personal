@@ -7,7 +7,13 @@ import emailjs from '@emailjs/browser'
 import { Submit } from '~/client/components/Button'
 import { Input, TextArea } from '~/client/styles/contact'
 
-import { siteKey, serviceId, templateId, userId } from '~/content/secrets'
+// reCAPTCHA keys
+const siteKey = process.env.RECAPTCHA_SITE_KEY
+
+// emailJS IDs
+const serviceId = process.env.EMAILJS_SERVICE_ID
+const templateId = process.env.EMAILJS_TEMPLATE_ID
+const userId = process.env.EMAILJS_USER_ID
 
 const getInputs = ({ name, email, message }) => [
   {

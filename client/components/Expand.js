@@ -13,7 +13,7 @@ import {
   Tech,
 } from '~/client/styles/work'
 
-import db from '~/content/fire'
+import db from '~/db/firebase'
 
 export default () => {
   const [isHidden, setIsHidden] = useState(true)
