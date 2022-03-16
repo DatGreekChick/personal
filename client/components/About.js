@@ -11,11 +11,11 @@ export default () => (
       <p>
         Every day I get to ride the insatiable roller coaster that is software
         engineering! I've built extensible Python pip packages, streamlined
-        aggregation engines in C++, created valuable HTTP REST APIs using
-        Flask, designed beautiful React frontends tracking diversity
-        initiatives. I'm an engaging speaker, produce minimalist code, write
-        killer documentation, and test everything. I absolutely love to learn,
-        get a thrill when teaching others, and really dig pair programming.
+        aggregation engines in C++, created valuable HTTP REST APIs using Flask,
+        designed beautiful React frontends tracking diversity initiatives. I'm
+        an engaging speaker, produce minimalist code, write killer
+        documentation, and test everything. I absolutely love to learn, get a
+        thrill when teaching others, and really dig pair programming.
       </p>
       <p>
         I'm advanced in Python, JavaScript/TypeScript, Node, C++, Webpack, SQL
