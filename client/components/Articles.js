@@ -14,7 +14,7 @@ import {
   Article,
 } from '~/client/styles/articles'
 
-import db from '~/content/fire'
+import db from '~/db/firebase'
 
 export default () => {
   const [snapshots, loading, error] = useList(ref(db, 'articles'))
