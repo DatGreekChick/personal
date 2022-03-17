@@ -3,6 +3,7 @@ const { isHot } = require('./env.config')
 const plugins = [
   '@babel/plugin-transform-runtime',
   'babel-plugin-styled-components',
+  'macros',
 ]
 
 const babel = (module.exports = {
