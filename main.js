@@ -1,16 +1,21 @@
+/* eslint no-undef: 0 */
+
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { ToastProvider } from 'react-toast-notifications'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
 import App from '~/client/App'
 
 function main() {
   render(
     <AppContainer>
-      <ToastProvider autoDismissTimeout={3000} autoDismiss={true}>
-        <App />
-      </ToastProvider>
+      <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
+        <ToastProvider autoDismissTimeout={3000} autoDismiss={true}>
+          <App />
+        </ToastProvider>
+      </GoogleReCaptchaProvider>
     </AppContainer>,
     document.getElementById('main')
   )

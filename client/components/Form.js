@@ -1,16 +1,13 @@
 /* eslint no-undef: 0 */
 
-import React, { useState, useEffect } from 'react'
-import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3'
+import React, { useState, useCallback } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useToasts } from 'react-toast-notifications'
 
 import emailjs from '@emailjs/browser'
 
 import { Submit } from '~/client/components/Button'
 import { Input, TextArea } from '~/client/styles/contact'
-
-// reCAPTCHA keys
-const siteKey = process.env.RECAPTCHA_SITE_KEY
 
 // emailJS IDs
 const serviceId = process.env.EMAILJS_SERVICE_ID
@@ -41,6 +38,7 @@ const getInputs = ({ name, email, message }) => [
 
 export default () => {
   const { addToast } = useToasts()
+  const { executeRecaptcha } = useGoogleReCaptcha()
   const initialState = {
     name: '',
     email: '',
@@ -49,8 +47,15 @@ export default () => {
   }
   const [state, setState] = useState(initialState)
 
-  const verifyHumanity = token => setState({ ...state, token })
-  useEffect(token => loadReCaptcha(siteKey, verifyHumanity(token)), [])
+  const verifyHumanity = useCallback(async () => {
+    if (!executeRecaptcha) {
+      console.error('Error executing reCAPTCHA')
+      return
+    }
+
+    const token = await executeRecaptcha('contact')
+    setState({ ...state, token })
+  }, [])
 
   const handleChange = propertyName => evt => {
     setState({
@@ -98,12 +103,7 @@ export default () => {
           </label>
         )
       })}
-      <ReCaptcha
-        sitekey={siteKey}
-        action='main'
-        verifyCallback={verifyHumanity}
-      />
-      <Submit />
+      <Submit onClick={verifyHumanity} />
     </form>
   )
 }

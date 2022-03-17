@@ -5,7 +5,11 @@ import Link from '~/client/components/Link'
 import { Button, ProjectLinkButton, SubmitButton } from '~/client/styles/button'
 
 export default ({ text }) => <Button>{text}</Button>
-export const Submit = () => <SubmitButton type='submit'>Submit</SubmitButton>
+export const Submit = props => (
+  <SubmitButton type='submit' {...props}>
+    Submit
+  </SubmitButton>
+)
 
 const determineProjectButtonLink = ({ code, youtube, demo }) =>
   code ? code : youtube ? youtube : demo
