@@ -11,7 +11,7 @@ import App from '~/client/App'
 function main() {
   render(
     <AppContainer>
-      <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SECRET_KEY}>
+      <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
         <ToastProvider autoDismissTimeout={3000} autoDismiss={true}>
           <App />
         </ToastProvider>
