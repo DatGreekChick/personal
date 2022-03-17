@@ -7,6 +7,7 @@ on:
     branches:
       - main
 env:
+  RECAPTCHA_SECRET_KEY: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
   RECAPTCHA_SITE_KEY: '${{ secrets.RECAPTCHA_SITE_KEY }}'
   EMAILJS_SERVICE_ID: '${{ secrets.EMAILJS_SERVICE_ID }}'
   EMAILJS_TEMPLATE_ID: '${{ secrets.EMAILJS_TEMPLATE_ID }}'
