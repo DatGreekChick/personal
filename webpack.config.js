@@ -4,11 +4,8 @@ const DotEnv = require('dotenv-webpack')
 const babel = require('./babel.config')
 const { isHot, isProd } = require('./env.config')
 
-const entries = (env, entry) =>
-  isHot(env) ? ['react-hot-loader/patch', entry] : entry
-
 const config = env => ({
-  entry: entries(env, './main.js'),
+  entry: ['react-hot-loader/patch', './main.js'],
   mode: isHot(env) ? 'development' : 'production',
   output: {
     filename: '[name].bundle.js',

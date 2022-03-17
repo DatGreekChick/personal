@@ -4,6 +4,7 @@ const plugins = [
   '@babel/plugin-transform-runtime',
   'babel-plugin-styled-components',
   'macros',
+  'react-hot-loader/babel',
 ]
 
 const babel = (module.exports = {
@@ -11,7 +12,5 @@ const babel = (module.exports = {
     ['@babel/preset-env', { modules: false, forceAllTransforms: true }],
     '@babel/preset-react',
   ],
-  plugins: isHot(process.env)
-    ? ['react-hot-loader/babel', ...plugins]
-    : plugins,
+  plugins,
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 
 import '~/public/assets/styles/index.css'
@@ -11,7 +12,7 @@ import Articles from '~/client/components/Articles'
 import Contact from '~/client/components/Contact'
 import Footer from '~/client/components/Footer'
 
-export default () => (
+const App = () => (
   <Router>
     <div>
       <Navbar />
@@ -26,3 +27,5 @@ export default () => (
     </div>
   </Router>
 )
+
+export default hot(App)
