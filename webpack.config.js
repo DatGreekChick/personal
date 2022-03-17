@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const DotEnv = require('dotenv-webpack')
 
@@ -78,10 +77,7 @@ const config = env => ({
 const plugins = env => {
   const commonPlugins = [new DotEnv({ systemvars: true })]
   return isHot(env)
-    ? [
-        ...commonPlugins,
-        new webpack.HotModuleReplacementPlugin(), // Enable HMR globally
-      ]
+    ? [...commonPlugins]
     : [
         ...commonPlugins,
         new GenerateSW({
