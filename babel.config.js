@@ -1,6 +1,9 @@
 const { isHot } = require('./env.config')
 
-const plugins = ['babel-plugin-styled-components']
+const plugins = [
+  '@babel/plugin-transform-runtime',
+  'babel-plugin-styled-components',
+]
 
 const babel = (module.exports = {
   presets: [
