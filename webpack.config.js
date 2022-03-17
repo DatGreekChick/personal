@@ -75,14 +75,15 @@ const config = env => ({
   plugins: plugins(env),
 })
 
-const plugins = env =>
-  isHot(env)
+const plugins = env => {
+  const commonPlugins = [new DotEnv({ systemvars: true })]
+  return isHot(env)
     ? [
-        new DotEnv({ systemvars: true }),
+        ...commonPlugins,
         new webpack.HotModuleReplacementPlugin(), // Enable HMR globally
       ]
     : [
-        new DotEnv(),
+        ...commonPlugins,
         new GenerateSW({
           // these options encourage the ServiceWorkers to get in fast and
           // disallow any straggling "old" ServiceWorkers to hang around
@@ -90,6 +91,7 @@ const plugins = env =>
           skipWaiting: true,
         }),
       ]
+}
 
 function devServer(env) {
   if (isProd(env)) return
