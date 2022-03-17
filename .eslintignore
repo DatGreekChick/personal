@@ -1,6 +1,6 @@
 # config files
 .eslintrc.js
-babel.config.js
+babel*.config.js
 env.config.js
 webpack.config.js
 
