@@ -78,7 +78,7 @@ const config = env => ({
 const plugins = env =>
   isHot(env)
     ? [
-        new DotEnv(),
+        new DotEnv({ systemvars: true }),
         new webpack.HotModuleReplacementPlugin(), // Enable HMR globally
       ]
     : [
