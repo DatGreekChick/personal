@@ -55,7 +55,7 @@ export default () => {
 
     const token = await executeRecaptcha('contact')
     setState({ ...state, token })
-  }, [])
+  }, [executeRecaptcha])
 
   const handleChange = propertyName => evt => {
     setState({

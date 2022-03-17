@@ -11,7 +11,6 @@
     "deploy": "npm run build:prod && npx firebase deploy",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "npm run lint --fix",
-    "prepare": "firebase use elenicodes && husky install",
     "prettier": "npx prettier --write \"./**/*.{js,jsx,md}\"",
     "test": "jest --passWithNoTests",
     "start": "node dev",
