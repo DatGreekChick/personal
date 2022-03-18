@@ -11,19 +11,15 @@ export const Submit = props => (
   </SubmitButton>
 )
 
-const determineProjectButtonLink = ({ code, youtube, demo }) =>
-  code ? code : youtube ? youtube : demo
+const determineProjectButtonText = link =>
+  link.includes('github')
+    ? 'code'
+    : link.includes('youtube')
+    ? 'youtube'
+    : 'demo'
 
-const determineProjectButtonText = ({ code, youtube }) =>
-  code ? 'code' : youtube ? 'youtube' : 'demo'
-
-export const ProjectLink = ({ link }) => {
-  const href = determineProjectButtonLink(link)
-  const text = determineProjectButtonText(link)
-
-  return (
-    <Link href={href}>
-      <ProjectLinkButton>{text}</ProjectLinkButton>
-    </Link>
-  )
-}
+export const ProjectLink = ({ link }) => (
+  <Link href={link}>
+    <ProjectLinkButton>{determineProjectButtonText(link)}</ProjectLinkButton>
+  </Link>
+)

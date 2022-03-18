@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import { useList } from 'react-firebase-hooks/database'
-import { ref } from 'firebase/database'
+import React, { useEffect, useState } from 'react'
+import { onSnapshot, collection } from 'firebase/firestore'
 
-import Loading from './Loading'
 import { ProjectLink } from '~/client/components/Button'
 import {
   Project,
@@ -18,7 +16,15 @@ import db from '~/db/firebase'
 export default () => {
   const [isHidden, setIsHidden] = useState(true)
   const [selectedProject, setSelectedProject] = useState('')
-  const [snapshots, loading, error] = useList(ref(db, 'work'))
+  const [projects, setProjects] = useState([])
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'projects'), snapshot =>
+        setProjects(snapshot.docs.map(doc => doc.data()))
+      ),
+    []
+  )
 
   const toggle = evt => {
     const project = evt.target.innerText
@@ -41,33 +47,28 @@ export default () => {
     }
   }
 
-  return snapshots.map(snap => {
-    // snap.val() == a project from the table
-    const { name, role, description, technologies, links } = snap.val()
+  return projects.map(p => {
+    const { name, role, description, technologies, links } = p
 
     return (
       <Project key={name}>
-        {error && <strong>Error: {error}</strong>}
-        {loading && <Loading />}
-        {!loading && snapshots && (
-          <>
-            <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
-            {!isHidden && selectedProject === name.toUpperCase() && (
-              <Detail>
-                <Role>{role}</Role>
-                <Description>{description}</Description>
-                <br />
-                {technologies.map(technology => (
-                  <Tech key={technology}>{technology.toUpperCase()}</Tech>
-                ))}
-                <br />
-                {links.map((link, i) => (
-                  <ProjectLink key={`${name}-${link}${i}`} link={link} />
-                ))}
-              </Detail>
-            )}
-          </>
-        )}
+        <>
+          <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
+          {!isHidden && selectedProject === name.toUpperCase() && (
+            <Detail>
+              <Role>{role}</Role>
+              <Description>{description}</Description>
+              <br />
+              {technologies.map(technology => (
+                <Tech key={technology}>{technology.toUpperCase()}</Tech>
+              ))}
+              <br />
+              {links.map((link, i) => (
+                <ProjectLink key={`${name}-${link}${i}`} link={link} />
+              ))}
+            </Detail>
+          )}
+        </>
       </Project>
     )
   })
