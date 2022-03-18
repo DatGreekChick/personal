@@ -1,10 +1,8 @@
-import React from 'react'
-import { useList } from 'react-firebase-hooks/database'
-import { ref } from 'firebase/database'
+import React, { useEffect, useState } from 'react'
+import { onSnapshot, collection } from 'firebase/firestore'
 
 import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
-import Loading from '~/client/components/Loading'
 
 import {
   ArticleTitle,
@@ -17,32 +15,26 @@ import {
 import db from '~/db/firebase'
 
 export default () => {
-  const [snapshots, loading, error] = useList(ref(db, 'articles'))
+  const [articles, setArticles] = useState([])
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'articles'), snapshot =>
+        setArticles(snapshot.docs.map(doc => doc.data()))
+      ),
+    []
+  )
 
-  // store the records in an array, otherwise using snapshots.reverse() will
-  // cause the records to switch order every time the route is clicked
-  const reversed = []
-  snapshots.forEach(snap => reversed.push(snap))
-
-  return reversed.reverse().map(snap => {
-    const article = snap.val()
-
-    return (
-      <Article key={article.title}>
-        {error && <strong>Error: {error}</strong>}
-        {loading && <Loading />}
-        {!loading && snapshots && (
-          <>
-            <ArticleTitle>{article.title}</ArticleTitle>
-            <DatePosted>{article['date-posted']}</DatePosted>
-            <Description>{article.description}</Description>
-            <Link href={article.link}>
-              <Button text='Read More ↗' />
-            </Link>
-            <StyledHr />
-          </>
-        )}
-      </Article>
-    )
-  })
+  return articles.reverse().map(article => (
+    <Article key={article.title}>
+      <>
+        <ArticleTitle>{article.title}</ArticleTitle>
+        <DatePosted>{article['date-posted']}</DatePosted>
+        <Description>{article.description}</Description>
+        <Link href={article.link}>
+          <Button text='Read More ↗' />
+        </Link>
+        <StyledHr />
+      </>
+    </Article>
+  ))
 }

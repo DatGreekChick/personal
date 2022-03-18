@@ -1,7 +1,7 @@
-/* eslint no-undef: 0 no-unused-vars: 0 */
+/* eslint no-undef: 0 */
 
 import { initializeApp } from 'firebase/app'
-import { getDatabase } from 'firebase/database'
+import { getFirestore } from 'firebase/firestore'
 
 const fire = initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
@@ -9,5 +9,5 @@ const fire = initializeApp({
   projectId: 'elenicodes',
 })
 
-const db = getDatabase()
+const db = getFirestore(fire)
 export default db
