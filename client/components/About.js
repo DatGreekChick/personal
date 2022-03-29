@@ -31,7 +31,7 @@ export default () => (
         game of soccer, or strumming my bass guitar.
       </p>
     </AboutText>
-    <NavLink exact to='/work'>
+    <NavLink to='/work'>
       <Button text='See my work' />
     </NavLink>
   </About>

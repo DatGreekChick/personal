@@ -4,6 +4,12 @@
   "version": "2.0.0",
   "description": "My personal website featuring my portfolio and writing pieces.",
   "main": "main.js",
+  "type": "module",
+  "babelMacros": {
+    "fontawesome-svg-core": {
+      "license": "free"
+    }
+  },
   "scripts": {
     "build": "webpack --mode development",
     "build:prod": "webpack --mode production",
@@ -48,9 +54,10 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.0.6",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.1",
     "chokidar": "^3.5.2",
     "css-loader": "^6.7.1",
+    "debug": "^4.3.4",
     "dotenv-webpack": "^7.1.0",
     "eslint": "^8.11.0",
     "eslint-plugin-react": "^7.28.0",

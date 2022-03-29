@@ -1,5 +1,3 @@
-const { isHot } = require('./env.config')
-
 const plugins = [
   '@babel/plugin-transform-runtime',
   'babel-plugin-styled-components',
@@ -7,10 +5,12 @@ const plugins = [
   'react-hot-loader/babel',
 ]
 
-const babel = (module.exports = {
+const babel = {
   presets: [
     ['@babel/preset-env', { modules: false, forceAllTransforms: true }],
     '@babel/preset-react',
   ],
   plugins,
-})
+}
+
+export default babel

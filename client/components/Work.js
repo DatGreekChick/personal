@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Link from './Link'
-import Expand from './Expand'
+import Link from '~/client/components/Link'
+import Expand from '~/client/components/Expand'
 
 import { ResumeButton } from '~/client/styles/button'
 

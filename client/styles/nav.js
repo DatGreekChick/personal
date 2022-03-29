@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   color: ghostwhite;
   display: flex;
   justify-content: space-around;
-  align-items: right;
+  align-items: flex-end;
   margin: 0;
   padding: 1rem 0;
   width: 100%;
