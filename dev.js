@@ -4,11 +4,12 @@
  * hot loading.
  */
 
-const debug = require('debug')('dev')
-const { spawn: spawnChild } = require('child_process')
-const thru = require('through2')
-const chalk = require('chalk')
-const strip = require('strip-ansi')
+import debug from 'debug'
+import { spawn as spawnChild } from 'child_process'
+import thru from 'through2'
+import chalk from 'chalk'
+import strip from 'strip-ansi'
+
 const colors = [chalk.cyan, chalk.green, chalk.magenta, chalk.blue]
 let nextColorIdx = 0
 
@@ -45,7 +46,7 @@ firebaseServe.stdout
     thru(function (line, enc, cb) {
       // To avoid confusion, we don't pass through stdout until
       // after the "listening" line has passed.
-      cb(null, hasStartedListening ? line : debug('%s', line))
+      cb(null, hasStartedListening ? line : debug('dev')('%s', line))
 
       // Is this the line telling us where the local server is?
       const match = line.toString().match(localServerRe)
@@ -65,8 +66,8 @@ firebaseServe.stderr.pipe(process.stderr)
 
 // Once `firebase serve` has started, launch webpack-dev-server
 // with the appropriate environment variables set.
-firebaseUrl.then(FIREBASE_SERVE_URL => {
-  const devServer = spawn(
+firebaseUrl.then(FIREBASE_SERVE_URL =>
+  spawn(
     '🌍  webpack dev server',
     'npx',
     ['webpack', 'serve', '--open', ...process.argv.slice(2)],
@@ -81,7 +82,7 @@ firebaseUrl.then(FIREBASE_SERVE_URL => {
       ),
     }
   ).toConsole()
-})
+)
 
 function spawn(label, ...args) {
   const child = spawnChild(...args)

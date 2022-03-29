@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form'
+import Form from '~/client/components/Form'
 
 import windowTrick from '~/client/window'
 

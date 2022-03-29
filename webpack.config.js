@@ -1,8 +1,14 @@
-const { GenerateSW } = require('workbox-webpack-plugin')
-const DotEnv = require('dotenv-webpack')
+import { resolve } from 'path'
 
-const babel = require('./babel.config')
-const { isHot, isProd } = require('./env.config')
+import { GenerateSW } from 'workbox-webpack-plugin'
+import Dotenv from 'dotenv-webpack'
+
+import babel from './babel.config.js'
+
+const isProd = ({ NODE_ENV }) => NODE_ENV === JSON.stringify('production')
+const isHot = env => !isProd(env)
+
+const __dirname = resolve()
 
 const config = env => ({
   entry: ['react-hot-loader/patch', './main.js'],
@@ -72,7 +78,7 @@ const config = env => ({
 })
 
 const plugins = env => {
-  const commonPlugins = [new DotEnv({ systemvars: true })]
+  const commonPlugins = [new Dotenv({ systemvars: true })]
   return isHot(env)
     ? [...commonPlugins]
     : [
@@ -99,4 +105,4 @@ function devServer(env) {
   }
 }
 
-module.exports = config(process.env)
+export default config(process.env)
