@@ -8,14 +8,14 @@ import debug from 'debug'
 import { spawn as spawnChild } from 'child_process'
 import thru from 'through2'
 import chalk from 'chalk'
-import strip from 'strip-ansi'
+import stripAnsi from 'strip-ansi'
 
 const colors = [chalk.cyan, chalk.green, chalk.magenta, chalk.blue]
 let nextColorIdx = 0
 
 let resolveFirebaseUrl = null
 let hasStartedListening = false
-const firebaseUrl = new Promise(r => (resolveFirebaseUrl = r)).then(strip)
+const firebaseUrl = new Promise(r => (resolveFirebaseUrl = r)).then(stripAnsi)
 
 // `firebase serve` prints a line that looks like this
 // when it starts listening:
