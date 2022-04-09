@@ -49,8 +49,8 @@ export default () => {
         during that time, but everything I created was static. Craving to expand
         my technical capabilities coupled with a desire to build dynamic apps
         and a love for languages, I became a software engineer. Presently,
-        I&apos;m taking a few weeks off to recharge before starting my new role
-        as a Software Engineer at Cisco Meraki on the Dashboard Features team!
+        I&apos;m working as a Software Engineer at Cisco Meraki on the Dashboard
+        Features team!
       </Description>
       <NavLink to='/contact'>
         <Button text='Say hi' />
