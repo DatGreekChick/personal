@@ -70,7 +70,7 @@ firebaseUrl.then(FIREBASE_SERVE_URL =>
   spawn(
     '🌍  webpack dev server',
     'npx',
-    ['webpack', 'serve', '--open', ...process.argv.slice(2)],
+    ['webpack', 'serve', '--hot', '--open', ...process.argv.slice(2)],
     {
       env: Object.assign(
         {

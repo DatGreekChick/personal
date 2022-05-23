@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Contact = styled.div`
+export const StyledContact = styled.div`
   overflow: hidden;
   padding: 0 5% 3% 5%;
 `

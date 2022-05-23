@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-import { Footer, Copyright, Icon } from '~/client/styles/footer'
+import { StyledFooter, Copyright, Icon } from '~/client/styles/footer'
 
 const socialLinks = [
   ['https://github.com/datgreekchick', brands('github'), '#6e5494'],
@@ -12,8 +12,8 @@ const socialLinks = [
   ['mailto:eleni.arvanitis@me.com', solid('envelope'), '#fbbc05'],
 ]
 
-export default () => (
-  <Footer role='contentinfo'>
+const Footer = () => (
+  <StyledFooter role='contentinfo'>
     <Copyright>&copy; {`${new Date().getFullYear()} Eleni Konior`}</Copyright>
     <div>
       {socialLinks.map(link => (
@@ -30,5 +30,7 @@ export default () => (
         </Icon>
       ))}
     </div>
-  </Footer>
+  </StyledFooter>
 )
+
+export default Footer

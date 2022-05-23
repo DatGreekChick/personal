@@ -3,13 +3,18 @@ import Form from '~/client/components/Form'
 
 import windowTrick from '~/client/window'
 
-import { Contact, ContactForm, H2, Disclaimer } from '~/client/styles/contact'
+import {
+  StyledContact,
+  ContactForm,
+  H2,
+  Disclaimer,
+} from '~/client/styles/contact'
 
-export default () => {
+const Contact = () => {
   windowTrick()
 
   return (
-    <Contact>
+    <StyledContact>
       <H2>Let&apos;s Work Together!</H2>
       <ContactForm>
         <span>
@@ -20,6 +25,8 @@ export default () => {
           </Disclaimer>
         </span>
       </ContactForm>
-    </Contact>
+    </StyledContact>
   )
 }
+
+export default Contact

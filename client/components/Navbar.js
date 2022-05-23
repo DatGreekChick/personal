@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { Nav, Logo, StyledNavLink } from '~/client/styles/nav'
 
-export default () => (
+const Navbar = () => (
   <Nav role='navigation'>
     <NavLink to='/'>
       <Logo src='/assets/img/CreamLogo.png' alt='eak-logo-cream' />
@@ -15,3 +15,5 @@ export default () => (
     ))}
   </Nav>
 )
+
+export default Navbar

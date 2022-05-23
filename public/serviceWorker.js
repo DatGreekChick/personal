@@ -1,21 +1,27 @@
+const CACHE_NAME = 'v1'
 const urlsToCache = [
-    '.',
-    '/assets/styles/index.css',
-    '/assets/styles/contact.css',
-    '/assets/img/CreamLogo.png',
-    '/client/styles/home.js',
-    '/client/styles/button.js',
-    '/client/styles/nav.js',
-    '/client/styles/footer.js',
-    '/client/styles/about.js',
-    '/client/styles/work.js',
-    '/client/styles/articles.js',
-    '/client/styles/contact.js',
-    'main.bundle.js',
-    'index.html',
-    'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
-  ],
-  CACHE_NAME = 'v1'
+  '.',
+  '/assets/styles/index.css',
+  '/assets/styles/contact.css',
+  '/assets/img/CreamLogo.png',
+  '/client/styles/home.js',
+  '/client/styles/button.js',
+  '/client/styles/nav.js',
+  '/client/styles/footer.js',
+  '/client/styles/about.js',
+  '/client/styles/work.js',
+  '/client/styles/articles.js',
+  '/client/styles/contact.js',
+  'main.bundle.js',
+  'index.html',
+  'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
+]
+
+// https://stackoverflow.com/a/70863551
+const containsChromeExtension = ({ url }) =>
+  url.startsWith('chrome-extension') ||
+  url.includes('extension') ||
+  url.startsWith('http')
 
 self.addEventListener('install', evt => {
   // Perform install steps
@@ -28,6 +34,10 @@ self.addEventListener('install', evt => {
 })
 
 self.addEventListener('fetch', evt => {
+  if (containsChromeExtension(evt.request)) {
+    return;
+  }
+
   evt.respondWith(
     caches.match(evt.request).then(res => {
       // Cache hit - return response
@@ -45,10 +55,9 @@ self.addEventListener('fetch', evt => {
           return res
         }
 
-        // IMPORTANT: Clone the response. A response is a stream
-        // and because we want the browser to consume the response
-        // as well as the cache consuming the response, we need
-        // to clone it so we have two streams.
+        // IMPORTANT: Clone the response. A response is a stream and because we
+        // want the browser to consume the response as well as the cache
+        // consuming the response, we need to clone it so we have two streams.
         const responseToCache = res.clone()
 
         caches.open(CACHE_NAME).then(cache => {

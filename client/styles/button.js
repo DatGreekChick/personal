@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
   flex: 1 1 auto;
   margin: 10px auto;
   padding: 10px 25px;
@@ -46,13 +46,13 @@ export const Button = styled.button`
   }
 `
 
-export const ResumeButton = styled(Button)`
+export const ResumeButton = styled(StyledButton)`
   position: relative;
   display: flex;
   align-items: center;
 `
 
-export const ProjectLinkButton = styled(Button)`
+export const ProjectLinkButton = styled(StyledButton)`
   margin: 4% 1% 0 1%;
 
   @media (min-width: 0px) and (max-width: 767px) {
@@ -60,7 +60,7 @@ export const ProjectLinkButton = styled(Button)`
   }
 `
 
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled(StyledButton)`
   margin: 10% auto;
   padding: 4% 12%;
 `

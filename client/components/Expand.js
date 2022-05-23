@@ -13,7 +13,7 @@ import {
 
 import db from '~/db/firebase'
 
-export default () => {
+const Expand = () => {
   const [isHidden, setIsHidden] = useState(true)
   const [selectedProject, setSelectedProject] = useState('')
   const [projects, setProjects] = useState([])
@@ -73,3 +73,5 @@ export default () => {
     )
   })
 }
+
+export default Expand
