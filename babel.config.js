@@ -2,7 +2,7 @@ const plugins = [
   '@babel/plugin-transform-runtime',
   'babel-plugin-styled-components',
   'macros',
-  'react-hot-loader/babel',
+  process.env.NODE_ENV === 'development' && 'react-refresh/babel',
 ]
 
 const babel = {
@@ -10,7 +10,7 @@ const babel = {
     ['@babel/preset-env', { modules: false, forceAllTransforms: true }],
     '@babel/preset-react',
   ],
-  plugins,
+  plugins: plugins.filter(Boolean),
 }
 
 export default babel

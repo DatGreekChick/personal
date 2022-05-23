@@ -19,3 +19,6 @@ function main() {
 }
 
 main()
+
+// eslint-disable-next-line no-undef
+import.meta.webpackHot && import.meta.webpackHot.accept('~/client/App', main)

@@ -2,10 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Button from '~/client/components/Button'
-import { About, AboutHeader, AboutText } from '~/client/styles/about'
+import { StyledAbout, AboutHeader, AboutText } from '~/client/styles/about'
 
-export default () => (
-  <About>
+const About = () => (
+  <StyledAbout>
     <AboutHeader>Creating useful and engaging software</AboutHeader>
     <AboutText>
       <p>
@@ -34,5 +34,7 @@ export default () => (
     <NavLink to='/work'>
       <Button text='See my work' />
     </NavLink>
-  </About>
+  </StyledAbout>
 )
+
+export default About

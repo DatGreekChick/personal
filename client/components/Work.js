@@ -7,7 +7,7 @@ import { ResumeButton } from '~/client/styles/button'
 
 import windowTrick from '~/client/window'
 
-export default () => {
+const Work = () => {
   windowTrick()
 
   return (
@@ -19,3 +19,5 @@ export default () => {
     </>
   )
 }
+
+export default Work

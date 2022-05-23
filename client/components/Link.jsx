@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { Link } from '~/client/styles/link'
+import { StyledLink } from '~/client/styles/link'
 
-export default props => (
-  <Link rel='noopener' target='_blank' {...props}>
+const Link = props => (
+  <StyledLink rel='noopener' target='_blank' {...props}>
     {props.children}
-  </Link>
+  </StyledLink>
 )
+
+export default Link

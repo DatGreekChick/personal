@@ -14,7 +14,7 @@ import {
 
 import db from '~/db/firebase'
 
-export default () => {
+const Articles = () => {
   const [articles, setArticles] = useState([])
   useEffect(
     () =>
@@ -38,3 +38,5 @@ export default () => {
     </Article>
   ))
 }
+
+export default Articles

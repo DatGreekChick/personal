@@ -2,9 +2,13 @@ import React from 'react'
 
 import Link from '~/client/components/Link'
 
-import { Button, ProjectLinkButton, SubmitButton } from '~/client/styles/button'
+import {
+  StyledButton,
+  ProjectLinkButton,
+  SubmitButton,
+} from '~/client/styles/button'
 
-export default ({ text }) => <Button>{text}</Button>
+const Button = ({ text }) => <StyledButton>{text}</StyledButton>
 export const Submit = props => (
   <SubmitButton type='submit' {...props}>
     Submit
@@ -23,3 +27,5 @@ export const ProjectLink = ({ link }) => (
     <ProjectLinkButton>{determineProjectButtonText(link)}</ProjectLinkButton>
   </Link>
 )
+
+export default Button

@@ -5,7 +5,7 @@ import { presets } from 'react-text-transition'
 import Button from '~/client/components/Button'
 import { Me, Carousel, Description } from '~/client/styles/home'
 
-export default () => {
+const Home = () => {
   const [idx, setIdx] = useState(0)
   const me = [
     ' a software engineer 👩🏻‍💻',
@@ -58,3 +58,5 @@ export default () => {
     </Me>
   )
 }
+
+export default Home

@@ -36,7 +36,7 @@ const getInputs = ({ name, email, message }) => [
   },
 ]
 
-export default () => {
+const Form = () => {
   const { addToast } = useToasts()
   const { executeRecaptcha } = useGoogleReCaptcha()
   const initialState = {
@@ -107,3 +107,5 @@ export default () => {
     </form>
   )
 }
+
+export default Form

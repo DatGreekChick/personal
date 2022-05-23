@@ -1,7 +1,8 @@
 import { resolve } from 'path'
 
-import { GenerateSW } from 'workbox-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import Dotenv from 'dotenv-webpack'
+import { GenerateSW } from 'workbox-webpack-plugin'
 
 import babel from './babel.config.js'
 
@@ -11,7 +12,7 @@ const isHot = env => !isProd(env)
 const __dirname = resolve()
 
 const config = env => ({
-  entry: ['react-hot-loader/patch', './main.js'],
+  entry: './main.js',
   mode: isHot(env) ? 'development' : 'production',
   output: {
     filename: '[name].bundle.js',
@@ -22,7 +23,6 @@ const config = env => ({
     extensions: ['.jsx', '.js', '.json'],
     alias: {
       '~': __dirname,
-      'react-dom': '@hot-loader/react-dom',
     },
   },
   devServer: devServer(env),
@@ -80,7 +80,7 @@ const config = env => ({
 const plugins = env => {
   const commonPlugins = [new Dotenv({ systemvars: true })]
   return isHot(env)
-    ? [...commonPlugins]
+    ? [...commonPlugins, new ReactRefreshWebpackPlugin()]
     : [
         ...commonPlugins,
         new GenerateSW({

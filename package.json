@@ -11,8 +11,8 @@
     }
   },
   "scripts": {
-    "build": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "build": "webpack build --mode development",
+    "build:prod": "webpack build --mode production",
     "clean": "rm public/*.bundle.js public/*.hot-update.js*",
     "deploy": "npm run build:prod && npx firebase deploy",
     "lint": "eslint . --ext .js,.jsx",
@@ -51,6 +51,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/runtime": "^7.17.9",
     "@hot-loader/react-dom": "^17.0.2",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.4",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.0.7",
@@ -69,7 +70,7 @@
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.2",
     "react-async-script": "^1.2.0",
-    "react-hot-loader": "^4.13.0",
+    "react-refresh": "^0.13.0",
     "react-test-renderer": "^17.0.2",
     "strip-ansi": "^7.0.1",
     "style-loader": "^3.3.1",
