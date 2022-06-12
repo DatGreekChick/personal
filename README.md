@@ -47,11 +47,6 @@ email using `emailjs`. The Google ReCAPTCHA library helps verify a human's
 (online) humanity to prevent bots from submitting the form. It uses ReCAPTCHA
 v3, which is invisible.
 
-### Testing
-
-For testing, switch to the `testing` branch, which has my css import statements
-commented out in my various components.
-
 [medium article on codeburst]:
   https://codeburst.io/five-ways-becoming-a-software-engineer-made-me-a-wizard-de1060fc04d4
 [react]: https://reactjs.org/
