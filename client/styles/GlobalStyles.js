@@ -19,6 +19,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fontFamily};
   }
 
+  a {
+    text-decoration: none;
+    position: relative;
+  }
+
   *:focus {
     outline: none;
   }
