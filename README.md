@@ -21,14 +21,15 @@ The frontend starts in [`main.js`]. The root of the React app is in [`App.jsx`].
 #### a word about ~
 
 The webpack config aliases `~` to mean "the root of the app". For example, you
-can `import firebase from '~/fire'` anywhere in the app, without worrying about
+can `import db from '~/db/firebase'` anywhere in the app, without worrying about
 how many `..`s to have in the relative path.
 
-### Hot Loading
+### Fast Refreshing
 
-Hot module replacement is enabled, using `react-hot-loader` as the Babel plugin
-and adding `new webpack.HotModuleReplacementPlugin` to enable hot reloading
-globally. The latter is applied in [`webpack.config.js`].
+Fast Refreshing is enabled, using `react-refresh` as the Babel plugin and adding
+`plugins: [new ReactRefreshWebpackPlugin()]` (along with
+`devServer: { hot: true }`) to enable fast refreshing globally. The latter is
+applied in [`webpack.config.js`] via the specific [webpack plugin].
 
 The React components will update in place after saving, without losing their
 state.
@@ -60,3 +61,4 @@ v3, which is invisible.
 [`main.js`]: main.js
 [`app.jsx`]: client/App.jsx
 [`webpack.config.js`]: webpack.config.js
+[webpack plugin]: https://github.com/pmmmwh/react-refresh-webpack-plugin
