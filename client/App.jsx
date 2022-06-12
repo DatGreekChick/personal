@@ -1,8 +1,6 @@
 import React from 'react'
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 
-import '~/public/assets/styles/index.css'
-
 import Navbar from '~/client/components/Navbar'
 import About from '~/client/components/About'
 import Home from '~/client/components/Home'
