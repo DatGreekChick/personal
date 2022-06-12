@@ -1,7 +1,6 @@
 const CACHE_NAME = 'v1'
 const urlsToCache = [
   '.',
-  '/assets/styles/contact.css',
   '/assets/img/CreamLogo.png',
   '/client/styles/GlobalStyles.js',
   '/client/styles/home.js',
