@@ -7,7 +7,7 @@ For information on my journey to becoming a Software Engineer, check out my
 
 ## Tech Stack
 
-- ⚛️ [React]/[React Hot Loader] (HMR) for speed, scalability, and simplicity
+- ⚛️ [React]/[React Refresh] (HMR) for speed, scalability, and simplicity
 - 🔥 [Firebase] for painless deployment and real-time data storage/display
 - 💅🏾 [`styled-components`] for easy CSS stylin'
 - 📧 [EmailJS] for server-less contact form submissions direct to my inbox
@@ -55,7 +55,8 @@ commented out in my various components.
 [medium article on codeburst]:
   https://codeburst.io/five-ways-becoming-a-software-engineer-made-me-a-wizard-de1060fc04d4
 [react]: https://reactjs.org/
-[react hot loader]: https://github.com/gaearon/react-hot-loader
+[react refresh]:
+  https://github.com/facebook/react/tree/main/packages/react-refresh
 [firebase]: https://firebase.google.com/
 [`styled-components`]: https://styled-components.com/
 [emailjs]: https://www.emailjs.com/
