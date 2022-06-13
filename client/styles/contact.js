@@ -42,15 +42,6 @@ export const TextArea = styled.textarea`
   ${inputAndTextAreaStyles}
 `
 
-export const H2 = styled.h2`
-  font-size: 60pt;
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    font-size: 49pt;
-    margin: 5% auto 15% auto;
-  }
-`
-
 export const Disclaimer = styled.p`
   font-size: 5pt;
   font-style: italic;

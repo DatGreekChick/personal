@@ -2,11 +2,12 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Button from '~/client/components/Button'
-import { StyledAbout, AboutHeader, AboutText } from '~/client/styles/about'
+import { StyledAbout, AboutText } from '~/client/styles/about'
+import { Header } from '~/client/styles'
 
 const About = () => (
   <StyledAbout>
-    <AboutHeader>Creating useful and engaging software</AboutHeader>
+    <Header fontSize='30'>Creating useful and engaging software</Header>
     <AboutText>
       <p>
         Every day I get to ride the insatiable roller coaster that is software
