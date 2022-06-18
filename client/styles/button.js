@@ -62,5 +62,4 @@ export const ProjectLinkButton = styled(StyledButton)`
 
 export const SubmitButton = styled(StyledButton)`
   margin: 0 auto 8% auto;
-  padding: 3% 10%;
 `
