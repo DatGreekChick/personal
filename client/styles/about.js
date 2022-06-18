@@ -2,10 +2,9 @@ import styled from 'styled-components'
 
 export const StyledAbout = styled.div`
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 0 3% 3% 3%;
-  margin-right: 60%;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  width: 80%;
 
   @media (min-width: 0px) and (max-width: 319px) {
     padding-right: 1%;
