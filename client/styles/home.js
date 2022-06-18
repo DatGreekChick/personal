@@ -4,23 +4,15 @@ import TextTransition from 'react-text-transition'
 
 export const Me = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  padding: 5% 5% 7% 3%;
-  margin-left: 55%;
+  justify-content: space-around;
+  padding-top: 5%;
   font-size: 18pt;
-  flex-direction: column;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  width: 80%;
 
   @media (min-width: 0px) and (max-width: 320px) {
     font-size: 12pt;
-    padding: 5% 0 0 6%;
-  }
-
-  @media (min-width: 321px) and (max-width: 480px) {
-    font-size: 16pt;
-  }
-
-  @media (min-width: 0) and (max-width: 1024px) {
-    margin: 0 auto;
   }
 `
 
@@ -30,10 +22,10 @@ export const Carousel = styled(TextTransition)`
 `
 
 export const Description = styled.p`
-  font-size: 15pt;
+  font-size: 14pt;
   font-weight: 300;
-  margin-top: 10%;
-  padding-bottom: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 
   @media (min-width: 0px) and (max-width: 319px) {
     font-size: 12pt;
@@ -41,10 +33,5 @@ export const Description = styled.p`
 
   @media (min-width: 320px) and (max-width: 767px) {
     font-size: 13pt;
-  }
-
-  @media (min-width: 0px) and (max-width: 1024px) {
-    margin-top: 5%;
-    padding-bottom: 1%;
   }
 `

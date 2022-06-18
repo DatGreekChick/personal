@@ -10,7 +10,7 @@ export const DatePosted = styled.p`
 `
 
 export const Description = styled.p`
-  font-size: large;
+  font-size: 14pt;
 `
 
 export const StyledHr = styled.hr`
