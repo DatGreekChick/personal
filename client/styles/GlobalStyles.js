@@ -32,12 +32,6 @@ const GlobalStyle = createGlobalStyle`
     opacity: 0;
     left: 0;
   }
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    body {
-      background-image: none;
-    }
-  }
 `
 
 export default GlobalStyle
