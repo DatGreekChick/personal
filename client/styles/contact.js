@@ -29,6 +29,7 @@ const inputAndTextAreaStyles = css`
 export const StyledForm = styled.form`
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   width: 50%;
 `
 
