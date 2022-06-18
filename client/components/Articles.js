@@ -5,11 +5,11 @@ import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
 
 import {
+  Article,
   ArticleTitle,
   DatePosted,
   Description,
   StyledHr,
-  Article,
 } from '~/client/styles/articles'
 
 import db from '~/db/firebase'
@@ -24,17 +24,15 @@ const Articles = () => {
     []
   )
 
-  return articles.reverse().map(article => (
+  return articles.reverse().map((article, idx) => (
     <Article key={article.title}>
-      <>
-        <ArticleTitle>{article.title}</ArticleTitle>
-        <DatePosted>{article['date-posted']}</DatePosted>
-        <Description>{article.description}</Description>
-        <Link href={article.link}>
-          <Button text='Read More ↗' />
-        </Link>
-        <StyledHr />
-      </>
+      <ArticleTitle>{article.title}</ArticleTitle>
+      <DatePosted>{article['date-posted']}</DatePosted>
+      <Description>{article.description}</Description>
+      <Link href={article.link}>
+        <Button text='Read More ↗' />
+      </Link>
+      {idx !== articles.length - 1 && <StyledHr />}
     </Article>
   ))
 }
