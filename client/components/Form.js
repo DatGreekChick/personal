@@ -12,7 +12,7 @@ import { Input, TextArea } from '~/client/styles/contact'
 // emailJS IDs
 const serviceId = process.env.EMAILJS_SERVICE_ID
 const templateId = process.env.EMAILJS_TEMPLATE_ID
-const userId = process.env.EMAILJS_USER_ID
+const publicId = process.env.EMAILJS_PUBLIC_ID
 
 const getInputs = ({ name, email, message }) => [
   {
@@ -74,9 +74,10 @@ const Form = () => {
       reply_to: state.email,
     }
 
+    const content = `${state.name}, your email has been sent!`
     emailjs
-      .send(serviceId, templateId, emailTemplate, userId)
-      .then(() => addToast('Email sent!', { appearance: 'success' }))
+      .send(serviceId, templateId, emailTemplate, publicId)
+      .then(() => addToast(content, { appearance: 'success' }))
       .catch(err => addToast(err.text, { appearance: 'error' }))
       .finally(() => setState(initialState))
   }
