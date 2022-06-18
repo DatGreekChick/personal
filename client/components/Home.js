@@ -34,13 +34,10 @@ const Home = () => {
   return (
     <Me>
       <span>
-        I am <span />
-        <Carousel
-          direction='up'
-          inline={true}
-          text={me[idx % me.length]}
-          springConfig={presets.gentle}
-        />
+        I am{' '}
+        <Carousel direction='up' springConfig={presets.gentle} inline>
+          {me[idx % me.length]}
+        </Carousel>
       </span>
       <Description>
         After graduating from NYU with a B.A. in Economics, I decided to tap
