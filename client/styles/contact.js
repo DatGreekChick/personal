@@ -1,26 +1,41 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledContact = styled.div`
-  overflow: hidden;
-  padding: 0 5% 3% 5%;
-`
-
-export const ContactForm = styled.div`
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
 `
 
-const inputAndTextAreaStyles = `
+const inputAndTextAreaStyles = css`
   font-size: 16pt;
-  width: calc(100% / 0.5);
+  text-align: center;
+  width: 100%;
   padding: 1% 0;
+  margin-bottom: 10%;
   background: transparent;
   border: transparent;
   border-bottom: 1.5px solid gray;
-  
-  @media (min-width: 320px) and (max-width: 480px) {
-    width: calc(100% / 0.75);
+
+  :focus {
+    border-bottom: 1.5px solid #e0bf9f;
+    transition: all 0.25s ease-in-out;
+  }
+`
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-flow: column nowrap;
+  width: 50%;
+`
+
+export const Asterisk = styled.label`
+  :after {
+    color: red;
+    content: '* ';
   }
 `
 
@@ -28,11 +43,6 @@ export const Input = styled.input`
   -webkit-backface-visibility: hidden;
   margin-bottom: 20%;
   ${inputAndTextAreaStyles}
-
-  :focus {
-    border-bottom: 1.5px solid #e0bf9f;
-    transition: all 0.25s ease-in-out;
-  }
 `
 
 export const TextArea = styled.textarea`

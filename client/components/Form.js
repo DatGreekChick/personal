@@ -7,7 +7,7 @@ import { useToasts } from 'react-toast-notifications'
 import emailjs from '@emailjs/browser'
 
 import { Submit } from '~/client/components/Button'
-import { Input, TextArea } from '~/client/styles/contact'
+import { Asterisk, Input, StyledForm, TextArea } from '~/client/styles/contact'
 
 // emailJS IDs
 const serviceId = process.env.EMAILJS_SERVICE_ID
@@ -84,7 +84,7 @@ const Form = () => {
 
   const inputs = getInputs(state)
   return (
-    <form onSubmit={sendEmail}>
+    <StyledForm onSubmit={sendEmail}>
       {inputs.map(({ type, name, placeholder, value }) => {
         const inputProps = {
           name,
@@ -95,17 +95,18 @@ const Form = () => {
 
         return (
           <label key={name}>
+            <Asterisk />
+            {name.charAt(0).toUpperCase() + name.slice(1)}
             {name !== 'message' ? (
               <Input type={type} required {...inputProps} />
             ) : (
               <TextArea required {...inputProps} />
             )}
-            <br />
           </label>
         )
       })}
       <Submit onClick={verifyHumanity} />
-    </form>
+    </StyledForm>
   )
 }
 
