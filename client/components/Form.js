@@ -100,7 +100,7 @@ const Form = () => {
             {name !== 'message' ? (
               <Input type={type} required {...inputProps} />
             ) : (
-              <TextArea required {...inputProps} />
+              <TextArea maxLength={1500} rows={5} required {...inputProps} />
             )}
           </label>
         )
