@@ -11,7 +11,7 @@ export const StyledContact = styled.div`
 `
 
 const inputAndTextAreaStyles = css`
-  font-size: 16pt;
+  font-size: 14pt;
   text-align: center;
   width: 100%;
   padding: 1% 0;
