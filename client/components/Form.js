@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import { useToasts } from 'react-toast-notifications'
+import toast, { Toaster } from 'react-hot-toast'
 
 import emailjs from '@emailjs/browser'
 
@@ -37,7 +37,6 @@ const getInputs = ({ name, email, message }) => [
 ]
 
 const Form = () => {
-  const { addToast } = useToasts()
   const { executeRecaptcha } = useGoogleReCaptcha()
   const initialState = {
     name: '',
@@ -77,14 +76,15 @@ const Form = () => {
     const content = `${state.name}, your email has been sent!`
     emailjs
       .send(serviceId, templateId, emailTemplate, publicId)
-      .then(() => addToast(content, { appearance: 'success' }))
-      .catch(err => addToast(err.text, { appearance: 'error' }))
+      .then(() => toast.success(content))
+      .catch(err => toast.error(err.text))
       .finally(() => setState(initialState))
   }
 
   const inputs = getInputs(state)
   return (
     <StyledForm onSubmit={sendEmail}>
+      <Toaster duration={3000} />
       {inputs.map(({ type, name, placeholder, value }) => {
         const inputProps = {
           name,
