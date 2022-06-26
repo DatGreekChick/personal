@@ -59,7 +59,7 @@ export const StyledNavLink = styled(NavLink)`
     transform: scaleX(1);
   }
 
-  active {
+  :active {
     border-bottom: 1.5px solid #e0bf9f;
     color: inherit;
   }

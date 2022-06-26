@@ -9,7 +9,7 @@ export const Project = styled.div`
   text-align: center;
   cursor: pointer;
 
-  @media (min-width: 320) and (max-width: 1024px) {
+  @media (min-width: 320px) and (max-width: 1024px) {
     padding: 6% 0;
     font-size: 20pt;
   }
