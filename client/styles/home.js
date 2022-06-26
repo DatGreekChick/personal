@@ -9,7 +9,7 @@ export const Me = styled.div`
   font-size: 18pt;
   flex-flow: column nowrap;
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
 
   @media (min-width: 0px) and (max-width: 320px) {
     font-size: 12pt;

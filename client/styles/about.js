@@ -4,7 +4,7 @@ export const StyledAbout = styled.div`
   display: flex;
   flex-flow: column wrap;
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
 
   @media (min-width: 0px) and (max-width: 319px) {
     padding-right: 1%;
