@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import TextTransition from 'react-text-transition'
 
 export const Me = styled.div`
