@@ -9,7 +9,7 @@ const socialLinks = [
   ['https://linkedin.com/in/eleniarvanitis', brands('linkedin'), '#0077b5'],
   ['https://datgreekchick.medium.com', brands('medium'), '#00ab6c'],
   ['https://twitter.com/datgreekchick', brands('twitter'), '#1DA1F2'],
-  ['mailto:eleni.arvanitis@me.com', solid('envelope'), '#fbbc05'],
+  ['mailto:eleni.arvanitis@me.com', solid('at'), '#fbbc05'],
 ]
 
 const Footer = () => (
