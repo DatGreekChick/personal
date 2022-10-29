@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { onSnapshot, collection } from 'firebase/firestore'
 
+import useExpansion from '~/client/hooks/useExpansion'
 import { ProjectLink } from '~/client/components/Button'
 import {
   ProjectStyle,
@@ -14,9 +15,8 @@ import {
 import db from '~/db/firebase'
 
 const Expand = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [selectedItem, setSelectedItem] = useState('')
   const [items, setItems] = useState([])
+  const { toggle, isExpanded, expandedItem } = useExpansion()
 
   useEffect(
     () =>
@@ -26,30 +26,10 @@ const Expand = () => {
     []
   )
 
-  const toggle = evt => {
-    const item = evt.target.innerText
-
-    if (!selectedItem) {
-      setSelectedItem(item)
-    } else if (selectedItem && item !== selectedItem) {
-      // if there's an expanded item, but a different item was clicked, then
-      // hide the current item, set the new item, then expand that new item
-      setIsExpanded(false)
-      setSelectedItem(item)
-      setIsExpanded(true)
-    }
-
-    // if there isn't already an expanded item, or the same item was clicked,
-    // then set isExpanded to the opposite value
-    if (!selectedItem || selectedItem === item) {
-      setIsExpanded(!isExpanded)
-    }
-  }
-
   return items.map(({ name, role, description, technologies, links }) => (
     <ProjectStyle key={name}>
       <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
-      {isExpanded && selectedItem === name.toUpperCase() && (
+      {isExpanded && expandedItem === name.toUpperCase() && (
         <Detail>
           <Role>{role}</Role>
           <Description>{description}</Description>
