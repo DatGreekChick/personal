@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Project = styled.div`
+export const ProjectStyle = styled.div`
   align-items: center;
   justify-content: center;
   padding: 2% 0;
