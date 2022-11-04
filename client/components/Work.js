@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { collection, onSnapshot } from 'firebase/firestore'
+import React from 'react'
+
+import { useFetchProjectsQuery } from '~/api/index'
+import windowTrick from '~/client/window'
 
 import { ProjectLink } from '~/client/components/Button'
 import Link from '~/client/components/Link'
@@ -15,47 +17,37 @@ import {
   Tech,
 } from '~/client/styles/work'
 
-import db from '~/db/firebase'
-import windowTrick from '~/client/window'
-
 const Work = () => {
   windowTrick()
 
-  const [projects, setProjects] = useState([])
   const { toggle, isExpanded, expandedItem } = useExpansion()
-
-  useEffect(
-    () =>
-      onSnapshot(collection(db, 'projects'), snapshot =>
-        setProjects(snapshot.docs.map(doc => doc.data()))
-      ),
-    []
-  )
+  const { data: projects } = useFetchProjectsQuery()
 
   return (
     <>
       <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
       </Link>
-      {projects.map(({ name, role, description, technologies, links }) => (
-        <ProjectStyle key={name}>
-          <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
-          {isExpanded && expandedItem === name.toUpperCase() && (
-            <Detail>
-              <Role>{role}</Role>
-              <Description>{description}</Description>
-              <br />
-              {technologies.map(technology => (
-                <Tech key={technology}>{technology.toUpperCase()}</Tech>
-              ))}
-              <br />
-              {links.map((link, i) => (
-                <ProjectLink key={`${name}-${link}${i}`} link={link} />
-              ))}
-            </Detail>
-          )}
-        </ProjectStyle>
-      ))}
+      {projects &&
+        projects.map(({ name, role, description, technologies, links }) => (
+          <ProjectStyle key={name}>
+            <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
+            {isExpanded && expandedItem === name.toUpperCase() && (
+              <Detail>
+                <Role>{role}</Role>
+                <Description>{description}</Description>
+                <br />
+                {technologies.map(technology => (
+                  <Tech key={technology}>{technology.toUpperCase()}</Tech>
+                ))}
+                <br />
+                {links.map((link, i) => (
+                  <ProjectLink key={`${name}-${link}${i}`} link={link} />
+                ))}
+              </Detail>
+            )}
+          </ProjectStyle>
+        ))}
     </>
   )
 }
