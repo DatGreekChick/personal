@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { useFetchProjectsQuery } from '~/api/index'
-import windowTrick from '~/client/window'
 
 import { ProjectLink } from '~/client/components/Button'
 import Link from '~/client/components/Link'
@@ -18,8 +17,6 @@ import {
 } from '~/client/styles/work'
 
 const Work = () => {
-  windowTrick()
-
   const { toggle, isExpanded, expandedItem } = useExpansion()
   const { data: projects } = useFetchProjectsQuery()
 
