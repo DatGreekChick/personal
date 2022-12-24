@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Navbar from '~/client/components/Navbar'
 import About from '~/client/components/About'
@@ -9,20 +9,27 @@ import Articles from '~/client/components/Articles'
 import Contact from '~/client/components/Contact'
 import Footer from '~/client/components/Footer'
 
+const createChild = (path, element) => ({ path, element })
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navbar />,
+    children: [
+      createChild('/', <Home />),
+      createChild('/about', <About />),
+      createChild('/work', <Work />),
+      createChild('/articles', <Articles />),
+      createChild('/contact', <Contact />),
+    ],
+  },
+])
+
 const App = () => (
-  <Router>
-    <div>
-      <Navbar />
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/about' element={<About />} />
-        <Route exact path='/work' element={<Work />} />
-        <Route exact path='/articles' element={<Articles />} />
-        <Route exact path='/contact' element={<Contact />} />
-      </Routes>
-      <Footer />
-    </div>
-  </Router>
+  <>
+    <RouterProvider router={router} />
+    <Footer />
+  </>
 )
 
 export default App
