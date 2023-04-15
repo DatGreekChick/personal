@@ -7,28 +7,38 @@ export const Nav = styled.nav`
   font-weight: 800;
   color: ghostwhite;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin: 0;
-  padding: 1rem 0;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2%;
+  padding: 1rem;
   vertical-align: text-top;
-
-  @media (min-width: 320px) and (max-width: 480px) {
-    font-size: 13px;
-  }
 `
 
 export const Logo = styled.img`
-  min-width: 25px;
-  max-height: 35px;
-  display: inline-flex;
-  float: left;
+  display: flex;
+  align-items: center;
+  min-width: 15%;
+  max-height: 30px;
+`
 
-  @media (min-width: 320px) and (max-width: 480px) {
-    max-width: 25px;
-    max-height: 40px;
-  }
+export const MenuList = styled.ul`
+  list-style: none;
+  flex-direction: column;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 10%;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 4rem);
+  background-color: rgba(0, 0, 0, 1);
+`
+
+export const MenuItem = styled.li`
+  margin: 0;
+  padding: 1%;
 `
 
 export const StyledNavLink = styled(NavLink)`
