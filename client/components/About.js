@@ -1,14 +1,31 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
 import Button from '~/client/components/Button'
-import { StyledAbout, AboutText } from '~/client/styles/about'
 import { Header } from '~/client/styles'
+
+const StyledAbout = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  width: 60%;
+
+  @media (min-width: 0px) and (max-width: 319px) {
+    padding-right: 1%;
+  }
+
+  @media (min-width: 0px) and (max-width: 1024px) {
+    margin: 0 auto;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+`
 
 const About = () => (
   <StyledAbout>
     <Header fontSize='30'>Creating useful and engaging software</Header>
-    <AboutText>
+    <div style={{ fontSize: '14pt' }}>
       <p>
         Every day I get to ride the insatiable roller coaster that is software
         engineering! I&apos;ve built extensible Python pip packages, streamlined
@@ -31,7 +48,7 @@ const About = () => (
         biking, kayaking, or hiking, taking photos while traveling, catching a
         game of soccer, or strumming my bass guitar.
       </p>
-    </AboutText>
+    </div>
     <NavLink to='/work'>
       <Button text='See my work' />
     </NavLink>
