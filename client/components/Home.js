@@ -5,27 +5,28 @@ import { presets } from 'react-text-transition'
 import Button from '~/client/components/Button'
 import { Me, Carousel, Description } from '~/client/styles/home'
 
+const ME = [
+  'a software engineer 👩🏻‍💻',
+  'Greek 🇬🇷',
+  'an economist 📈',
+  'inquisitive 🤔',
+  'a gamer 🎮',
+  'innovative 💥',
+  'a Ravenclaw 🦅',
+  'adventurous 🌍',
+  'a bassist 🎸',
+  'fierce 🔥',
+  'a pioneer 🚀',
+  'imaginative ⚡️',
+  'a STEMinist 👩🏻‍🔬',
+]
+
 const Home = () => {
   const [idx, setIdx] = useState(0)
-  const me = [
-    ' a software engineer 👩🏻‍💻',
-    ' Greek 🇬🇷',
-    ' an economist 📈',
-    ' inquisitive 🤔',
-    ' a gamer 🎮',
-    ' innovative 💥',
-    ' a Ravenclaw 🦅',
-    ' adventurous 🌍',
-    ' a bassist 🎸',
-    ' fierce 🔥',
-    ' a pioneer 🚀',
-    ' imaginative ⚡️',
-    ' a STEMinist 👩🏻‍🔬',
-  ]
 
   useEffect(() => {
     const intervalId = setInterval(
-      () => setIdx(Math.floor(Math.random() * Math.floor(me.length))),
+      () => setIdx(Math.floor(Math.random() * Math.floor(ME.length))),
       3000 // every 3 seconds
     )
     return () => clearTimeout(intervalId)
@@ -36,7 +37,7 @@ const Home = () => {
       <span>
         I am{' '}
         <Carousel direction='up' springConfig={presets.gentle} inline>
-          {me[idx % me.length]}
+          {ME[idx % ME.length]}
         </Carousel>
       </span>
       <Description>
