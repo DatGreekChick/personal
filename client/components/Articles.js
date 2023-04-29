@@ -1,17 +1,27 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import { useFetchArticlesQuery } from '~/api/index'
 
 import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
 
-import {
-  Article,
-  ArticleTitle,
-  DatePosted,
-  Description,
-  StyledHr,
-} from '~/client/styles/articles'
+const StyledHr = styled.hr`
+  border-color: #e0bf9f;
+  margin-top: 4%;
+`
+
+const Article = styled.div`
+  padding: 0.5% 20%;
+
+  @media (min-width: 0px) and (max-width: 319px) {
+    padding: 2% 0 0 6%;
+  }
+
+  @media (min-width: 320px) and (max-width: 1024px) {
+    padding: 2% 8%;
+  }
+`
 
 const Articles = () => {
   const { data: articles } = useFetchArticlesQuery()
@@ -23,9 +33,11 @@ const Articles = () => {
       .reverse()
       .map((article, idx) => (
         <Article key={article.title}>
-          <ArticleTitle>{article.title}</ArticleTitle>
-          <DatePosted>{article['date-posted']}</DatePosted>
-          <Description>{article.description}</Description>
+          <h3 style={{ color: '#e0bf9f', fontSize: '18pt' }}>
+            {article.title}
+          </h3>
+          <p style={{ fontStyle: 'italic' }}>{article['date-posted']}</p>
+          <p style={{ fontSize: '14pt' }}>{article.description}</p>
           <Link href={article.link}>
             <Button text='Read More ↗' />
           </Link>
