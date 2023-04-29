@@ -8,10 +8,11 @@ For information on my journey to becoming a Software Engineer, check out my
 ## Tech Stack
 
 - ⚛️ [React]/[React Refresh] (HMR) for speed, scalability, and simplicity
-- 🔥 [Firebase] for painless deployment and real-time data storage/display
-- 💅🏾 [`styled-components`] for easy CSS stylin'
+- ️⚒️ [RTK Query] for cleaner Firebase queries and built-in caching
+- 🔥 [Firebase] for painless deployment and realtime data storage/display
+- 💅🏾 [`styled-components`] for easy CSS styling
 - 📧 [EmailJS] for server-less contact form submissions direct to my inbox
-- 🕸 [Webpack] v5 for bundling all assets
+- 🕸 [Webpack] for bundling all assets
 - 🤖 [Babel] for backwards compatible compilation
 
 ### Frontend
@@ -36,15 +37,15 @@ state.
 
 ### Progressive Web App (PWA)
 
-At some point in the development process, I discovered Google Chrome's
-Lighthouse and wanted to see 100 in my scores for all their available audits.
-So, upon visiting my page, there is a service worker registered, which caches
-the root and all styles. I now have a :100:.
+Google Chrome's Lighthouse is a great tool that has many audit categories. By
+following their tips, upon visiting my page, there is a service worker
+registered, which caches the root and all styles. It's also fun to see scores of
+💯
 
 ### React Google Recaptcha
 
 I have implemented a form on `/contact` that sends submissions directly to my
-email using `emailjs`. The Google ReCAPTCHA library helps verify a human's
+inbox using `emailjs`. The Google ReCAPTCHA library helps verify a human's
 (online) humanity to prevent bots from submitting the form. It uses ReCAPTCHA
 v3, which is invisible.
 
@@ -53,6 +54,7 @@ v3, which is invisible.
 [react]: https://reactjs.org/
 [react refresh]:
   https://github.com/facebook/react/tree/main/packages/react-refresh
+[rtk query]: https://redux-toolkit.js.org/rtk-query/overview
 [firebase]: https://firebase.google.com/
 [`styled-components`]: https://styled-components.com/
 [emailjs]: https://www.emailjs.com/
