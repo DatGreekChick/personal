@@ -9,17 +9,7 @@ const StyledAbout = styled.div`
   display: flex;
   flex-flow: column wrap;
   margin: 0 auto;
-  width: 60%;
-
-  @media (min-width: 0px) and (max-width: 319px) {
-    padding-right: 1%;
-  }
-
-  @media (min-width: 0px) and (max-width: 1024px) {
-    margin: 0 auto;
-    padding-left: 8%;
-    padding-right: 8%;
-  }
+  width: 65%;
 `
 
 const About = () => (
