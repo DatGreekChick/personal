@@ -20,7 +20,7 @@ const About = () => (
         Every day I get to ride the insatiable roller coaster that is software
         engineering! I&apos;ve built extensible Python pip packages, streamlined
         aggregation engines in C++, created valuable HTTP REST APIs using Flask,
-        designed beautiful React frontends tracking diversity initiatives.
+        designed beautiful React frontends with millions of monthly hits.
         I&apos;m an engaging speaker, produce minimalist code, write killer
         documentation, and test everything. I absolutely love to learn, get a
         thrill when teaching others, and really dig pair programming.
