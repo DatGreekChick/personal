@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Button from '~/client/components/Button'
 
-export const Me = styled.div`
+const Me = styled.div`
   display: flex;
   justify-content: space-around;
   padding-top: 5%;
@@ -19,12 +19,12 @@ export const Me = styled.div`
   }
 `
 
-export const Carousel = styled(TextTransition)`
+const Carousel = styled(TextTransition)`
   font-weight: 600;
   color: #e0bf9f;
 `
 
-export const Description = styled.p`
+const Description = styled.p`
   font-size: 14pt;
   font-weight: 300;
   padding-top: 2%;
