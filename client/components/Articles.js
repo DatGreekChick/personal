@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import { useFetchArticlesQuery } from '~/api/index'
 
-import Link from '~/client/components/Link'
 import Button from '~/client/components/Button'
+import Link from '~/client/components/Link'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;

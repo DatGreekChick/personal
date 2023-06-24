@@ -3,8 +3,8 @@ import React from 'react'
 import Link from '~/client/components/Link'
 
 import {
-  StyledButton,
   ProjectLinkButton,
+  StyledButton,
   SubmitButton,
 } from '~/client/styles/button'
 

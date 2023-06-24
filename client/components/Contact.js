@@ -1,8 +1,9 @@
 import React from 'react'
+
 import Form from '~/client/components/Form'
 
-import { StyledContact, Disclaimer } from '~/client/styles/contact'
 import { Header } from '~/client/styles'
+import { Disclaimer, StyledContact } from '~/client/styles/contact'
 
 const Contact = () => (
   <StyledContact>

@@ -19,6 +19,10 @@
   },
   "rules": {
     "react/display-name": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "sort-imports": ["error", {
+      "memberSyntaxSortOrder": ["single", "all", "multiple", "none"],
+      "allowSeparatedGroups": true
+    }]
   }
 }
