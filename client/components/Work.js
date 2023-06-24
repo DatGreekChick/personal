@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useFetchProjectsQuery } from '~/api/index'
 
-import { ProjectLink } from '~/client/components/Button'
 import Link from '~/client/components/Link'
+import { ProjectLink } from '~/client/components/Button'
 import useExpansion from '~/client/hooks/useExpansion'
 
 import { ResumeButton } from '~/client/styles/button'

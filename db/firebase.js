@@ -1,4 +1,4 @@
-/* eslint no-undef: 0 */
+/* eslint no-undef: 0, sort-imports: 0 */
 
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
