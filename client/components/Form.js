@@ -90,6 +90,7 @@ const Form = () => {
           name,
           placeholder,
           value: value || '',
+          'aria-describedby': `required-${name}`,
           onChange: handleChange(name.toLowerCase()),
         }
 
@@ -98,13 +99,16 @@ const Form = () => {
             <Asterisk />
             {name.charAt(0).toUpperCase() + name.slice(1)}
             {name !== 'message' ? (
-              <Input type={type} required {...inputProps} />
+              <Input type={type} autoComplete={name} required {...inputProps} />
             ) : (
               <TextArea maxLength={1500} rows={5} required {...inputProps} />
             )}
           </label>
         )
       })}
+      <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
+        <Asterisk /> Required field
+      </span>
       <Submit onClick={verifyHumanity} />
     </StyledForm>
   )

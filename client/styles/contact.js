@@ -33,7 +33,7 @@ export const StyledForm = styled.form`
   width: 50%;
 `
 
-export const Asterisk = styled.label`
+export const Asterisk = styled.span`
   :after {
     color: red;
     content: '* ';
