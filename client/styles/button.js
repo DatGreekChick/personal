@@ -14,7 +14,7 @@ export const StyledButton = styled.button`
   background-color: transparent;
   color: ghostwhite;
 
-  :after {
+  &:after {
     position: absolute;
     transition: 0.4s;
     content: '';
@@ -27,17 +27,17 @@ export const StyledButton = styled.button`
     z-index: -1;
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.9);
   }
 
-  :hover:after {
+  &:hover&:after {
     left: -10%;
     width: 150%;
   }
 
-  :focus {
+  &:focus {
     outline: none;
   }
 

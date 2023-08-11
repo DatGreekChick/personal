@@ -28,7 +28,7 @@ const StyledFooter = styled.footer`
 const Icon = styled.a`
   padding-left: 12px;
 
-  :hover {
+  &:hover {
     color: ${props => props.color};
   }
 `

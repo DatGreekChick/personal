@@ -20,7 +20,7 @@ const inputAndTextAreaStyles = css`
   border: transparent;
   border-bottom: 1.5px solid gray;
 
-  :focus {
+  &:focus {
     border-bottom: 1.5px solid #e0bf9f;
     transition: all 0.25s ease-in-out;
   }
@@ -34,14 +34,13 @@ export const StyledForm = styled.form`
 `
 
 export const Asterisk = styled.span`
-  :after {
+  &:after {
     color: red;
     content: '* ';
   }
 `
 
 export const Input = styled.input`
-  -webkit-backface-visibility: hidden;
   margin-bottom: 20%;
   ${inputAndTextAreaStyles}
 `

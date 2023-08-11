@@ -24,7 +24,7 @@ const StyledNavLink = styled(NavLink)`
   position: relative;
   color: ghostwhite;
 
-  :before {
+  &:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -34,15 +34,12 @@ const StyledNavLink = styled(NavLink)`
     background-color: #e0bf9f;
     visibility: hidden;
     transform: scaleX(0);
-    -webkit-transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
-    -webkit-transition: all 0.3s ease-in-out 0s;
   }
 
-  :hover:before {
+  &:hover&:before {
     color: #e0bf9f;
     visibility: visible;
-    -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
 
