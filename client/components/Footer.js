@@ -11,7 +11,7 @@ const SOCIAL_LINKS = [
   [
     'https://stackoverflow.com/users/9431600/datgreekchick',
     brands('stack-overflow'),
-    '#F48024',
+    '#f48024',
   ],
   ['mailto:eleni.arvanitis@me.com', solid('at'), '#fbbc05'],
 ]
