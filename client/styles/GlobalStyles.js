@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
   }
 
-  *:focus {
+  &*:focus {
     outline: none;
   }
 

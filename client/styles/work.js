@@ -20,12 +20,12 @@ export const Lines = styled.span`
   display: inline-block;
   position: relative;
 
-  :hover {
+  &:hover {
     color: #e0bf9f;
   }
 
-  :before,
-  :after {
+  &:before,
+  &:after {
     content: '';
     position: absolute;
     height: 9px;
@@ -35,13 +35,13 @@ export const Lines = styled.span`
     width: 50%;
   }
 
-  :before {
+  &:before {
     right: 100%;
     margin-right: 15px;
     padding-top: 5px;
   }
 
-  :after {
+  &:after {
     left: 100%;
     margin-left: 15px;
     padding-top: 5px;
@@ -51,16 +51,16 @@ export const Lines = styled.span`
     line-height: normal;
     font-size: 20pt;
 
-    :before,
-    :after {
+    &:before,
+    &:after {
       border: none;
       left: 0;
     }
   }
 
   @media (min-width: 480px) and (max-width: 1024px) {
-    :before,
-    :after {
+    &:before,
+    &:after {
       width: 22%;
     }
   }
