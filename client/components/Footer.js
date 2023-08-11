@@ -8,7 +8,11 @@ const SOCIAL_LINKS = [
   ['https://github.com/datgreekchick', brands('github'), '#6e5494'],
   ['https://linkedin.com/in/eleniarvanitis', brands('linkedin'), '#0077b5'],
   ['https://datgreekchick.medium.com', brands('medium'), '#00ab6c'],
-  ['https://twitter.com/datgreekchick', brands('twitter'), '#1DA1F2'],
+  [
+    'https://stackoverflow.com/users/9431600/datgreekchick',
+    brands('stack-overflow'),
+    '#F48024',
+  ],
   ['mailto:eleni.arvanitis@me.com', solid('at'), '#fbbc05'],
 ]
 
