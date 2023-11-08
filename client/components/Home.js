@@ -82,7 +82,7 @@ const Home = () => {
         during that time, but everything I created was static. Craving to expand
         my technical capabilities coupled with a desire to build dynamic apps
         and a love for languages, I became a software engineer. Presently,
-        I&apos;m working as a Senior Software Engineer at Cisco Meraki on the
+        I&apos;m working as a Staff Software Engineer at Cisco Meraki on the
         Dashboard Features team!
       </Description>
       <NavLink to='/contact'>
