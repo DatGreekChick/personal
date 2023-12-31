@@ -12,12 +12,7 @@ const LoadingStyled = styled.div`
 
 const Loading = () => (
   <LoadingStyled>
-    <InfinitySpin
-      visible
-      color='#e0bf9f'
-      ariaLabel='infinity-spin-loading'
-      viewBox='200 -300 400 100'
-    />
+    <InfinitySpin visible color='#e0bf9f' ariaLabel='infinity-spin-loading' />
   </LoadingStyled>
 )
 
