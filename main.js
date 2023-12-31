@@ -1,11 +1,9 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
+import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import { ThemeProvider } from 'styled-components'
-
-import * as rtkQuery from '@reduxjs/toolkit/dist/query/react/index.js'
-const { ApiProvider } = rtkQuery.default ?? rtkQuery
 
 import App from '~/client/App'
 import GlobalStyle from '~/client/styles/GlobalStyles'

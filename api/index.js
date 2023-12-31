@@ -1,7 +1,5 @@
-import * as rtkQuery from '@reduxjs/toolkit/dist/query/react/index.js'
-const { createApi, fakeBaseQuery } = rtkQuery.default ?? rtkQuery
-
 import { collection, getDocs } from 'firebase/firestore'
+import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import db from '~/db/firebase'
 
