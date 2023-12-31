@@ -3,7 +3,7 @@ import React from 'react'
 import { InfinitySpin } from 'react-loader-spinner'
 import styled from 'styled-components'
 
-const LoadingStyled = styled.div`
+const StyledLoading = styled.div`
   display: flex;
   padding-top: 10%;
   align-items: center;
@@ -11,9 +11,9 @@ const LoadingStyled = styled.div`
 `
 
 const Loading = () => (
-  <LoadingStyled>
+  <StyledLoading>
     <InfinitySpin visible color='#e0bf9f' ariaLabel='infinity-spin-loading' />
-  </LoadingStyled>
+  </StyledLoading>
 )
 
 export default Loading
