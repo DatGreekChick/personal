@@ -9,18 +9,16 @@ import Home from '~/client/components/Home'
 import Navbar from '~/client/components/Navbar'
 import Work from '~/client/components/Work'
 
-const createChild = (path, element) => ({ path, element })
-
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Navbar />,
     children: [
-      createChild('/', <Home />),
-      createChild('/about', <About />),
-      createChild('/work', <Work />),
-      createChild('/articles', <Articles />),
-      createChild('/contact', <Contact />),
+      { path: '/', element: <Home /> },
+      { path: '/about', element: <About /> },
+      { path: '/work', element: <Work /> },
+      { path: '/articles', element: <Articles /> },
+      { path: '/contact', element: <Contact /> },
     ],
   },
 ])
