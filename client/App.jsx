@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import About from '~/client/components/About'
-import Articles from '~/client/components/Articles'
-import Contact from '~/client/components/Contact'
 import Footer from '~/client/components/Footer'
 import Home from '~/client/components/Home'
+import Loading from '~/client/components/Loading'
 import Navbar from '~/client/components/Navbar'
-import Work from '~/client/components/Work'
+
+const Articles = lazy(() => import('~/client/components/Articles'))
+const Contact = lazy(() => import('~/client/components/Contact'))
+const Work = lazy(() => import('~/client/components/Work'))
 
 const router = createBrowserRouter([
   {
@@ -24,10 +26,10 @@ const router = createBrowserRouter([
 ])
 
 const App = () => (
-  <>
+  <Suspense fallback={<Loading />}>
     <RouterProvider router={router} />
     <Footer />
-  </>
+  </Suspense>
 )
 
 export default App
