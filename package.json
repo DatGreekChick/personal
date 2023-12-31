@@ -13,7 +13,7 @@
   "scripts": {
     "build": "webpack build --mode development",
     "build:prod": "webpack build --mode production",
-    "clean": "rm public/*.bundle.js firebase-debug.log",
+    "clean": "rm public/*.bundle.js public/*.bundle.js.LICENSE.txt firebase-debug.log",
     "deploy": "npm run build:prod && npx firebase deploy",
     "lint": "eslint . --ext .js,.jsx",
     "lint:fix": "npm run lint --fix",
