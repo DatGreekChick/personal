@@ -3,6 +3,7 @@ import React from 'react'
 import { useFetchProjectsQuery } from '~/api/index'
 
 import Link from '~/client/components/Link'
+import Loading from '~/client/components/Loading'
 import { ProjectLink } from '~/client/components/Button'
 import useExpansion from '~/client/hooks/useExpansion'
 
@@ -25,6 +26,7 @@ const Work = () => {
       <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
       </Link>
+      {!projects && <Loading />}
       {projects &&
         projects.map(({ name, role, description, technologies, links }) => (
           <ProjectStyle key={name}>

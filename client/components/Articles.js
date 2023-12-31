@@ -5,6 +5,7 @@ import { useFetchArticlesQuery } from '~/api/index'
 
 import Button from '~/client/components/Button'
 import Link from '~/client/components/Link'
+import Loading from '~/client/components/Loading'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;
@@ -27,23 +28,26 @@ const Articles = () => {
   const { data: articles } = useFetchArticlesQuery()
 
   return (
-    articles &&
-    articles
-      .slice()
-      .reverse()
-      .map((article, idx) => (
-        <Article key={article.title}>
-          <h3 style={{ color: '#e0bf9f', fontSize: '18pt' }}>
-            {article.title}
-          </h3>
-          <p style={{ fontStyle: 'italic' }}>{article['date-posted']}</p>
-          <p style={{ fontSize: '14pt' }}>{article.description}</p>
-          <Link href={article.link}>
-            <Button text='Read More ↗' />
-          </Link>
-          {idx !== articles.length - 1 && <StyledHr />}
-        </Article>
-      ))
+    <>
+      {!articles && <Loading />}
+      {articles &&
+        articles
+          .slice()
+          .reverse()
+          .map((article, idx) => (
+            <Article key={article.title}>
+              <h3 style={{ color: '#e0bf9f', fontSize: '18pt' }}>
+                {article.title}
+              </h3>
+              <p style={{ fontStyle: 'italic' }}>{article['date-posted']}</p>
+              <p style={{ fontSize: '14pt' }}>{article.description}</p>
+              <Link href={article.link}>
+                <Button text='Read More ↗' />
+              </Link>
+              {idx !== articles.length - 1 && <StyledHr />}
+            </Article>
+          ))}
+    </>
   )
 }
 
