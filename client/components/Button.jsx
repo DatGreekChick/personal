@@ -19,8 +19,8 @@ const determineProjectButtonText = link =>
   link.includes('github')
     ? 'code'
     : link.includes('youtube')
-    ? 'youtube'
-    : 'demo'
+      ? 'youtube'
+      : 'demo'
 
 export const ProjectLink = ({ link }) => (
   <Link href={link}>
