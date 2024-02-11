@@ -73,10 +73,14 @@ const Form = () => {
       reply_to: state.email,
     }
 
-    const content = `${state.name}, your email has been sent!`
+    const emailJsOptions = {
+      publicKey: publicId,
+      limitRate: { throttle: 10000 }, // 10s
+    }
+
     emailjs
-      .send(serviceId, templateId, emailTemplate, publicId)
-      .then(() => toast.success(content))
+      .send(serviceId, templateId, emailTemplate, emailJsOptions)
+      .then(() => toast.success(`${state.name}, your email has been sent!`))
       .catch(err => toast.error(err.text))
       .finally(() => setState(initialState))
   }
