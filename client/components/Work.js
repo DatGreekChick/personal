@@ -26,13 +26,15 @@ const Work = () => {
   useEffect(() => {
     if (!window.Worker) return
 
-    WORKER.postMessage({ eventType: EventType.FETCH_DATA })
+    WORKER.postMessage({ eventType: EventType.FETCH_DATA, path: 'projects' })
   }, [])
 
   useEffect(() => {
+    if (!window.Worker) return
+
     // Set up event listener for messages from the worker
     WORKER.onmessage = event => {
-      setProjects(event.data.projects)
+      setProjects(event.data.results)
     }
 
     return () => WORKER.terminate()
