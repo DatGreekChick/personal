@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import { EventType } from '~/lib/workerTypes.js'
+import useWorker from '~/client/hooks/useWorker'
 
 import Link from '~/client/components/Link'
 import Loading from '~/client/components/Loading'
@@ -17,28 +17,9 @@ import {
   Tech,
 } from '~/client/styles/work'
 
-const WORKER = new Worker(new URL('~/lib/worker.js', import.meta.url))
-
 const Work = () => {
-  const [projects, setProjects] = useState([])
+  const { results: projects } = useWorker('projects')
   const { toggle, isExpanded, expandedItem } = useExpansion()
-
-  useEffect(() => {
-    if (!window.Worker) return
-
-    WORKER.postMessage({ eventType: EventType.FETCH_DATA, path: 'projects' })
-  }, [])
-
-  useEffect(() => {
-    if (!window.Worker) return
-
-    // Set up event listener for messages from the worker
-    WORKER.onmessage = event => {
-      setProjects(event.data.results)
-    }
-
-    return () => WORKER.terminate()
-  }, [])
 
   return (
     <>
