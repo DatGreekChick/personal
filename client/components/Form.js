@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from 'react'
 
-import emailjs from '@emailjs/browser'
+import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import toast, { Toaster } from 'react-hot-toast'
 
@@ -78,8 +78,7 @@ const Form = () => {
       limitRate: { throttle: 10000 }, // 10s
     }
 
-    emailjs
-      .send(serviceId, templateId, emailTemplate, emailJsOptions)
+    send(serviceId, templateId, emailTemplate, emailJsOptions)
       .then(() => toast.success(`${state.name}, your email has been sent!`))
       .catch(err => toast.error(err.text))
       .finally(() => setState(initialState))

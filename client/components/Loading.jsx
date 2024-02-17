@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { InfinitySpin } from 'react-loader-spinner'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 const StyledLoading = styled.div`
   display: flex;
