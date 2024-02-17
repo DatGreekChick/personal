@@ -43,7 +43,7 @@ const Work = () => {
       <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
         <ResumeButton>View Resume</ResumeButton>
       </Link>
-      {!projects && <Loading />}
+      {!projects.length && <Loading />}
       {projects &&
         projects.map(({ name, role, description, technologies, links }) => (
           <ProjectStyle key={name}>
