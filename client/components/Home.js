@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import TextTransition, { presets } from 'react-text-transition'
 
 import Button from '~/client/components/Button'
