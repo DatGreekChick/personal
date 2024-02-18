@@ -4,10 +4,10 @@
  * hot loading.
  */
 
-import debug from 'debug'
 import { spawn as spawnChild } from 'child_process'
-import thru from 'through2'
 import chalk from 'chalk'
+import debug from 'debug'
+import thru from 'through2'
 import stripAnsi from 'strip-ansi'
 
 const colors = [chalk.cyan, chalk.green, chalk.magenta, chalk.blue]
