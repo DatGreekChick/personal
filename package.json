@@ -15,7 +15,7 @@
     "build:prod": "webpack build --mode production",
     "clean": "rm public/*.bundle.js public/*.bundle.js.LICENSE.txt firebase-debug.log",
     "deploy": "npm run build:prod && npx firebase deploy",
-    "lint": "npx eslint .",
+    "lint": "npm run clean; echo \"\nRunning linter...\"; npx eslint .",
     "lint:fix": "npm run lint --fix",
     "prettier": "npx prettier --write \"./**/*.{js,jsx,md}\"",
     "test": "jest --passWithNoTests",
