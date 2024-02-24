@@ -99,9 +99,11 @@ function devServer(env) {
     compress: true,
     allowedHosts: 'all',
     hot: true,
-    proxy: FIREBASE_SERVE_URL && {
-      '/': FIREBASE_SERVE_URL,
-    },
+    proxy: FIREBASE_SERVE_URL && [
+      {
+        '/': FIREBASE_SERVE_URL,
+      },
+    ],
   }
 }
 
