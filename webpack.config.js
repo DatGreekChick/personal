@@ -101,7 +101,8 @@ function devServer(env) {
     hot: true,
     proxy: FIREBASE_SERVE_URL && [
       {
-        '/': FIREBASE_SERVE_URL,
+        context: ['/'],
+        target: FIREBASE_SERVE_URL,
       },
     ],
   }
