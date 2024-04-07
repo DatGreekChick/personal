@@ -37,7 +37,10 @@ export default [
     },
     rules: {
       ...importPlugin.configs.recommended.rules,
+      'no-unused-vars': 0,
       'import/no-unresolved': 0,
+      'import/no-named-as-default': 0,
+      'import/no-named-as-default-member': 0,
       'import/order': [
         'error',
         {
@@ -56,6 +59,14 @@ export default [
       ],
       'react/display-name': 0,
       'react/prop-types': 0,
+      'react/no-string-refs': 0,
+      'react/no-direct-mutation-state': 0,
+      'react/require-render-return': 0,
+      'react/jsx-no-undef': 0,
+      'react/jsx-uses-react': 0,
+      'react/jsx-uses-vars': 0,
+      'react/react-in-jsx-scope': 0,
+      'react/no-danger-with-children': 0,
       'sort-imports': [
         'error',
         {
@@ -76,5 +87,19 @@ export default [
         test: 'readonly',
       },
     },
+  },
+  {
+    ignores: [
+      // config files
+      '*.config.js',
+      // server
+      'dev.js',
+      // bundles
+      'public/*.bundle.js',
+      // development
+      '**/*.hot-update.js*',
+      // tests
+      '*.test.js',
+    ],
   },
 ]

@@ -16,7 +16,6 @@ function main() {
 
   root.render(
     <ApiProvider api={firebaseApi}>
-      {/*eslint-disable-next-line no-undef*/}
       <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
         <ThemeProvider theme={{ fontFamily: 'Open Sans, sans-serif' }}>
           <GlobalStyle />
@@ -29,5 +28,4 @@ function main() {
 
 main()
 
-// eslint-disable-next-line no-undef
 import.meta.webpackHot && import.meta.webpackHot.accept('~/client/App', main)
