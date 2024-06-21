@@ -45,9 +45,6 @@
     ]
   },
   "overrides": {
-    "@pmmmwh/react-refresh-webpack-plugin": {
-      "webpack-dev-server": "^5.0.2"
-    },
     "eslint-plugin-import": {
       "eslint": "9.5.0"
     },
