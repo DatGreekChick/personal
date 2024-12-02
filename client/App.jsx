@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router/dom'
 
 import About from '~/client/components/About'
 import Footer from '~/client/components/Footer'

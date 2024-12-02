@@ -2,18 +2,24 @@ import React from 'react'
 import { styled } from 'styled-components'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import {
+  faLinkedin,
+  faGithub,
+  faMedium,
+  faStackOverflow,
+} from '@fortawesome/free-brands-svg-icons'
+import { faAt } from '@fortawesome/free-solid-svg-icons'
 
 const SOCIAL_LINKS = [
-  ['https://github.com/datgreekchick', brands('github'), '#6e5494'],
-  ['https://linkedin.com/in/eleniarvanitis', brands('linkedin'), '#0077b5'],
-  ['https://datgreekchick.medium.com', brands('medium'), '#00ab6c'],
+  ['https://github.com/datgreekchick', faGithub, '#6e5494'],
+  ['https://linkedin.com/in/eleniarvanitis', faLinkedin, '#0077b5'],
+  ['https://datgreekchick.medium.com', faMedium, '#00ab6c'],
   [
     'https://stackoverflow.com/users/9431600/datgreekchick',
-    brands('stack-overflow'),
+    faStackOverflow,
     '#f48024',
   ],
-  ['mailto:eleni.arvanitis@me.com', solid('at'), '#fbbc05'],
+  ['mailto:eleni.arvanitis@me.com', faAt, '#fbbc05'],
 ]
 
 const StyledFooter = styled.footer`

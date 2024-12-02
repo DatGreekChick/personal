@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router'
 import { Sling } from 'hamburger-react'
 import { styled } from 'styled-components'
 
