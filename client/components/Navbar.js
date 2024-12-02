@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router'
 
 import Hamburger from '~/client/components/Hamburger'
 
