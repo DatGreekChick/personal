@@ -1,9 +1,9 @@
 import { useFetchProjectsQuery } from '~/api/index'
 
-import Link from '~/client/components/Link'
-import Loading from '~/client/components/Loading'
+import { Link } from '~/client/components/Link'
+import { Loading } from '~/client/components/Loading'
 import { ProjectLink } from '~/client/components/Button'
-import useExpansion from '~/client/hooks/useExpansion'
+import { useExpansion } from '~/client/hooks/useExpansion'
 
 import { ResumeButton } from '~/client/styles/button'
 import {
@@ -15,7 +15,7 @@ import {
   Tech,
 } from '~/client/styles/work'
 
-const Work = () => {
+export const Work = () => {
   const { toggle, isExpanded, expandedItem } = useExpansion()
   const { data: projects } = useFetchProjectsQuery()
 
@@ -48,5 +48,3 @@ const Work = () => {
     </>
   )
 }
-
-export default Work

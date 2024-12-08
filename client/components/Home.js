@@ -4,7 +4,7 @@ import { animated, useTransition } from '@react-spring/web'
 import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
 
-import Button from '~/client/components/Button'
+import { Button } from '~/client/components/Button'
 
 const Me = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const ME = [
   'a STEMinist 👩🏻‍🔬',
 ]
 
-const Home = () => {
+export const Home = () => {
   const [idx, setIdx] = useState(0)
 
   useEffect(() => {
@@ -103,5 +103,3 @@ const Home = () => {
     </Me>
   )
 }
-
-export default Home

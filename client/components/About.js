@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
 
-import Button from '~/client/components/Button'
+import { Button } from '~/client/components/Button'
 import { Header } from '~/client/styles'
 
 const StyledAbout = styled.div`
@@ -11,7 +11,7 @@ const StyledAbout = styled.div`
   width: 65%;
 `
 
-const About = () => (
+export const About = () => (
   <StyledAbout>
     <Header fontSize='30'>Creating useful and engaging software</Header>
     <div style={{ fontSize: '14pt' }}>
@@ -43,5 +43,3 @@ const About = () => (
     </NavLink>
   </StyledAbout>
 )
-
-export default About

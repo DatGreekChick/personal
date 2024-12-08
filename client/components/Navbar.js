@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 import { NavLink, Outlet } from 'react-router'
 
-import Hamburger from '~/client/components/Hamburger'
+import { Hamburger } from '~/client/components/Hamburger'
 
 const Nav = styled.nav`
   top: 0;
@@ -23,7 +23,7 @@ const Logo = styled.img`
   max-height: 30px;
 `
 
-const Navbar = () => (
+export const Navbar = () => (
   <>
     <Nav role='navigation'>
       <NavLink to='/'>
@@ -34,5 +34,3 @@ const Navbar = () => (
     <Outlet />
   </>
 )
-
-export default Navbar

@@ -8,10 +8,8 @@ const StyledLoading = styled.div`
   justify-content: center;
 `
 
-const Loading = () => (
+export const Loading = () => (
   <StyledLoading>
     <InfinitySpin visible color='#e0bf9f' ariaLabel='infinity-spin-loading' />
   </StyledLoading>
 )
-
-export default Loading

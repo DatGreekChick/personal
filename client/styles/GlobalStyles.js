@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     background-color: rgba(0, 0, 0, 1);
     padding-bottom: 5%;
@@ -33,5 +33,3 @@ const GlobalStyle = createGlobalStyle`
     left: 0;
   }
 `
-
-export default GlobalStyle

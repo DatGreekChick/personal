@@ -51,7 +51,7 @@ const StyledNavLink = styled(NavLink)`
 
 const LINKS = ['Home', 'About', 'Work', 'Articles', 'Contact']
 
-const Hamburger = () => {
+export const Hamburger = () => {
   const [open, setOpen] = useState(false)
   const toggleMenu = () => setOpen(!open)
 
@@ -81,5 +81,3 @@ const Hamburger = () => {
     </>
   )
 }
-
-export default Hamburger

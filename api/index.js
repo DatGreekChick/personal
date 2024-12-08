@@ -1,7 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore'
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import db from '~/db/firebase'
+import { db } from '~/db/firebase'
 
 const fetchData = async path => {
   try {

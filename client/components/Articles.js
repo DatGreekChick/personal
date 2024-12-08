@@ -2,9 +2,9 @@ import { styled } from 'styled-components'
 
 import { useFetchArticlesQuery } from '~/api/index'
 
-import Button from '~/client/components/Button'
-import Link from '~/client/components/Link'
-import Loading from '~/client/components/Loading'
+import { Button } from '~/client/components/Button'
+import { Link } from '~/client/components/Link'
+import { Loading } from '~/client/components/Loading'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;
@@ -23,7 +23,7 @@ const Article = styled.div`
   }
 `
 
-const Articles = () => {
+export const Articles = () => {
   const { data: articles } = useFetchArticlesQuery()
 
   return (
@@ -49,5 +49,3 @@ const Articles = () => {
     </>
   )
 }
-
-export default Articles

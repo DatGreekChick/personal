@@ -4,8 +4,8 @@ import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import { ThemeProvider } from 'styled-components'
 
-import App from '~/client/App'
-import GlobalStyle from '~/client/styles/GlobalStyles'
+import { App } from '~/client/App'
+import { GlobalStyle } from '~/client/styles/GlobalStyles'
 
 import { firebaseApi } from '~/api/index'
 

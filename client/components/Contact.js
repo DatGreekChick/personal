@@ -1,5 +1,5 @@
-import Form from '~/client/components/Form'
-import Link from '~/client/components/Link'
+import { Form } from '~/client/components/Form'
+import { Link } from '~/client/components/Link'
 
 import { Header } from '~/client/styles'
 import { Disclaimer, StyledContact } from '~/client/styles/contact'
@@ -7,7 +7,7 @@ import { Disclaimer, StyledContact } from '~/client/styles/contact'
 const GOOGLE_PRIVACY_POLICY = 'https://policies.google.com/privacy?hl=en-US'
 const GOOGLE_TERMS_OF_SERVICE = 'https://policies.google.com/terms?hl=en-US'
 
-const Contact = () => (
+export const Contact = () => (
   <StyledContact>
     <Header fontSize='45'>Let&apos;s Work Together!</Header>
     <Form />
@@ -18,5 +18,3 @@ const Contact = () => (
     </Disclaimer>
   </StyledContact>
 )
-
-export default Contact
