@@ -29,5 +29,4 @@ initializeAppCheck(fire, {
   isTokenAutoRefreshEnabled: true, // allow auto-refresh
 })
 
-const db = getFirestore(fire)
-export default db
+export const db = getFirestore(fire)

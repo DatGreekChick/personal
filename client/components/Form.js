@@ -36,7 +36,7 @@ const getInputs = ({ name, email, message }) => [
   },
 ]
 
-const Form = () => {
+export const Form = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()
   const initialState = {
     name: '',
@@ -116,5 +116,3 @@ const Form = () => {
     </StyledForm>
   )
 }
-
-export default Form

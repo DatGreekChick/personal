@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-const useExpansion = () => {
+export const useExpansion = () => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [expandedItem, setExpandedItem] = useState('')
 
@@ -29,5 +29,3 @@ const useExpansion = () => {
 
   return { toggle, isExpanded, expandedItem }
 }
-
-export default useExpansion

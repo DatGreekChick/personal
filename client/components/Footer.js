@@ -42,7 +42,7 @@ const Icon = styled.a`
   }
 `
 
-const Footer = () => (
+export const Footer = () => (
   <StyledFooter role='contentinfo'>
     <span style={{ color: '#858686' }}>
       &copy; {`${new Date().getFullYear()} Eleni Konior`}
@@ -64,5 +64,3 @@ const Footer = () => (
     </div>
   </StyledFooter>
 )
-
-export default Footer

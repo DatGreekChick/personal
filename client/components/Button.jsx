@@ -1,4 +1,4 @@
-import Link from '~/client/components/Link'
+import { Link } from '~/client/components/Link'
 
 import {
   ProjectLinkButton,
@@ -6,7 +6,7 @@ import {
   SubmitButton,
 } from '~/client/styles/button'
 
-const Button = ({ text }) => <StyledButton>{text}</StyledButton>
+export const Button = ({ text }) => <StyledButton>{text}</StyledButton>
 export const Submit = props => (
   <SubmitButton type='submit' {...props}>
     Submit
@@ -25,5 +25,3 @@ export const ProjectLink = ({ link }) => (
     <ProjectLinkButton>{determineProjectButtonText(link)}</ProjectLinkButton>
   </Link>
 )
-
-export default Button
