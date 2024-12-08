@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
+import { animated, useTransition } from '@react-spring/web'
 import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
-import TextTransition, { presets } from 'react-text-transition'
 
 import Button from '~/client/components/Button'
 
@@ -20,7 +20,9 @@ const Me = styled.div`
   }
 `
 
-const Carousel = styled(TextTransition)`
+const Carousel = styled(animated.div)`
+  display: inline-flex;
+  white-space: nowrap;
   font-weight: 600;
   color: #e0bf9f;
 `
@@ -67,13 +69,23 @@ const Home = () => {
     return () => clearTimeout(intervalId)
   }, [])
 
+  const transitions = useTransition(ME[idx % ME.length], {
+    enter: { opacity: 1, transform: 'translateY(0%)' },
+    from: { opacity: 0, transform: 'translateY(100%)' },
+    leave: {
+      opacity: 0,
+      transform: 'translateY(-100%)',
+      position: 'absolute',
+    },
+  })
+
   return (
     <Me>
       <span>
         I am{' '}
-        <Carousel direction='up' springConfig={presets.gentle} inline>
-          {ME[idx % ME.length]}
-        </Carousel>
+        {transitions((style, item) => (
+          <Carousel style={style}>{item}</Carousel>
+        ))}
       </span>
       <Description>
         After graduating from NYU with a B.A. in Economics, I decided to tap
