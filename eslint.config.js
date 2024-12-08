@@ -79,16 +79,6 @@ export default [
     },
   },
   {
-    files: ['specs/**/*.js'],
-    languageOptions: {
-      globals: {
-        expect: 'readonly',
-        it: 'readonly',
-        test: 'readonly',
-      },
-    },
-  },
-  {
     ignores: [
       // config files
       '*.config.js',
@@ -98,8 +88,6 @@ export default [
       'public/*.bundle.js',
       // development
       '**/*.hot-update.js*',
-      // tests
-      '*.test.js',
     ],
   },
 ]
