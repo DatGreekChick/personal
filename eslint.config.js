@@ -59,7 +59,6 @@ export default [
       ],
       'react/display-name': 0,
       'react/prop-types': 0,
-      'react/no-string-refs': 0,
       'react/no-direct-mutation-state': 0,
       'react/require-render-return': 0,
       'react/jsx-no-undef': 0,
