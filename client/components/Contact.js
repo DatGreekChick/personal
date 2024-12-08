@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Form from '~/client/components/Form'
 import Link from '~/client/components/Link'
 

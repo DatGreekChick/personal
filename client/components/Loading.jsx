@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { InfinitySpin } from 'react-loader-spinner'
 import { styled } from 'styled-components'
 

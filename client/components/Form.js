@@ -1,6 +1,6 @@
 /* eslint no-undef: 0 */
 
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'

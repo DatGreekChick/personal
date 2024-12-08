@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useFetchProjectsQuery } from '~/api/index'
 
 import Link from '~/client/components/Link'

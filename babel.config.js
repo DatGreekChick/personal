@@ -8,7 +8,7 @@ const plugins = [
 const babel = {
   presets: [
     ['@babel/preset-env', { modules: false, forceAllTransforms: true }],
-    '@babel/preset-react',
+    ['@babel/preset-react', { runtime: 'automatic' }],
   ],
   plugins: plugins.filter(Boolean),
 }
