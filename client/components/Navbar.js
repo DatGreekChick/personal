@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from 'styled-components'
 import { NavLink, Outlet } from 'react-router'
 
