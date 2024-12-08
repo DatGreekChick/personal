@@ -2,8 +2,8 @@ import { styled } from 'styled-components'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faLinkedin,
   faGithub,
+  faLinkedin,
   faMedium,
   faStackOverflow,
 } from '@fortawesome/free-brands-svg-icons'
@@ -48,17 +48,17 @@ const Footer = () => (
       &copy; {`${new Date().getFullYear()} Eleni Konior`}
     </span>
     <div>
-      {SOCIAL_LINKS.map(link => (
+      {SOCIAL_LINKS.map(([href, icon, color]) => (
         <Icon
-          key={link[0]}
-          href={link[0]}
-          rel='noopener'
+          key={href}
+          href={href}
+          rel='noopener noreferrer nofollow'
           target='_blank'
           tabIndex='0'
           role='presentation'
-          color={link[2]}
+          color={color}
         >
-          <FontAwesomeIcon icon={link[1]} />
+          <FontAwesomeIcon icon={icon} />
         </Icon>
       ))}
     </div>
