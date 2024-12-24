@@ -5,11 +5,8 @@ import { db } from '~/db/firebase'
 
 const fetchData = async path => {
   try {
-    const data = []
     const querySnapshot = await getDocs(collection(db, path))
-    querySnapshot.forEach(doc => {
-      data.push({ id: doc.id, ...doc.data() })
-    })
+    const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
 
     return { data }
   } catch (error) {
@@ -19,16 +16,12 @@ const fetchData = async path => {
 
 export const firebaseApi = createApi({
   baseQuery: fakeBaseQuery(),
-  endpoints: builder => ({
-    fetchProjects: builder.query({
-      async queryFn() {
-        return fetchData('projects')
-      },
+  endpoints: build => ({
+    fetchProjects: build.query({
+      queryFn: async () => fetchData('projects'),
     }),
-    fetchArticles: builder.query({
-      async queryFn() {
-        return fetchData('articles')
-      },
+    fetchArticles: build.query({
+      queryFn: async () => fetchData('articles'),
     }),
   }),
 })
