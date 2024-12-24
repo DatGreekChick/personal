@@ -9,7 +9,7 @@ import {
 export const Button = ({ text }) => <StyledButton>{text}</StyledButton>
 export const Submit = props => (
   <SubmitButton type='submit' {...props}>
-    Submit
+    {props.isSubmitting ? 'Submitting...' : 'Submit'}
   </SubmitButton>
 )
 

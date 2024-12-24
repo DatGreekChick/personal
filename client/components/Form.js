@@ -45,6 +45,7 @@ export const Form = () => {
     token: '',
   }
   const [state, setState] = useState(initialState)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const verifyHumanity = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -84,10 +85,15 @@ export const Form = () => {
       limitRate: { throttle: 10000 }, // 10s
     }
 
+    setIsSubmitting(true)
+
     send(serviceId, templateId, emailTemplate, emailJsOptions)
       .then(() => toast.success(`${state.name}, your email has been sent!`))
-      .catch(err => toast.error(err.text))
-      .finally(() => setState(initialState))
+      .catch(err => toast.error(err.text || 'Failed to send email'))
+      .finally(() => {
+        setIsSubmitting(false)
+        setState(initialState)
+      })
   }
 
   const inputs = getInputs(state)
@@ -101,6 +107,7 @@ export const Form = () => {
           value: value || '',
           'aria-describedby': `required-${name}`,
           onChange: handleChange(name.toLowerCase()),
+          disabled: isSubmitting,
         }
 
         return (
@@ -124,7 +131,7 @@ export const Form = () => {
       <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
         <Asterisk /> Required field
       </span>
-      <Submit onClick={verifyHumanity} />
+      <Submit onClick={verifyHumanity} isSubmitting={isSubmitting} />
     </StyledForm>
   )
 }
