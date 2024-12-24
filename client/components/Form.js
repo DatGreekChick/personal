@@ -6,7 +6,7 @@ import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import toast, { Toaster } from 'react-hot-toast'
 
-import { Submit } from '~/client/components/Button'
+import { SubmitButton } from '~/client/styles/button.js'
 import { Asterisk, Input, StyledForm, TextArea } from '~/client/styles/contact'
 
 // emailJS IDs
@@ -131,7 +131,9 @@ export const Form = () => {
       <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
         <Asterisk /> Required field
       </span>
-      <Submit onClick={verifyHumanity} isSubmitting={isSubmitting} />
+      <SubmitButton type='submit' onClick={verifyHumanity}>
+        {isSubmitting ? 'Submitting...' : 'Submit'}
+      </SubmitButton>
     </StyledForm>
   )
 }
