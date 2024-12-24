@@ -63,6 +63,12 @@ export const Form = () => {
     })
   }
 
+  const handleTextAreaInput = evt => {
+    const textarea = evt.target
+    textarea.style.height = 'auto'
+    textarea.style.height = `${textarea.scrollHeight}px`
+  }
+
   const sendEmail = evt => {
     evt.preventDefault()
 
@@ -104,7 +110,13 @@ export const Form = () => {
             {name !== 'message' ? (
               <Input type={type} autoComplete={name} required {...inputProps} />
             ) : (
-              <TextArea maxLength={1500} rows={5} required {...inputProps} />
+              <TextArea
+                maxLength={1500}
+                rows={2}
+                onInput={handleTextAreaInput}
+                required
+                {...inputProps}
+              />
             )}
           </label>
         )

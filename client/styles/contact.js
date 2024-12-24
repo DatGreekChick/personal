@@ -18,10 +18,10 @@ const inputAndTextAreaStyles = css`
   margin-bottom: 10%;
   background: transparent;
   border: transparent;
-  border-bottom: 1.5px solid gray;
+  border-bottom: thin solid gray;
 
   &:focus {
-    border-bottom: 1.5px solid #e0bf9f;
+    border-bottom: thin solid #e0bf9f;
     transition: all 0.25s ease-in-out;
   }
 `
@@ -46,8 +46,7 @@ export const Input = styled.input`
 `
 
 export const TextArea = styled.textarea`
-  resize: vertical;
-  min-height: 65px;
+  resize: none;
   max-height: 300px;
   ${inputAndTextAreaStyles}
 `
