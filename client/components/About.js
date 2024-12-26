@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
 
-import { Button } from '~/client/components/Button'
 import { Header } from '~/client/styles'
+import { StyledButton, StyledNavLink } from '~/client/styles/button'
 
 const StyledAbout = styled.div`
   display: flex;
@@ -38,8 +37,9 @@ export const About = () => (
         game of soccer, or strumming my bass guitar.
       </p>
     </div>
-    <NavLink to='/work'>
-      <Button text='See my work' />
-    </NavLink>
+    <StyledButton>
+      <StyledNavLink to='/work' />
+      See my work
+    </StyledButton>
   </StyledAbout>
 )

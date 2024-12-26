@@ -1,11 +1,10 @@
+import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
 
 export const StyledButton = styled.button`
-  flex: 1 1 auto;
-  margin: 10px auto;
+  margin: 10px auto 10px 0;
   padding: 10px 25px;
   border: 2px solid #e0bf9f;
-  text-align: center;
   text-transform: uppercase;
   font-size: large;
   position: relative;
@@ -47,9 +46,12 @@ export const StyledButton = styled.button`
 `
 
 export const ResumeButton = styled(StyledButton)`
-  position: relative;
   display: flex;
-  align-items: center;
+  margin: 10px auto;
+
+  &:hover a {
+    color: rgba(0, 0, 0, 0.9);
+  }
 `
 
 export const ProjectLinkButton = styled(StyledButton)`
@@ -62,4 +64,13 @@ export const ProjectLinkButton = styled(StyledButton)`
 
 export const SubmitButton = styled(StyledButton)`
   margin: 0 auto 8% auto;
+`
+
+export const StyledNavLink = styled(NavLink)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 `
