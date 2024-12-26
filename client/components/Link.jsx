@@ -1,5 +1,5 @@
 export const Link = props => (
-  <a rel='noopener' target='_blank' {...props}>
+  <a rel='noopener noreferrer' target='_blank' {...props}>
     {props.children}
   </a>
 )
