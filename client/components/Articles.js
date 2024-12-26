@@ -2,9 +2,9 @@ import { styled } from 'styled-components'
 
 import { useFetchArticlesQuery } from '~/api/index'
 
-import { Button } from '~/client/components/Button'
 import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
+import { StyledButton } from '~/client/styles/button'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;
@@ -41,7 +41,7 @@ export const Articles = () => {
               <p style={{ fontStyle: 'italic' }}>{article['date-posted']}</p>
               <p style={{ fontSize: '14pt' }}>{article.description}</p>
               <Link href={article.link}>
-                <Button text='Read More ↗' />
+                <StyledButton>Read More ↗</StyledButton>
               </Link>
               {idx !== articles.length - 1 && <StyledHr />}
             </Article>

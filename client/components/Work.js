@@ -2,10 +2,9 @@ import { useFetchProjectsQuery } from '~/api/index'
 
 import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
-import { ProjectLink } from '~/client/components/Button'
 import { useExpansion } from '~/client/hooks/useExpansion'
 
-import { ResumeButton } from '~/client/styles/button'
+import { ProjectLinkButton, ResumeButton } from '~/client/styles/button'
 import {
   Description,
   Detail,
@@ -15,15 +14,22 @@ import {
   Tech,
 } from '~/client/styles/work'
 
+const determineProjectButtonText = link =>
+  link.includes('github')
+    ? 'code'
+    : link.includes('youtube')
+      ? 'youtube'
+      : 'demo'
+
 export const Work = () => {
   const { toggle, isExpanded, expandedItem } = useExpansion()
   const { data: projects } = useFetchProjectsQuery()
 
   return (
     <>
-      <Link href='/assets/EleniArvanitisKoniorResume.pdf'>
-        <ResumeButton>View Resume</ResumeButton>
-      </Link>
+      <ResumeButton>
+        <Link href='/assets/EleniArvanitisKoniorResume.pdf'>View Resume</Link>
+      </ResumeButton>
       {!projects && <Loading />}
       {projects &&
         projects.map(({ name, role, description, technologies, links }) => (
@@ -39,7 +45,11 @@ export const Work = () => {
                 ))}
                 <br />
                 {links.map((link, i) => (
-                  <ProjectLink key={`${name}-${link}${i}`} link={link} />
+                  <Link key={`${name}-${link}${i}`} href={link}>
+                    <ProjectLinkButton>
+                      {determineProjectButtonText(link)}
+                    </ProjectLinkButton>
+                  </Link>
                 ))}
               </Detail>
             )}

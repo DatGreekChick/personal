@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 
 import { animated, useTransition } from '@react-spring/web'
-import { NavLink } from 'react-router'
 import { styled } from 'styled-components'
 
-import { Button } from '~/client/components/Button'
+import { StyledButton, StyledNavLink } from '~/client/styles/button.js'
 
 const Me = styled.div`
   display: flex;
-  justify-content: space-around;
   padding-top: 5%;
   font-size: 18pt;
   flex-flow: column nowrap;
@@ -97,9 +95,10 @@ export const Home = () => {
         I&apos;m working as a Staff Software Engineer at Cisco Meraki on the
         Dashboard Features team!
       </Description>
-      <NavLink to='/contact'>
-        <Button text='Say hi' />
-      </NavLink>
+      <StyledButton>
+        <StyledNavLink to='/contact' />
+        Say hi
+      </StyledButton>
     </Me>
   )
 }
