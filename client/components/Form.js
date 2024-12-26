@@ -1,6 +1,6 @@
 /* eslint no-undef: 0 */
 
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useTransition } from 'react'
 
 import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
@@ -45,7 +45,7 @@ export const Form = () => {
     token: '',
   }
   const [state, setState] = useState(initialState)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isPending, startTransition] = useTransition()
 
   const verifyHumanity = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -85,15 +85,12 @@ export const Form = () => {
       limitRate: { throttle: 10000 }, // 10s
     }
 
-    setIsSubmitting(true)
-
-    send(serviceId, templateId, emailTemplate, emailJsOptions)
-      .then(() => toast.success(`${state.name}, your email has been sent!`))
-      .catch(err => toast.error(err.text || 'Failed to send email'))
-      .finally(() => {
-        setIsSubmitting(false)
-        setState(initialState)
-      })
+    startTransition(() =>
+      send(serviceId, templateId, emailTemplate, emailJsOptions)
+        .then(() => toast.success(`${state.name}, your email has been sent!`))
+        .catch(err => toast.error(err.text || 'Failed to send email'))
+        .finally(() => setState(initialState))
+    )
   }
 
   const inputs = getInputs(state)
@@ -107,7 +104,7 @@ export const Form = () => {
           value: value || '',
           'aria-describedby': `required-${name}`,
           onChange: handleChange(name.toLowerCase()),
-          disabled: isSubmitting,
+          disabled: isPending,
         }
 
         return (
@@ -131,8 +128,8 @@ export const Form = () => {
       <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
         <Asterisk /> Required field
       </span>
-      <SubmitButton type='submit' onClick={verifyHumanity}>
-        {isSubmitting ? 'Submitting...' : 'Submit'}
+      <SubmitButton type='submit' disabled={isPending} onClick={verifyHumanity}>
+        {isPending ? 'Submitting...' : 'Submit'}
       </SubmitButton>
     </StyledForm>
   )
