@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import { App } from '~/client/App'
 import { GlobalStyle } from '~/client/styles/GlobalStyles'
 
-import { firebaseApi } from '~/api/index'
+import { firebaseApi } from '~/api'
 
 function main() {
   const container = document.getElementById('main')
