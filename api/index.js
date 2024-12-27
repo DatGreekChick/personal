@@ -1,18 +1,6 @@
-import { collection, getDocs } from 'firebase/firestore'
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { db } from '~/firebase-app'
-
-const fetchData = async path => {
-  try {
-    const querySnapshot = await getDocs(collection(db, path))
-    const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-
-    return { data }
-  } catch (error) {
-    return { error }
-  }
-}
+import { fetchData } from '~/firebase-app'
 
 export const firebaseApi = createApi({
   baseQuery: fakeBaseQuery(),

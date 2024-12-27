@@ -1,4 +1,4 @@
-import { useFetchProjectsQuery } from '~/api/index'
+import { useFetchProjectsQuery } from '~/api'
 
 import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'

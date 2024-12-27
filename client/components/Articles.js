@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-import { useFetchArticlesQuery } from '~/api/index'
+import { useFetchArticlesQuery } from '~/api'
 
 import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
