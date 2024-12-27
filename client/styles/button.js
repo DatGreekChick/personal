@@ -45,7 +45,7 @@ export const StyledButton = styled.button`
   }
 `
 
-export const ResumeButton = styled(StyledButton)`
+export const CenterStyledButton = styled(StyledButton)`
   display: flex;
   margin: 10px auto;
 

@@ -1,6 +1,8 @@
-import { styled } from 'styled-components'
+import { ErrorBoundary } from 'react-error-boundary'
 import { NavLink, Outlet } from 'react-router'
+import { styled } from 'styled-components'
 
+import { ErrorFallback } from '~/client/components/ErrorFallback'
 import { Hamburger } from '~/client/components/Hamburger'
 
 const Nav = styled.nav`
@@ -31,6 +33,8 @@ export const Navbar = () => (
       </NavLink>
       <Hamburger />
     </Nav>
-    <Outlet />
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Outlet />
+    </ErrorBoundary>
   </>
 )
