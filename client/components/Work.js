@@ -4,7 +4,7 @@ import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
 import { useExpansion } from '~/client/hooks/useExpansion'
 
-import { ProjectLinkButton, ResumeButton } from '~/client/styles/button'
+import { CenterStyledButton, ProjectLinkButton } from '~/client/styles/button'
 import {
   Description,
   Detail,
@@ -27,9 +27,9 @@ export const Work = () => {
 
   return (
     <>
-      <ResumeButton>
+      <CenterStyledButton>
         <Link href='/assets/EleniArvanitisKoniorResume.pdf'>View Resume</Link>
-      </ResumeButton>
+      </CenterStyledButton>
       {!projects && <Loading />}
       {projects &&
         projects.map(({ name, role, description, technologies, links }) => (
