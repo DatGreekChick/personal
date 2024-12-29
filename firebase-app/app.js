@@ -16,8 +16,8 @@ const recaptchaToken =
 
 export const app = initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
-  databaseURL: 'https://elenicodes.firebaseio.com',
-  projectId: 'elenicodes',
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
   appId: process.env.FIREBASE_APP_ID,
 })
 
