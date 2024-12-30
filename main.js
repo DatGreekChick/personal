@@ -7,14 +7,14 @@ import { ThemeProvider } from 'styled-components'
 import { App } from '~/client/App'
 import { GlobalStyle } from '~/client/styles/GlobalStyles'
 
-import { firebaseApi } from '~/api'
+import { api } from '~/api'
 
 function main() {
   const container = document.getElementById('main')
   const root = createRoot(container)
 
   root.render(
-    <ApiProvider api={firebaseApi}>
+    <ApiProvider api={api}>
       <GoogleReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
         <ThemeProvider theme={{ fontFamily: 'Open Sans, sans-serif' }}>
           <GlobalStyle />
