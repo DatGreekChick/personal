@@ -4,11 +4,11 @@
 name: Deploy to Preview Channel
 on: pull_request
 env:
-  - RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
-  - RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
-  - EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
-  - EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
-  - EMAILJS_USER_ID: ${{ secrets.EMAILJS_USER_ID }}
+  RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
+  RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+  EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+  EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+  EMAILJS_USER_ID: ${{ secrets.EMAILJS_USER_ID }}
 permissions:
   checks: write
   contents: read
