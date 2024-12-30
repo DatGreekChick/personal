@@ -3,6 +3,8 @@
 
 name: Deploy to Preview Channel
 on: pull_request
+env:
+  FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
 permissions:
   checks: write
   contents: read
@@ -17,9 +19,23 @@ jobs:
         with:
           node-version: 'stable'
           cache: 'npm'
-      - run: npm ci && npm run build:prod
+      - name: Install dependencies and build
+        env:
+          EMAILJS_PUBLIC_ID: ${{ secrets.EMAILJS_PUBLIC_ID }}
+          EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+          EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          ENTERPRISE_RECAPTCHA_SITE_KEY: ${{ secrets.ENTERPRISE_RECAPTCHA_SITE_KEY }}
+        run: |
+          npm ci
+          npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ELENICODES }}
-          projectId: elenicodes
+          projectId: ${{ secrets.FIREBASE_APP_ID }}
