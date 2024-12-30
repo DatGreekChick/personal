@@ -6,21 +6,32 @@ on:
   push:
     branches:
       - main
-env:
-  RECAPTCHA_SECRET_KEY: '${{ secrets.RECAPTCHA_SECRET_KEY }}'
-  RECAPTCHA_SITE_KEY: '${{ secrets.RECAPTCHA_SITE_KEY }}'
-  EMAILJS_SERVICE_ID: '${{ secrets.EMAILJS_SERVICE_ID }}'
-  EMAILJS_TEMPLATE_ID: '${{ secrets.EMAILJS_TEMPLATE_ID }}'
-  EMAILJS_USER_ID: '${{ secrets.EMAILJS_USER_ID }}'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: 'npm ci && npm run build:prod'
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Create .env file
+        run: |
+          echo "EMAILJS_PUBLIC_ID=${{ secrets.EMAILJS_PUBLIC_ID }}" >> .env
+          echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}" >> .env
+          echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}" >> .env
+          echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
+          echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
+          echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
+          echo "FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}" >> .env
+          echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env
+          echo "ENTERPRISE_RECAPTCHA_SITE_KEY=${{ secrets.ENTERPRISE_RECAPTCHA_SITE_KEY }}" >> .env
+      - run: |
+          npm ci
+          npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ELENICODES }}'
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ELENICODES }}
           channelId: live
           projectId: elenicodes
