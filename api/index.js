@@ -1,17 +1,12 @@
-import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
+import { firebaseApi } from '~/api/firebase'
+import { gitHubApi } from '~/api/github'
 
-import { fetchData } from '~/firebase-app'
-
-export const firebaseApi = createApi({
-  baseQuery: fakeBaseQuery(),
-  endpoints: build => ({
-    fetchProjects: build.query({
-      queryFn: async () => fetchData('projects'),
-    }),
-    fetchArticles: build.query({
-      queryFn: async () => fetchData('articles'),
-    }),
-  }),
-})
+export * from '~/api/base'
 
 export const { useFetchProjectsQuery, useFetchArticlesQuery } = firebaseApi
+
+export const {
+  useFetchGitHubIssuesQuery,
+  useUpdateGitHubIssueMutation,
+  useCreateGitHubIssueMutation,
+} = gitHubApi

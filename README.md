@@ -22,8 +22,8 @@ The frontend starts in [`main.js`]. The root of the React app is in [`App.jsx`].
 #### a word about ~
 
 The webpack config aliases `~` to mean "the root of the app". For example, you
-can `import { firebaseApi } from '~/api'` anywhere in the app, without worrying
-about how many `..`s to have in the relative path.
+can `import { api } from '~/api'` anywhere in the app, without worrying about
+how many `..`s to have in the relative path.
 
 ### Fast Refreshing
 
