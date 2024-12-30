@@ -29,7 +29,7 @@ self.addEventListener('install', evt => {
 
 self.addEventListener('fetch', evt => {
   if (containsChromeExtension(evt.request)) {
-    return;
+    return
   }
 
   evt.respondWith(
@@ -37,10 +37,9 @@ self.addEventListener('fetch', evt => {
       // Cache hit - return response
       if (res) return res
 
-      // IMPORTANT: Clone the request. A request is a stream and
-      // can only be consumed once. Since we are consuming this
-      // once by cache and once by the browser for fetch, we need
-      // to clone the response.
+      // IMPORTANT: Clone the request. A request is a stream and can only be
+      // consumed once. Since we are consuming this once by cache and once by
+      // the browser for fetch, we need to clone the response.
       const fetchRequest = evt.request.clone()
 
       return fetch(fetchRequest).then(res => {
@@ -54,9 +53,9 @@ self.addEventListener('fetch', evt => {
         // consuming the response, we need to clone it so we have two streams.
         const responseToCache = res.clone()
 
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(evt.request, responseToCache)
-        })
+        caches
+          .open(CACHE_NAME)
+          .then(cache => cache.put(evt.request, responseToCache))
 
         return res
       })
