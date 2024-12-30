@@ -21,6 +21,8 @@ export const app = initializeApp({
   appId: process.env.FIREBASE_APP_ID,
 })
 
+console.log('recaptchaToken:', recaptchaToken)
+
 initializeAppCheck(app, {
   provider: new ReCaptchaEnterpriseProvider(recaptchaToken),
   isTokenAutoRefreshEnabled: true, // allow auto-refresh
