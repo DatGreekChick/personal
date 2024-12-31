@@ -1,23 +1,25 @@
 name: Setup and Build
-runs-on: ubuntu-latest
 on: workflow_call
-steps:
-  - uses: actions/checkout@v4
-  - uses: actions/setup-node@v4
-    with:
-      node-version: '22'
-      cache: 'npm'
-  - name: Create .env file
-    run: |
-      echo "EMAILJS_PUBLIC_ID=${{ secrets.EMAILJS_PUBLIC_ID }}" >> .env
-      echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}" >> .env
-      echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}" >> .env
-      echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
-      echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
-      echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
-      echo "FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}" >> .env
-      echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env
-      echo "ENTERPRISE_RECAPTCHA_SITE_KEY=${{ secrets.ENTERPRISE_RECAPTCHA_SITE_KEY }}" >> .env
-  - run: |
-      npm ci
-      npm run build:prod
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Create .env file
+        run: |
+          echo "EMAILJS_PUBLIC_ID=${{ secrets.EMAILJS_PUBLIC_ID }}" >> .env
+          echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}" >> .env
+          echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}" >> .env
+          echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
+          echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
+          echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
+          echo "FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}" >> .env
+          echo "RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }}" >> .env
+          echo "ENTERPRISE_RECAPTCHA_SITE_KEY=${{ secrets.ENTERPRISE_RECAPTCHA_SITE_KEY }}" >> .env
+      - run: |
+          npm ci
+          npm run build:prod
