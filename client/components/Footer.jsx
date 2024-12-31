@@ -31,7 +31,7 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 1);
-  z-index: 2;
+  z-index: 3;
 `
 
 const Icon = styled.a`

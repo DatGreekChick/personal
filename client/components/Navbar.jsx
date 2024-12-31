@@ -6,6 +6,7 @@ import { ErrorFallback } from '~/client/components/ErrorFallback'
 import { Hamburger } from '~/client/components/Hamburger'
 
 const Nav = styled.nav`
+  position: sticky;
   top: 0;
   font-size: 23px;
   font-weight: 800;
@@ -16,6 +17,8 @@ const Nav = styled.nav`
   margin: 0 2%;
   padding: 1rem 0;
   vertical-align: text-top;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 3;
 `
 
 const Logo = styled.img`
@@ -28,7 +31,7 @@ const Logo = styled.img`
 export const Navbar = () => (
   <>
     <Nav role='navigation'>
-      <NavLink to='/'>
+      <NavLink to='/' style={{ zIndex: 4, paddingLeft: '5px' }}>
         <Logo src='/assets/img/CreamLogo.png' alt='eak-logo-cream' />
       </NavLink>
       <Hamburger />
