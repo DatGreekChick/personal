@@ -4,6 +4,8 @@ import { NavLink } from 'react-router'
 import { Sling } from 'hamburger-react'
 import { styled } from 'styled-components'
 
+const LINKS = ['Home', 'About', 'Work', 'Articles', 'Contact']
+
 const MenuList = styled.ul`
   list-style: none;
   flex-direction: column;
@@ -11,7 +13,7 @@ const MenuList = styled.ul`
   margin: 0;
   padding: 0;
   position: fixed;
-  top: 10%;
+  top: 8.5%;
   z-index: 1;
   left: 0;
   width: 100%;
@@ -43,13 +45,11 @@ const StyledNavLink = styled(NavLink)`
     transform: scaleX(1);
   }
 
-  :active {
-    border-bottom: 1.5px solid #e0bf9f;
+  &.active {
+    border-bottom: 2px solid #e0bf9f;
     color: inherit;
   }
 `
-
-const LINKS = ['Home', 'About', 'Work', 'Articles', 'Contact']
 
 export const Hamburger = () => {
   const [open, setOpen] = useState(false)
