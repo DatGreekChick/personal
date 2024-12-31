@@ -14,7 +14,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin: 0 2%;
-  padding: 1rem;
+  padding: 1rem 0;
   vertical-align: text-top;
 `
 

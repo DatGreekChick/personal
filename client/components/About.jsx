@@ -7,7 +7,7 @@ const StyledAbout = styled.div`
   display: flex;
   flex-flow: column wrap;
   margin: 0 auto;
-  width: 65%;
+  width: 80%;
 `
 
 export const About = () => (

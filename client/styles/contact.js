@@ -15,7 +15,7 @@ const inputAndTextAreaStyles = css`
   text-align: center;
   width: 100%;
   padding: 1% 0;
-  margin-bottom: 10%;
+  margin: 0 auto 10% auto;
   background: transparent;
   border: transparent;
   border-bottom: thin solid gray;
@@ -31,6 +31,10 @@ export const StyledForm = styled.form`
   flex-flow: column nowrap;
   justify-content: space-between;
   width: 50%;
+
+  @media (max-width: 768px) {
+    width: clamp(70%, 90%, 100%);
+  }
 `
 
 export const Asterisk = styled.span`
@@ -41,7 +45,6 @@ export const Asterisk = styled.span`
 `
 
 export const Input = styled.input`
-  margin-bottom: 20%;
   ${inputAndTextAreaStyles}
 `
 
