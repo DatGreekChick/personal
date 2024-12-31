@@ -1,5 +1,6 @@
 name: Setup and Build
 runs-on: ubuntu-latest
+on: workflow_call
 steps:
   - uses: actions/checkout@v4
   - uses: actions/setup-node@v4
