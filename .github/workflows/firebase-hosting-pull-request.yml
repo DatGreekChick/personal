@@ -9,15 +9,16 @@ permissions:
   pull-requests: write
 jobs:
   build:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-        cache: 'npm'
-    - run: echo "${{ secrets.ENV_FILE }}" > .env
-    - run: |
-        npm ci
-        npm run build:prod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: echo "${{ secrets.ENV_FILE }}" > .env
+      - run: |
+          npm ci
+          npm run build:prod
   preview:
     needs: build
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
