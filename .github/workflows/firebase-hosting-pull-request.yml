@@ -8,8 +8,9 @@ permissions:
   contents: read
   pull-requests: write
 jobs:
-  build:
+  build_and_preview:
     runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,11 +21,6 @@ jobs:
       - run: |
           npm ci
           npm run build:prod
-  preview:
-    needs: build
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/download-artifact@v4
         with:
           path: 'artifacts'
