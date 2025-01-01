@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: rgba(0, 0, 0, 1);
+    padding-bottom: 5%;
   }
   
   body,
