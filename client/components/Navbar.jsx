@@ -2,8 +2,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { NavLink, Outlet } from 'react-router'
 import { styled } from 'styled-components'
 
-import { ErrorFallback } from '~/client/components/ErrorFallback'
-import { Hamburger } from '~/client/components/Hamburger'
+import { ErrorFallback, Hamburger } from '~/client/components'
 
 const Nav = styled.nav`
   position: sticky;

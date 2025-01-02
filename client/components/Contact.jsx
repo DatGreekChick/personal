@@ -1,5 +1,4 @@
-import { Form } from '~/client/components/Form'
-import { Link } from '~/client/components/Link'
+import { Form, Link } from '~/client/components'
 
 import { Header, Disclaimer, StyledContact } from '~/client/styles'
 
