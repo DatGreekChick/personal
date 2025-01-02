@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { animated, useTransition } from '@react-spring/web'
 import { styled } from 'styled-components'
 
-import { StyledButton, StyledNavLink } from '~/client/styles/button.js'
+import { StyledButton, StyledNavLink } from '~/client/styles'
 
 const Me = styled.div`
   display: flex;

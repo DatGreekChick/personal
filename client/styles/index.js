@@ -1,5 +1,5 @@
-import { styled } from 'styled-components'
-
-export const Header = styled.h1`
-  font-size: ${props => props.fontSize}pt;
-`
+export * from '~/client/styles/button'
+export * from '~/client/styles/contact'
+export * from '~/client/styles/GlobalStyles'
+export * from '~/client/styles/header'
+export * from '~/client/styles/work'

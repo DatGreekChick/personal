@@ -8,7 +8,7 @@ import {
   useUpdateGitHubIssueMutation,
 } from '~/api'
 
-import { CenterStyledButton } from '~/client/styles/button'
+import { CenterStyledButton } from '~/client/styles'
 
 const StyledError = styled.div`
   display: flex;
