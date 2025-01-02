@@ -36,3 +36,9 @@ export const gitHubApi = api.injectEndpoints({
     }),
   }),
 })
+
+export const {
+  useFetchGitHubIssuesQuery,
+  useUpdateGitHubIssueMutation,
+  useCreateGitHubIssueMutation,
+} = gitHubApi

@@ -11,3 +11,5 @@ export const firebaseApi = api.injectEndpoints({
     }),
   }),
 })
+
+export const { useFetchProjectsQuery, useFetchArticlesQuery } = firebaseApi
