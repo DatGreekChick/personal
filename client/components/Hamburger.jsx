@@ -4,7 +4,7 @@ import { NavLink } from 'react-router'
 import { Sling } from 'hamburger-react'
 import { styled } from 'styled-components'
 
-const LINKS = ['Home', 'About', 'Work', 'Articles', 'Contact']
+const LINKS = ['Home', 'About', 'Work', 'Articles', 'Uses', 'Contact']
 
 const MenuList = styled.ul`
   list-style: none;
