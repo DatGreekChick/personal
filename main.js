@@ -5,7 +5,7 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import { ThemeProvider } from 'styled-components'
 
 import { App } from '~/client/App'
-import { GlobalStyle } from '~/client/styles/GlobalStyles'
+import { GlobalStyle } from '~/client/styles'
 
 import { api } from '~/api'
 

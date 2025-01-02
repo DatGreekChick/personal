@@ -4,15 +4,16 @@ import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
 import { useExpansion } from '~/client/hooks/useExpansion'
 
-import { CenterStyledButton, ProjectLinkButton } from '~/client/styles/button'
 import {
+  CenterStyledButton,
   Description,
   Detail,
   Lines,
+  ProjectLinkButton,
   ProjectStyle,
   Role,
   Tech,
-} from '~/client/styles/work'
+} from '~/client/styles'
 
 const determineProjectButtonText = link =>
   link.includes('github')

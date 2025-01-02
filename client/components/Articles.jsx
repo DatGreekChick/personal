@@ -4,7 +4,7 @@ import { useFetchArticlesQuery } from '~/api'
 
 import { Link } from '~/client/components/Link'
 import { Loading } from '~/client/components/Loading'
-import { StyledButton } from '~/client/styles/button'
+import { StyledButton } from '~/client/styles'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;

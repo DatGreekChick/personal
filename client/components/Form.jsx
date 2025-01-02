@@ -6,8 +6,13 @@ import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import toast, { Toaster } from 'react-hot-toast'
 
-import { SubmitButton } from '~/client/styles/button.js'
-import { Asterisk, Input, StyledForm, TextArea } from '~/client/styles/contact'
+import {
+  Asterisk,
+  Input,
+  StyledForm,
+  SubmitButton,
+  TextArea,
+} from '~/client/styles'
 
 // emailJS IDs
 const serviceId = process.env.EMAILJS_SERVICE_ID
