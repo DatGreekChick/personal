@@ -1,5 +1,4 @@
 import { Form, Link } from '~/client/components'
-
 import { Header, Disclaimer, StyledContact } from '~/client/styles'
 
 const GOOGLE_PRIVACY_POLICY = 'https://policies.google.com/privacy?hl=en-US'
