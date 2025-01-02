@@ -1,7 +1,6 @@
 import { useFetchProjectsQuery } from '~/api'
 
-import { Link } from '~/client/components/Link'
-import { Loading } from '~/client/components/Loading'
+import { Link, Loading } from '~/client/components'
 import { useExpansion } from '~/client/hooks/useExpansion'
 
 import {

@@ -2,8 +2,7 @@ import { styled } from 'styled-components'
 
 import { useFetchArticlesQuery } from '~/api'
 
-import { Link } from '~/client/components/Link'
-import { Loading } from '~/client/components/Loading'
+import { Link, Loading } from '~/client/components'
 import { StyledButton } from '~/client/styles'
 
 const StyledHr = styled.hr`
