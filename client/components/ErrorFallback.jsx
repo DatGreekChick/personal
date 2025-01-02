@@ -17,21 +17,26 @@ const StyledError = styled.div`
 `
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
+  // skip fetching GitHub data or producing issues when in development
+  const skip = process.env.NODE_ENV === 'development'
+
   const location = useLocation()
   const navigated = useRef(false)
 
-  const { data: issues, isLoading, isError } = useFetchGitHubIssuesQuery()
+  const { data, isLoading, isError } = useFetchGitHubIssuesQuery(undefined, {
+    skip,
+  })
   const [createGitHubIssue] = useCreateGitHubIssueMutation()
   const [updateGitHubIssue] = useUpdateGitHubIssueMutation()
 
   useEffect(() => {
-    if (isLoading || isError) return
+    if (skip || isLoading || isError) return
 
     const formattedStack = `### Error occurred at \`${location.pathname}\` on: ${new Date()}\n\`\`\`console\n${error.stack}\n\`\`\``
 
     // search for any existing GitHub issues with the error.message title
     // if issues exist, update all of them, otherwise create a new issue
-    const foundIssues = issues?.filter(issue => issue.title === error.message)
+    const foundIssues = data?.filter(issue => issue.title === error.message)
     if (foundIssues?.length > 0) {
       foundIssues.forEach(issue =>
         updateGitHubIssue({
@@ -48,7 +53,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
     }
   }, [
     error,
-    issues,
+    data,
     location.pathname,
     isLoading,
     isError,
