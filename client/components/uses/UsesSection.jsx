@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons'
 import { styled } from 'styled-components'
@@ -47,6 +48,8 @@ const renderItems = items => {
 
 export const UsesSection = ({ section }) => {
   const [clickedSections, setClickedSections] = useState({})
+  const navigate = useNavigate()
+
   const sectionTitle = section.title.toLowerCase().split(' ').join('-')
   const visibility = clickedSections[sectionTitle]
 
@@ -61,6 +64,7 @@ export const UsesSection = ({ section }) => {
           [sectionTitle]: 'visible',
         }))
 
+        navigate(`#${sectionTitle}`)
         scrollToSection(sectionTitle)
 
         setTimeout(() => {
