@@ -83,15 +83,11 @@ export const UsesSection = ({ section }) => {
       <h2>
         <StyledRouterLink to={hash} onClick={handleClick(sectionTitle)}>
           {section.title}
-          {!visibility ? (
-            <StyledFontAwesomeIcon
-              icon={faCopy}
-              className='copy-icon'
-              visibility={visibility}
-            />
-          ) : (
-            <StyledFontAwesomeIcon icon={faCheck} visibility={visibility} />
-          )}
+          <StyledFontAwesomeIcon
+            icon={visibility === 'visible' ? faCheck : faCopy}
+            className='copy-icon'
+            visibility={visibility}
+          />
         </StyledRouterLink>
       </h2>
       {section.description && (
