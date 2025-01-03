@@ -47,28 +47,31 @@ const renderItems = items => {
 }
 
 export const UsesSection = ({ section }) => {
-  const [clickedSections, setClickedSections] = useState({})
+  const [clicked, setClicked] = useState({})
   const navigate = useNavigate()
 
   const sectionTitle = section.title.toLowerCase().split(' ').join('-')
-  const visibility = clickedSections[sectionTitle]
+  const visibility = clicked[sectionTitle]
 
-  const handleCopyToClipboard = (evt, sectionTitle) => {
+  const handleClick = (evt, sectionTitle) => {
     evt.preventDefault()
 
+    // copy link text to user's clipboard and set clicked state to render check
     navigator.clipboard
       .writeText(`${location.href}#${sectionTitle}`)
       .then(() => {
-        setClickedSections(prevState => ({
+        setClicked(prevState => ({
           ...prevState,
           [sectionTitle]: 'visible',
         }))
 
+        // update the URL in the browser and scroll to section top
         navigate(`#${sectionTitle}`)
         scrollToSection(sectionTitle)
 
+        // reset the clicked state so that the checkmark disappears
         setTimeout(() => {
-          setClickedSections(prevState => ({
+          setClicked(prevState => ({
             ...prevState,
             [sectionTitle]: 'hidden',
           }))
@@ -81,7 +84,7 @@ export const UsesSection = ({ section }) => {
       <h2>
         <StyledRouterLink
           to={`#${sectionTitle}`}
-          onClick={e => handleCopyToClipboard(e, sectionTitle)}
+          onClick={e => handleClick(e, sectionTitle)}
         >
           {section.title}
           {!visibility ? (
