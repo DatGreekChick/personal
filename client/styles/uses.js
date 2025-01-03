@@ -35,7 +35,7 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     props.visibility === 'visible' ? '#ace1af' : 'ghostwhite'};
   margin-left: 8px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   opacity: 0;
   visibility: ${props => props.visiblity};
   transition:
