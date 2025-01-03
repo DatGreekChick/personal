@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import { About, Footer, Home, Loading, Navbar } from '~/client/components'
+import { About, Footer, Home, Loading, Navbar, Uses } from '~/client/components'
 
 const Articles = lazy(() =>
   import('~/client/components').then(module => ({ default: module.Articles }))
@@ -23,6 +23,7 @@ const router = createBrowserRouter([
       { path: '/about', element: <About /> },
       { path: '/work', element: <Work /> },
       { path: '/articles', element: <Articles /> },
+      { path: '/uses', element: <Uses /> },
       { path: '/contact', element: <Contact /> },
     ],
   },

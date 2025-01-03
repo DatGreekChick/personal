@@ -9,7 +9,14 @@ export const firebaseApi = api.injectEndpoints({
     fetchArticles: build.query({
       queryFn: () => fetchData('articles'),
     }),
+    fetchUses: build.query({
+      queryFn: () => fetchData('uses'),
+    }),
   }),
 })
 
-export const { useFetchProjectsQuery, useFetchArticlesQuery } = firebaseApi
+export const {
+  useFetchProjectsQuery,
+  useFetchArticlesQuery,
+  useFetchUsesQuery,
+} = firebaseApi
