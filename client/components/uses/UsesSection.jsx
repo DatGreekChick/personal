@@ -47,34 +47,23 @@ const renderItems = items => {
 }
 
 export const UsesSection = ({ section }) => {
-  const [clicked, setClicked] = useState({})
+  const [visibility, setVisibility] = useState('hidden')
   const navigate = useNavigate()
 
   const sectionTitle = section.title.toLowerCase().split(' ').join('-')
-  const visibility = clicked[sectionTitle]
   const hash = `#${sectionTitle}`
 
   const handleClick = sectionTitle => evt => {
     evt.preventDefault()
 
-    // copy link text to user's clipboard and set clicked state to render check
+    // copy link text to user's clipboard
     navigator.clipboard.writeText(`${location.href}${hash}`).then(() => {
-      setClicked(prevState => ({
-        ...prevState,
-        [sectionTitle]: 'visible',
-      }))
+      setVisibility('visible')
 
-      // update the URL in the browser and scroll to section top
+      // update the URL in the browser, scroll to section top, reset visibility
       navigate(hash)
       scrollToSection(sectionTitle)
-
-      // reset the clicked state so that the checkmark disappears
-      setTimeout(() => {
-        setClicked(prevState => ({
-          ...prevState,
-          [sectionTitle]: 'hidden',
-        }))
-      }, 1000)
+      setTimeout(() => setVisibility('hidden'), 1000)
     })
   }
 
