@@ -117,6 +117,6 @@
     "react-loader-spinner": "^6.1.6",
     "react-redux": "^9.2.0",
     "react-router": "^7.1.1",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.14"
   }
 }
