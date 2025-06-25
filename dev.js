@@ -5,12 +5,12 @@
  */
 
 import { spawn as spawnChild } from 'child_process'
-import chalk from 'chalk'
 import debug from 'debug'
+import pc from 'picocolors'
 import thru from 'through2'
 import stripAnsi from 'strip-ansi'
 
-const colors = [chalk.cyan, chalk.green, chalk.magenta, chalk.blue]
+const colors = [pc.cyan, pc.green, pc.magenta, pc.blue]
 let nextColorIdx = 0
 
 let resolveFirebaseUrl = null
@@ -118,5 +118,5 @@ function labelWith(labeler) {
 }
 
 function error(...args) {
-  console.error(chalk.bold.red(...args))
+  console.error(pc.bold(pc.red(...args)))
 }
