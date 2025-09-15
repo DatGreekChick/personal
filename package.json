@@ -75,7 +75,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "chokidar": "^4.0.3",
     "css-loader": "^7.1.2",
-    "debug": "^4.4.1",
+    "debug": "^4.4.3",
     "dotenv-webpack": "^8.1.1",
     "eslint": "^9.35.0",
     "eslint-plugin-import": "^2.32.0",
