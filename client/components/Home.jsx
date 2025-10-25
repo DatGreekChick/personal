@@ -91,10 +91,13 @@ export const Home = () => {
         footsteps by launching a graphic design company. I learned so much
         during that time, but everything I created was static. Craving to expand
         my technical capabilities coupled with a desire to build dynamic apps
-        and a love for languages, I became a software engineer. Presently,
-        I&apos;m working as a Staff Software Engineer focused on building
-        intelligent systems, leading teams, and driving performance improvements
-        at Cisco Meraki!
+        and a love for languages, I became a software engineer.
+        <p>
+          Presently, I&apos;m working as a Senior Staff Software Engineer
+          focused on building elegant and intelligent customer experiences,
+          leading cross-company collaboration, and driving performance
+          improvements at Cisco Systems!
+        </p>
       </Description>
       <StyledButton>
         <StyledNavLink to='/contact' />
