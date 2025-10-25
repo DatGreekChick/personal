@@ -44,11 +44,11 @@ export const Asterisk = styled.span`
   }
 `
 
-export const Input = styled.input`
+export const Input = styled.input.attrs({ required: true })`
   ${inputAndTextAreaStyles}
 `
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.textarea.attrs({ required: true, rows: 2 })`
   resize: none;
   max-height: 300px;
   ${inputAndTextAreaStyles}
