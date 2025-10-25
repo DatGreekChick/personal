@@ -87,8 +87,8 @@ export const Form = () => {
       <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
         <Asterisk /> Required field
       </span>
-      <SubmitButton type='submit' disabled={isPending}>
-        {isPending ? 'Submitting...' : 'Submit'}
+      <SubmitButton type='submit' disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting...' : 'Submit'}
       </SubmitButton>
     </StyledForm>
   )
