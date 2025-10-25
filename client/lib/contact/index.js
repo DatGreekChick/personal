@@ -1,2 +1,2 @@
-export * from '~/client/lib/contact/email-js-config'
-export * from '~/client/lib/contact/form-inputs'
+export * from '~/client/lib/contact/emailJsConfig'
+export * from '~/client/lib/contact/formInputs'
