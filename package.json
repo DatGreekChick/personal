@@ -16,12 +16,12 @@
     "build": "webpack build --mode development",
     "build:prod": "webpack build --mode production",
     "clean": "rm public/*.bundle.js public/*.bundle.js.LICENSE.txt firebase-debug.log",
-    "deploy": "npm run build:prod && npx firebase deploy",
-    "lint": "npm run clean; echo \"\nRunning linter...\"; npx eslint .; echo \"\nLinting complete!\"",
-    "lint:fix": "npm run lint --fix",
-    "prettier": "npx prettier --write \"./**/*.{js,jsx,md}\"",
-    "start": "node dev",
-    "watch": "npm run build -- -w"
+    "deploy": "bun run build:prod && bunx firebase deploy",
+    "lint": "bun run clean; echo \"\nRunning linter...\"; bunx eslint .; echo \"\nLinting complete!\"",
+    "lint:fix": "bun run lint --fix",
+    "prettier": "bunx prettier --write \"./**/*.{js,jsx,md}\"",
+    "start": "bun dev",
+    "watch": "bun run build -- -w"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -33,12 +33,12 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "npm run prettier --",
-      "npm run lint:fix --",
+      "bun run prettier --",
+      "bun run lint:fix --",
       "git add --"
     ],
     "*.{md,css}": [
-      "npm run prettier --",
+      "bun run prettier --",
       "git add --"
     ]
   },
