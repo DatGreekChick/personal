@@ -6,9 +6,9 @@ import {
   useCreateGitHubIssueMutation,
   useFetchGitHubIssuesQuery,
   useUpdateGitHubIssueMutation,
-} from '~/api'
+} from '../../api'
 
-import { CenterStyledButton } from '~/client/styles'
+import { CenterStyledButton } from '../styles'
 
 const StyledError = styled.div`
   display: flex;

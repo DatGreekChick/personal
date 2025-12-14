@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 
-import { useFetchUsesQuery } from '~/api'
+import { useFetchUsesQuery } from '../../../api'
 
-import { Loading, UsesSection } from '~/client/components'
-import { scrollToSection } from '~/client/lib/scroll'
-import { Header, StyledParagraph, StyledUses } from '~/client/styles'
+import { Loading } from '..'
+import { scrollToSection } from '../../lib/scroll'
+import { Header, StyledParagraph, StyledUses } from '../../styles'
+
+import { UsesSection } from '.'
 
 export const Uses = () => {
   const { data: sections } = useFetchUsesQuery()

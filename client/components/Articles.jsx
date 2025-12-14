@@ -1,9 +1,9 @@
 import { styled } from 'styled-components'
 
-import { useFetchArticlesQuery } from '~/api'
+import { useFetchArticlesQuery } from '../../api'
 
-import { Link, Loading } from '~/client/components'
-import { StyledButton } from '~/client/styles'
+import { Link, Loading } from '.'
+import { StyledButton } from '../styles'
 
 const StyledHr = styled.hr`
   border-color: #e0bf9f;

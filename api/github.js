@@ -1,4 +1,4 @@
-import { api } from '~/api/base'
+import { api } from './base'
 
 const GITHUB_API_URL = 'https://api.github.com'
 const GITHUB_ISSUES_URL = `${GITHUB_API_URL}/repos/DatGreekChick/personal/issues`

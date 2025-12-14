@@ -4,10 +4,10 @@ import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import { ThemeProvider } from 'styled-components'
 
-import { App } from '~/client/App'
-import { GlobalStyle } from '~/client/styles'
+import { App } from './client/App'
+import { GlobalStyle } from './client/styles'
 
-import { api } from '~/api'
+import { api } from './api'
 
 function main() {
   const container = document.getElementById('main')

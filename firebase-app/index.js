@@ -1,2 +1,2 @@
-export * from '~/firebase-app/app'
-export * from '~/firebase-app/db'
+export * from './app'
+export * from './db'

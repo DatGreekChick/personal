@@ -1,2 +1,2 @@
-export * from '~/client/lib/contact'
-export * from '~/client/lib/scroll'
+export * from './contact'
+export * from './scroll'

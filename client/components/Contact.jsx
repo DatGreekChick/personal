@@ -1,5 +1,5 @@
-import { Form, Link } from '~/client/components'
-import { Disclaimer, Header, StyledContact } from '~/client/styles'
+import { Form, Link } from '.'
+import { Disclaimer, Header, StyledContact } from '../styles'
 
 const GOOGLE_PRIVACY_POLICY = 'https://policies.google.com/privacy?hl=en-US'
 const GOOGLE_TERMS_OF_SERVICE = 'https://policies.google.com/terms?hl=en-US'

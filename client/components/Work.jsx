@@ -1,7 +1,7 @@
-import { useFetchProjectsQuery } from '~/api'
+import { useFetchProjectsQuery } from '../../api'
 
-import { Link, Loading } from '~/client/components'
-import { useExpansion } from '~/client/hooks/useExpansion'
+import { Link, Loading } from '.'
+import { useExpansion } from '../hooks'
 
 import {
   CenterStyledButton,
@@ -12,7 +12,7 @@ import {
   ProjectStyle,
   Role,
   Tech,
-} from '~/client/styles'
+} from '../styles'
 
 const determineProjectButtonText = link =>
   link.includes('github')

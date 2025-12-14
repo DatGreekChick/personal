@@ -1,5 +1,5 @@
-import { api } from '~/api/base'
-import { fetchData } from '~/firebase-app'
+import { api } from './base'
+import { fetchData } from '../firebase-app'
 
 export const firebaseApi = api.injectEndpoints({
   endpoints: build => ({
