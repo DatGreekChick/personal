@@ -26,5 +26,3 @@ function main() {
 }
 
 main()
-
-import.meta.webpackHot && import.meta.webpackHot.accept('~/client/App', main)

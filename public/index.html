@@ -48,17 +48,15 @@
   <body>
     <div id="main" role="main">
     </div>
-    <script async defer src="vendors.bundle.js"></script>
-    <script async defer src="main.bundle.js"></script>
-    <script async defer src="runtime.bundle.js"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/serviceWorker.js')
-          .then(() => console.log('Service Worker Registered'))
-          .catch(err => console.error('Error registering service worker:', err))
-      }
-    </script>
+    <script async defer type="module" src="/main.js"></script>
+<!--    <script>-->
+<!--      if ('serviceWorker' in navigator) {-->
+<!--        navigator.serviceWorker-->
+<!--          .register('/serviceWorker.js')-->
+<!--          .then(() => console.log('Service Worker Registered'))-->
+<!--          .catch(err => console.error('Error registering service worker:', err))-->
+<!--      }-->
+<!--    </script>-->
   </body>
   <noscript>
     Please enable JavaScript in order for your browser to view the content of this page.

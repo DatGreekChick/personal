@@ -89,7 +89,5 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,node,firebase
 
 # Compilation artifacts
-public/*.bundle.js*
-
-# Hot module hash files
-public/*.hot-update.js*
+public/chunk*.js
+public/main.js

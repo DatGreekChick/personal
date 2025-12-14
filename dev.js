@@ -1,11 +1,11 @@
 /**
- * Run `firebase serve` and `webpack-dev-server` together, to get
- * firebase routes and function emulation alongside webpack-dev-server's
- * hot loading.
+ * Run `firebase serve` and Bun's build watcher together, to get
+ * firebase routes and function emulation.
  */
 
 import { spawn as spawnChild } from 'child_process'
 import debug from 'debug'
+import open from 'open'
 import pc from 'picocolors'
 import thru from 'through2'
 import stripAnsi from 'strip-ansi'
@@ -26,14 +26,14 @@ const env = vars => ({
 })
 const forceColor = env({ FORCE_COLOR: 3 })
 
-// Build functions
-spawn('🤖 build library', 'bun', ['run', 'watch'], forceColor).toConsole()
+// Start Bun in watch mode (configured in build.js)
+spawn('🤖 bun build (watch)', 'bun', ['run', 'build'], forceColor).toConsole()
 
 // Run `firebase serve`
 const firebaseServe = spawn(
   '🔥  firebase serve',
   'bunx',
-  ['firebase', 'serve', '--only', 'hosting'],
+  ['firebase', 'serve', '--only', 'hosting', '--port', '8080'],
   forceColor
 )
 
@@ -64,29 +64,14 @@ firebaseServe.stdout
 // Pipe stderr from firebase serve to our stderr.
 firebaseServe.stderr.pipe(process.stderr)
 
-// Once `firebase serve` has started, launch webpack-dev-server
-// with the appropriate environment variables set.
-firebaseUrl.then(FIREBASE_SERVE_URL =>
-  spawn(
-    '🌍  webpack dev server',
-    'npx',
-    ['webpack', 'serve', '--hot', '--open', ...process.argv.slice(2)],
-    {
-      env: Object.assign(
-        {
-          NODE_ENV: 'development',
-          FORCE_COLOR: 3,
-          FIREBASE_SERVE_URL,
-        },
-        process.env
-      ),
-    }
-  ).toConsole()
-)
+// Open browser once Firebase is ready
+firebaseUrl.then(url => {
+  console.log(pc.green(`\n🚀 Dev server running at ${url}\n`))
+  open(url)
+})
 
 function spawn(label, ...args) {
   const child = spawnChild(...args)
-
   const labeler = labelerFor(label)
 
   child.on('exit', status => {
