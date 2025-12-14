@@ -13,14 +13,8 @@ import {
   getInputs,
   SERVICE_ID,
   TEMPLATE_ID,
-} from '~/client/lib'
-import {
-  Asterisk,
-  Input,
-  StyledForm,
-  SubmitButton,
-  TextArea,
-} from '~/client/styles'
+} from '../lib'
+import { Asterisk, Input, StyledForm, SubmitButton, TextArea } from '../styles'
 
 export const Form = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()

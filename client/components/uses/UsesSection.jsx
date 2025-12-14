@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router'
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons'
 import { styled } from 'styled-components'
 
-import { Link } from '~/client/components'
-import { scrollToSection } from '~/client/lib/scroll'
+import { Link } from '..'
+import { scrollToSection } from '../../lib/scroll'
 import {
   StyledFontAwesomeIcon,
   StyledH3,
   StyledParagraph,
   StyledRouterLink,
-} from '~/client/styles'
+} from '../../styles'
 
 // there's a conflict on Link when this goes in styles/uses.js
 const StyledLink = styled(Link)`

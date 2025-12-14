@@ -1,3 +1,3 @@
-export * from '~/api/base'
-export * from '~/api/firebase'
-export * from '~/api/github'
+export * from './base'
+export * from './firebase'
+export * from './github'

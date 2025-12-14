@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-import { Header, StyledButton, StyledNavLink } from '~/client/styles'
+import { Header, StyledButton, StyledNavLink } from '../styles'
 
 const StyledAbout = styled.div`
   display: flex;
