@@ -11,12 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '25'
-          cache: 'npm'
+          bun-version: latest
       - run: echo "${{ secrets.ENV_FILE }}" > .env
-      - run: npm ci && npm run build:prod
+      - run: bun install && bun run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}

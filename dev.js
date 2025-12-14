@@ -27,12 +27,12 @@ const env = vars => ({
 const forceColor = env({ FORCE_COLOR: 3 })
 
 // Build functions
-spawn('🤖 build library', 'npm', ['run', 'watch'], forceColor).toConsole()
+spawn('🤖 build library', 'bun', ['run', 'watch'], forceColor).toConsole()
 
 // Run `firebase serve`
 const firebaseServe = spawn(
   '🔥  firebase serve',
-  'npx',
+  'bunx',
   ['firebase', 'serve', '--only', 'hosting'],
   forceColor
 )
