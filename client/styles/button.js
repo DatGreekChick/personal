@@ -47,7 +47,7 @@ export const StyledButton = styled.button`
 
 export const CenterStyledButton = styled(StyledButton)`
   display: flex;
-  margin: 10px auto;
+  margin: 50px auto 10px auto;
 
   &:hover a {
     color: rgba(0, 0, 0, 0.9);
