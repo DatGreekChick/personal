@@ -3,105 +3,58 @@
  * firebase routes and function emulation.
  */
 
-import { spawn as spawnChild } from 'child_process'
-import debug from 'debug'
+import { spawn } from 'child_process'
 import open from 'open'
 import pc from 'picocolors'
-import thru from 'through2'
-import stripAnsi from 'strip-ansi'
 
-const colors = [pc.cyan, pc.green, pc.magenta, pc.blue]
-let nextColorIdx = 0
+const FIREBASE_PORT = 8080
+const LOCAL_SERVER_REGEX = /(?:Local server|Server listening): (.*)/
 
-let resolveFirebaseUrl = null
-let hasStartedListening = false
-const firebaseUrl = new Promise(r => (resolveFirebaseUrl = r)).then(stripAnsi)
+// Start Bun build watcher
+startProcess('🤖 bun build', 'bun', ['run', 'build'])
 
-// `firebase serve` prints a line that looks like this
-// when it starts listening:
-const localServerRe = /(?:Local server|Server listening): (.*)/
+// Start Firebase serve and open browser when ready
+const firebase = startProcess('🔥 firebase', 'bunx', [
+  'firebase',
+  'serve',
+  '--only',
+  'hosting',
+  '--port',
+  FIREBASE_PORT,
+])
 
-const env = vars => ({
-  env: Object.assign(vars, process.env),
-})
-const forceColor = env({ FORCE_COLOR: 3 })
-
-// Start Bun in watch mode (configured in build.js)
-spawn('🤖 bun build (watch)', 'bun', ['run', 'build'], forceColor).toConsole()
-
-// Run `firebase serve`
-const firebaseServe = spawn(
-  '🔥  firebase serve',
-  'bunx',
-  ['firebase', 'serve', '--only', 'hosting', '--port', '8080'],
-  forceColor
-)
-
-// Scan through its output...
-firebaseServe.stdout
-  // We're looking for the line where firebase serve tells us
-  // what URL it's accessible at (usually localhost:5000, but it
-  // may have to pick another port).
-  .pipe(
-    thru(function (line, enc, cb) {
-      // To avoid confusion, we don't pass through stdout until
-      // after the "listening" line has passed.
-      cb(null, hasStartedListening ? line : debug('dev')('%s', line))
-
-      // Is this the line telling us where the local server is?
-      const match = line.toString().match(localServerRe)
-
-      // If so, resolve the firebase url promise with the url,
-      // and start passing through lines.
-      if (match) {
-        resolveFirebaseUrl(match[1].trim())
-        hasStartedListening = true
-      }
-    })
-  )
-  .pipe(process.stdout)
-
-// Pipe stderr from firebase serve to our stderr.
-firebaseServe.stderr.pipe(process.stderr)
-
-// Open browser once Firebase is ready
-firebaseUrl.then(url => {
-  console.log(pc.green(`\n🚀 Dev server running at ${url}\n`))
-  open(url)
+// Watch for server URL and open browser
+firebase.stdout.on('data', data => {
+  const match = data.toString().match(LOCAL_SERVER_REGEX)
+  if (match) {
+    const url = match[1].trim()
+    console.log(pc.green(`\n🚀 Dev server running at ${url}\n`))
+    open(url, { app: { name: 'chrome' } })
+  }
 })
 
-function spawn(label, ...args) {
-  const child = spawnChild(...args)
-  const labeler = labelerFor(label)
-
-  child.on('exit', status => {
-    if (status) {
-      error(labeler('exited with status', status))
-    }
-    process.exit(status)
+function startProcess(label, command, args) {
+  const child = spawn(command, args, {
+    env: { ...process.env, FORCE_COLOR: '3' },
+    stdio: ['inherit', 'pipe', 'pipe'],
   })
 
-  child.stdout = child.stdout.pipe(labelWith(labeler))
-  child.stderr = child.stderr.pipe(labelWith(labeler))
-  child.toConsole = () => {
-    child.stdout.pipe(process.stdout)
-    child.stderr.pipe(process.stderr)
-  }
+  const prefix = pc.cyan(`[${label}]\t`)
+
+  child.stdout.on('data', data => {
+    process.stdout.write(prefix + data.toString())
+  })
+
+  child.stderr.on('data', data => {
+    process.stderr.write(prefix + data.toString())
+  })
+
+  child.on('exit', code => {
+    if (code !== 0) {
+      console.error(pc.red(`\n${label} exited with code ${code}`))
+      process.exit(code)
+    }
+  })
 
   return child
-}
-
-function labelerFor(label, color = colors[nextColorIdx++ % colors.length]) {
-  const coloredLabel = color(`[ ${label} ]\t`)
-  return (...message) => `${coloredLabel}${message.join(' ')}`
-}
-
-function labelWith(labeler) {
-  return thru(function (line, enc, cb) {
-    cb(null, labeler(line))
-  })
-}
-
-function error(...args) {
-  console.error(pc.bold(pc.red(...args)))
 }
