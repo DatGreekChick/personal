@@ -15,7 +15,7 @@ jobs:
         with:
           bun-version: latest
       - run: echo "${{ secrets.ENV_FILE }}" > .env
-      - run: bun install && bun run build:prod
+      - run: bun install && bun run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
