@@ -7,15 +7,10 @@
   "description": "My personal website featuring my portfolio and writing pieces.",
   "main": "main.js",
   "type": "module",
-  "babelMacros": {
-    "fontawesome-svg-core": {
-      "license": "free"
-    }
-  },
   "scripts": {
     "build": "NODE_ENV=production bun run build.js",
     "clean": "rm public/chunk*.js LICENSE.txt firebase-debug.log",
-    "deploy": "bun run build:prod && bunx firebase deploy",
+    "deploy": "bun run build && bunx firebase deploy",
     "lint": "bun run clean; echo \"\nRunning linter...\"; bunx eslint .; echo \"\nLinting complete!\"",
     "lint:fix": "bun run lint --fix",
     "prettier": "bunx prettier --write \"./**/*.{js,jsx,md}\"",
@@ -42,12 +37,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "babel-plugin-macros": "^3.1.0",
     "chokidar": "^5.0.0",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
-    "file-loader": "^6.2.0",
     "firebase-admin": "^13.6.0",
     "firebase-tools": "^15.1.0",
     "globals": "^16.5.0",
@@ -55,8 +48,7 @@
     "lint-staged": "^16.2.7",
     "open": "^11.0.0",
     "picocolors": "^1.1.1",
-    "prettier": "^3.7.4",
-    "react-async-script": "^1.2.0"
+    "prettier": "^3.7.4"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -70,7 +62,7 @@
     "hamburger-react": "^2.5.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-error-boundary": "^6.0.0",
+    "react-error-boundary": "^6.0.1",
     "react-google-recaptcha-v3": "^1.11.0",
     "react-hook-form": "^7.69.0",
     "react-hot-toast": "^2.6.0",
