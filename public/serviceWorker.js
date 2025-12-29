@@ -1,13 +1,9 @@
-const CACHE_NAME = 'v1'
+const CACHE_NAME = 'v2'
 const urlsToCache = [
-  '.',
+  '/',
   '/assets/img/CreamLogo.png',
-  '/client/styles/button.js',
-  '/client/styles/contact.js',
-  '/client/styles/GlobalStyles.js',
-  '/client/styles/work.js',
-  'main.bundle.js',
-  'index.html',
+  '/main.js',
+  '/index.html',
   'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
 ]
 
@@ -15,15 +11,31 @@ const urlsToCache = [
 const containsChromeExtension = ({ url }) =>
   url.startsWith('chrome-extension') ||
   url.includes('extension') ||
-  url.startsWith('http')
+  !url.startsWith('http')
 
 self.addEventListener('install', evt => {
+  self.skipWaiting()
+
   // Perform install steps
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log('Opened cache')
       return cache.addAll(urlsToCache)
     })
+  )
+})
+
+self.addEventListener('activate', evt => {
+  // Clean up old caches
+  evt.waitUntil(
+    caches
+      .keys()
+      .then(keys =>
+        Promise.all(
+          keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+        )
+      )
+      .then(() => self.clients.claim())
   )
 })
 
