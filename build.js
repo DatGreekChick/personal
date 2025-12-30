@@ -53,9 +53,6 @@ await Bun.build({
     'process.env.GITHUB_API_TOKEN': JSON.stringify(
       getEnvVar('GITHUB_API_TOKEN')
     ),
-    'process.env.RECAPTCHA_SITE_KEY': JSON.stringify(
-      getEnvVar('RECAPTCHA_SITE_KEY')
-    ),
     'process.env.ENTERPRISE_RECAPTCHA_SITE_KEY': JSON.stringify(
       getEnvVar('ENTERPRISE_RECAPTCHA_SITE_KEY')
     ),
@@ -72,7 +69,6 @@ await Bun.build({
       FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
       FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
       GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN,
-      RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
       ENTERPRISE_RECAPTCHA_SITE_KEY: process.env.ENTERPRISE_RECAPTCHA_SITE_KEY,
       APP_CHECK_DEBUG_TOKEN: process.env.APP_CHECK_DEBUG_TOKEN,
     }),
@@ -87,7 +83,6 @@ await Bun.build({
         FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
         FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
         GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN,
-        RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY,
         ENTERPRISE_RECAPTCHA_SITE_KEY:
           process.env.ENTERPRISE_RECAPTCHA_SITE_KEY,
         APP_CHECK_DEBUG_TOKEN: process.env.APP_CHECK_DEBUG_TOKEN,
