@@ -43,7 +43,7 @@
     "eslint-plugin-react": "^7.37.5",
     "firebase-admin": "^13.6.0",
     "firebase-tools": "^15.1.0",
-    "globals": "^16.5.0",
+    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "open": "^11.0.0",
@@ -62,13 +62,13 @@
     "hamburger-react": "^2.5.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-error-boundary": "^6.0.1",
+    "react-error-boundary": "^6.0.2",
     "react-google-recaptcha-v3": "^1.11.0",
-    "react-hook-form": "^7.69.0",
+    "react-hook-form": "^7.70.0",
     "react-hot-toast": "^2.6.0",
     "react-loader-spinner": "^8.0.0",
     "react-redux": "^9.2.0",
     "react-router": "^7.11.0",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.2.0"
   }
 }
