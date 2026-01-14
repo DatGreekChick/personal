@@ -13,6 +13,14 @@ import {
   StyledRouterLink,
 } from '../../styles'
 
+import { CallToAction } from './CallToAction'
+
+// Call-to-action links for specific sections
+const CTA_LINKS = {
+  podcasts:
+    'https://podcasts.apple.com/us/podcast/299-eleni-konior-senior-staff-software-engineer-at/id1464180320?i=1000743464724',
+}
+
 // there's a conflict on Link when this goes in styles/uses.js
 const StyledLink = styled(Link)`
   font-weight: bold;
@@ -81,6 +89,13 @@ export const UsesSection = ({ section }) => {
       </h2>
       {section.description && (
         <StyledParagraph>{section.description}</StyledParagraph>
+      )}
+      {section.title.toLowerCase() === 'podcasts' && (
+        <CallToAction
+          text="Check out my appearance on the 'Code with Jason' podcast!"
+          href={CTA_LINKS.podcasts}
+          linkText={'Code with Jason'}
+        />
       )}
       {renderItems(section.items)}
     </section>
