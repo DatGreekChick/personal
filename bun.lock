@@ -16,14 +16,14 @@
         "hamburger-react": "^2.5.2",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
-        "react-error-boundary": "^6.0.2",
+        "react-error-boundary": "^6.1.0",
         "react-google-recaptcha-v3": "^1.11.0",
-        "react-hook-form": "^7.70.0",
+        "react-hook-form": "^7.71.1",
         "react-hot-toast": "^2.6.0",
         "react-loader-spinner": "^8.0.0",
         "react-redux": "^9.2.0",
-        "react-router": "^7.11.0",
-        "styled-components": "^6.2.0",
+        "react-router": "^7.12.0",
+        "styled-components": "^6.3.6",
       },
       "devDependencies": {
         "@eslint/js": "^9.39.2",
@@ -32,7 +32,7 @@
         "eslint-plugin-import": "^2.32.0",
         "eslint-plugin-react": "^7.37.5",
         "firebase-admin": "^13.6.0",
-        "firebase-tools": "^15.1.0",
+        "firebase-tools": "^15.2.1",
         "globals": "^17.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.2.7",
@@ -1429,7 +1429,7 @@
 
     "react-dom": ["react-dom@19.2.3", "", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.3" } }, "sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg=="],
 
-    "react-error-boundary": ["react-error-boundary@6.0.3", "", { "peerDependencies": { "react": "^18.0.0 || ^19.0.0" } }, "sha512-5guqn2UYpCFjE8UDMA8J7Kke+YSGBFrKQRJb3XdcaGZXYINZfQXgBt3ifY6MvjkN7QROc5A8zclyoSCwrcRUKw=="],
+    "react-error-boundary": ["react-error-boundary@6.1.0", "", { "peerDependencies": { "react": "^18.0.0 || ^19.0.0" } }, "sha512-02k9WQ/mUhdbXir0tC1NiMesGzRPaCsJEWU/4bcFrbY1YMZOtHShtZP6zw0SJrBWA/31H0KT9/FgdL8+sPKgHA=="],
 
     "react-google-recaptcha-v3": ["react-google-recaptcha-v3@1.11.0", "", { "dependencies": { "hoist-non-react-statics": "^3.3.2" }, "peerDependencies": { "react": "^16.3 || ^17.0 || ^18.0 || ^19.0", "react-dom": "^17.0 || ^18.0 || ^19.0" } }, "sha512-kLQqpz/77m8+trpBwzqcxNtvWZYoZ/YO6Vm2cVTHW8hs80BWUfDpC7RDwuAvpswwtSYApWfaSpIDFWAIBNIYxQ=="],
 
