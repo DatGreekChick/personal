@@ -6,6 +6,7 @@ coveragePathIgnorePatterns = [
   "mocks/*.js",
   "test/*.js",
 ]
+coverageReporter = ["lcov"]
 dom = true
 preload = ["./test/setup.js"]
 randomize = true
