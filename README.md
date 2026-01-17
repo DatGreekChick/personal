@@ -13,6 +13,7 @@ For information on my journey to becoming a Software Engineer, check out my
 - 💅🏾 [`styled-components`] for easy CSS styling
 - 📧 [EmailJS] for server-less contact form submissions direct to my inbox
 - 🦀 [bun] for fast development, build times, and building all assets
+- 🧪️ [@testing-library/react] and [msw] for robust frontend testing
 
 ### Frontend
 
@@ -40,5 +41,7 @@ v3, which is invisible.
 [`styled-components`]: https://styled-components.com/
 [emailjs]: https://www.emailjs.com/
 [bun]: https://bun.com/docs/
+[@testing-library/react]: https://testing-library.com/docs/
+[msw]: https://mswjs.io/
 [`main.js`]: main.js
 [`app.jsx`]: client/App.jsx
