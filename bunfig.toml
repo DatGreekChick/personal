@@ -1,0 +1,14 @@
+[test]
+bail = true
+concurrent = true
+coverage = true
+coveragePathIgnorePatterns = [
+  "mocks/*.js",
+  "test/*.js",
+]
+dom = true
+preload = ["./test/setup.js"]
+randomize = true
+
+[test.reporter]
+verbose = true
