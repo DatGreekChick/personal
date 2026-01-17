@@ -36,7 +36,7 @@ inbox using `emailjs`. The Google ReCAPTCHA library helps verify a human's
 v3, which is invisible.
 
 [codecov-badge]:
-  https://codecov.io/github/DatGreekChick/personal/graph/badge.svg?token=gyMId8xc0a
+  https://codecov.io/github/DatGreekChick/personal/branch/main/graph/badge.svg?token=gyMId8xc0a
 [codecov]: https://codecov.io/github/DatGreekChick/personal
 [medium article on codeburst]:
   https://codeburst.io/five-ways-becoming-a-software-engineer-made-me-a-wizard-de1060fc04d4
