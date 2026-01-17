@@ -1,1 +1,1 @@
-export * from './Uses'
+export { Uses } from './Uses'

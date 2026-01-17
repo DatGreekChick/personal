@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons'
 import { styled } from 'styled-components'
 
+import { CallToAction } from './CallToAction'
 import { Link } from '..'
 import { scrollToSection } from '../../lib/scroll'
 import {
@@ -12,8 +13,6 @@ import {
   StyledParagraph,
   StyledRouterLink,
 } from '../../styles'
-
-import { CallToAction } from './CallToAction'
 
 // Call-to-action links for specific sections
 const CTA_LINKS = {
