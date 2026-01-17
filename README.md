@@ -1,5 +1,7 @@
 # personal
 
+[![codecov-badge]][codecov]
+
 For information on my journey to becoming a Software Engineer, check out my
 [Medium article on Codeburst].
 
@@ -33,6 +35,9 @@ inbox using `emailjs`. The Google ReCAPTCHA library helps verify a human's
 (online) humanity to prevent bots from submitting the form. It uses ReCAPTCHA
 v3, which is invisible.
 
+[codecov-badge]:
+  https://codecov.io/github/DatGreekChick/personal/graph/badge.svg?token=gyMId8xc0a
+[codecov]: https://codecov.io/github/DatGreekChick/personal
 [medium article on codeburst]:
   https://codeburst.io/five-ways-becoming-a-software-engineer-made-me-a-wizard-de1060fc04d4
 [react]: https://reactjs.org/
