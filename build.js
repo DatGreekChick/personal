@@ -12,6 +12,7 @@ const getEnvVar = key => {
   return value
 }
 
+// eslint-disable-next-line no-undef
 await Bun.build({
   entrypoints: ['./main.js'],
   outdir: `${__dirname}/public`,
