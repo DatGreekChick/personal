@@ -56,7 +56,7 @@
     "msw": "^1.2.0",
     "open": "^11.0.0",
     "picocolors": "^1.1.1",
-    "prettier": "^3.8.0"
+    "prettier": "^3.8.1"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
