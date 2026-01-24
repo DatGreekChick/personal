@@ -1,9 +1,8 @@
-import { rest } from 'msw'
+import { http } from 'msw'
 
 export const handlers = [
-  // Example handler for uses data
-  rest.get('/uses', (req, res, ctx) => {
-    return res(
+  http.get('/uses', (req, res, ctx) =>
+    res(
       ctx.json([
         {
           title: 'IDE',
@@ -12,5 +11,5 @@ export const handlers = [
         },
       ])
     )
-  }),
+  ),
 ]
