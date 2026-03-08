@@ -32,7 +32,7 @@ export default [
         espree: ['.js', '.jsx'],
       },
       react: {
-        version: 'detect',
+        version: '19',
       },
     },
     rules: {
