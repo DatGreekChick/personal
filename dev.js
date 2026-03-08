@@ -14,7 +14,8 @@ const LOCAL_SERVER_REGEX = /(?:Local server|Server listening): (.*)/
 startProcess('🤖 bun build', 'bun', ['run', 'build'])
 
 // Start Firebase serve and open browser when ready
-const firebase = startProcess('🔥 firebase', 'bunx', [
+const firebase = startProcess('🔥 firebase', 'bun', [
+  'x',
   'firebase',
   'serve',
   '--only',
