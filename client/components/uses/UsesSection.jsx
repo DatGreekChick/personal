@@ -1,15 +1,15 @@
 import { Fragment, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { faCheck, faCopy } from '@fortawesome/free-solid-svg-icons'
+import { FiCheck, FiCopy } from 'react-icons/fi'
 import { styled } from 'styled-components'
 
 import { CallToAction } from './CallToAction'
 import { Link } from '..'
 import { scrollToSection } from '../../lib/scroll'
 import {
-  StyledFontAwesomeIcon,
   StyledH3,
+  StyledIcon,
   StyledParagraph,
   StyledRouterLink,
 } from '../../styles'
@@ -79,11 +79,9 @@ export const UsesSection = ({ section }) => {
       <h2>
         <StyledRouterLink to={hash} onClick={handleClick(sectionTitle)}>
           {section.title}
-          <StyledFontAwesomeIcon
-            icon={visibility === 'visible' ? faCheck : faCopy}
-            className='copy-icon'
-            visibility={visibility}
-          />
+          <StyledIcon className='copy-icon' visibility={visibility}>
+            {visibility === 'visible' ? <FiCheck /> : <FiCopy />}
+          </StyledIcon>
         </StyledRouterLink>
       </h2>
       {section.description && (

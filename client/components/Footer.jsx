@@ -1,24 +1,23 @@
 import { styled } from 'styled-components'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faGithub,
-  faLinkedin,
-  faMedium,
-  faStackOverflow,
-} from '@fortawesome/free-brands-svg-icons'
-import { faAt } from '@fortawesome/free-solid-svg-icons'
+  FaAt,
+  FaGithub,
+  FaLinkedin,
+  FaMedium,
+  FaStackOverflow,
+} from 'react-icons/fa'
 
 const SOCIAL_LINKS = [
-  ['https://github.com/datgreekchick', faGithub, '#6e5494'],
-  ['https://linkedin.com/in/eleniarvanitis', faLinkedin, '#0077b5'],
-  ['https://datgreekchick.medium.com', faMedium, '#00ab6c'],
+  ['https://github.com/datgreekchick', FaGithub, '#6e5494'],
+  ['https://linkedin.com/in/eleniarvanitis', FaLinkedin, '#0077b5'],
+  ['https://datgreekchick.medium.com', FaMedium, '#00ab6c'],
   [
     'https://stackoverflow.com/users/9431600/datgreekchick',
-    faStackOverflow,
+    FaStackOverflow,
     '#f48024',
   ],
-  ['mailto:eleni.arvanitis@me.com', faAt, '#fbbc05'],
+  ['mailto:eleni.arvanitis@me.com', FaAt, '#fbbc05'],
 ]
 
 const StyledFooter = styled.footer`
@@ -48,7 +47,7 @@ export const Footer = () => (
       &copy; {`${new Date().getFullYear()} Eleni Konior`}
     </span>
     <div>
-      {SOCIAL_LINKS.map(([href, icon, color]) => (
+      {SOCIAL_LINKS.map(([href, SocialIcon, color]) => (
         <Icon
           key={href}
           href={href}
@@ -58,7 +57,7 @@ export const Footer = () => (
           role='presentation'
           color={color}
         >
-          <FontAwesomeIcon icon={icon} />
+          <SocialIcon />
         </Icon>
       ))}
     </div>
