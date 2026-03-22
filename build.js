@@ -25,10 +25,6 @@ await Bun.build({
   publicPath: '/',
   watch: !isProd,
   incremental: !isProd,
-  metafile: {
-    json: './meta.json',
-    markdown: './meta.md',
-  },
   jsx: {
     runtime: 'automatic',
   },
