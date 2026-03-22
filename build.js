@@ -19,12 +19,16 @@ await Bun.build({
   outbase: __dirname,
   format: 'esm',
   target: 'browser',
-  splitting: false,
+  splitting: true,
   minify: isProd,
   sourcemap: isProd ? 'none' : 'inline',
   publicPath: '/',
   watch: !isProd,
   incremental: !isProd,
+  metafile: {
+    json: './meta.json',
+    markdown: './meta.md',
+  },
   jsx: {
     runtime: 'automatic',
   },
