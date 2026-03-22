@@ -1,9 +1,18 @@
 import { useEffect, useState } from 'react'
 
-import { animated, useTransition } from '@react-spring/web'
-import { styled } from 'styled-components'
+import { keyframes, styled } from 'styled-components'
 
 import { StyledButton, StyledNavLink } from '../styles'
+
+const slideIn = keyframes`
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0%); }
+`
+
+const slideOut = keyframes`
+  from { opacity: 1; transform: translateY(0%); }
+  to { opacity: 0; transform: translateY(-100%); }
+`
 
 const Me = styled.div`
   display: flex;
@@ -18,11 +27,19 @@ const Me = styled.div`
   }
 `
 
-const Carousel = styled(animated.div)`
+const CarouselWrapper = styled.span`
+  position: relative;
+  display: inline-flex;
+`
+
+const Carousel = styled.span`
   display: inline-flex;
   white-space: nowrap;
   font-weight: 600;
   color: #e0bf9f;
+  animation: ${({ $leaving }) => ($leaving ? slideOut : slideIn)} 300ms ease
+    forwards;
+  ${({ $leaving }) => $leaving && 'position: absolute;'}
 `
 
 const Description = styled.p`
@@ -57,33 +74,36 @@ const ME = [
 ]
 
 export const Home = () => {
-  const [idx, setIdx] = useState(0)
+  const [current, setCurrent] = useState({ text: ME[0], key: 0 })
+  const [prev, setPrev] = useState(null)
 
   useEffect(() => {
-    const intervalId = setInterval(
-      () => setIdx(Math.floor(Math.random() * Math.floor(ME.length))),
-      3000 // every 3 seconds
-    )
+    const intervalId = setInterval(() => {
+      const nextIdx = Math.floor(Math.random() * ME.length)
+      setCurrent(c => {
+        setPrev(c)
+        return { text: ME[nextIdx], key: Date.now() }
+      })
+    }, 3000)
     return () => clearTimeout(intervalId)
   }, [])
-
-  const transitions = useTransition(ME[idx % ME.length], {
-    enter: { opacity: 1, transform: 'translateY(0%)' },
-    from: { opacity: 0, transform: 'translateY(100%)' },
-    leave: {
-      opacity: 0,
-      transform: 'translateY(-100%)',
-      position: 'absolute',
-    },
-  })
 
   return (
     <Me>
       <span>
         I am{' '}
-        {transitions((style, item) => (
-          <Carousel style={style}>{item}</Carousel>
-        ))}
+        <CarouselWrapper>
+          <Carousel key={current.key}>{current.text}</Carousel>
+          {prev && (
+            <Carousel
+              $leaving
+              key={prev.key}
+              onAnimationEnd={() => setPrev(null)}
+            >
+              {prev.text}
+            </Carousel>
+          )}
+        </CarouselWrapper>
       </span>
       <Description>
         After graduating from NYU with a B.A. in Economics, I decided to tap
