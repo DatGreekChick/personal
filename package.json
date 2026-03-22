@@ -60,7 +60,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@react-spring/web": "^10.0.3",
     "@reduxjs/toolkit": "^2.11.2",
     "firebase": "^12.11.0",
     "hamburger-react": "^2.5.2",
