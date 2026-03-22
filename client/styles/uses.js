@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router'
 import { styled } from 'styled-components'
 
@@ -30,7 +29,7 @@ export const StyledRouterLink = styled(Link)`
   }
 `
 
-export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+export const StyledIcon = styled.span`
   color: ${props =>
     props.visibility === 'visible' ? '#ace1af' : 'ghostwhite'};
   margin-left: 8px;
