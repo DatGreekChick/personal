@@ -1,4 +1,4 @@
-import { collection, getDocs, getFirestore } from 'firebase/firestore'
+import { collection, getDocs, getFirestore } from 'firebase/firestore/lite'
 
 import { app } from './app'
 
