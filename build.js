@@ -19,7 +19,7 @@ await Bun.build({
   outbase: __dirname,
   format: 'esm',
   target: 'browser',
-  splitting: false,
+  splitting: true,
   minify: isProd,
   sourcemap: isProd ? 'none' : 'inline',
   publicPath: '/',

@@ -5,13 +5,13 @@ import { RouterProvider } from 'react-router/dom'
 import { About, Footer, Home, Loading, Navbar, Uses } from './components'
 
 const Articles = lazy(() =>
-  import('./components').then(module => ({ default: module.Articles }))
+  import('./components/Articles').then(module => ({ default: module.Articles }))
 )
 const Contact = lazy(() =>
-  import('./components').then(module => ({ default: module.Contact }))
+  import('./components/Contact').then(module => ({ default: module.Contact }))
 )
 const Work = lazy(() =>
-  import('./components').then(module => ({ default: module.Work }))
+  import('./components/Work').then(module => ({ default: module.Work }))
 )
 
 const router = createBrowserRouter([
