@@ -91,7 +91,3 @@ sketch
 # Compilation artifacts
 public/chunk*.js
 public/main.js
-
-# Bundle analysis (local use only)
-public/meta.json
-public/meta.md
