@@ -1,12 +1,6 @@
 import { styled } from 'styled-components'
 
-import {
-  FaAt,
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-  FaStackOverflow,
-} from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaMedium, FaStackOverflow } from 'react-icons/fa'
 
 const SOCIAL_LINKS = [
   ['https://github.com/datgreekchick', FaGithub, '#6e5494'],
@@ -17,7 +11,6 @@ const SOCIAL_LINKS = [
     FaStackOverflow,
     '#f48024',
   ],
-  ['mailto:eleni.arvanitis@me.com', FaAt, '#fbbc05'],
 ]
 
 const StyledFooter = styled.footer`
