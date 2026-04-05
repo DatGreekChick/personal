@@ -26,6 +26,7 @@ export const Form = () => {
     reset,
   } = useForm({
     defaultValues: { name: '', email: '', message: '' },
+    shouldUseNativeValidation: true,
   })
 
   const verifyHumanity = useCallback(async () => {

@@ -84,8 +84,7 @@ export default [
       // server
       'dev.js',
       // bundles
-      'public/*.bundle.js',
-      'public/main.js',
+      'public/**',
       // development
       '**/*.hot-update.js*',
     ],
