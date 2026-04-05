@@ -1,3 +1,16 @@
+const BLOCKED_DOMAINS = ['jmailservice.com']
+
+const SEO_SPAM_KEYWORDS = [
+  'seo',
+  'search engine optimization',
+  'backlink',
+  'link building',
+  'organic traffic',
+  'search ranking',
+  'domain authority',
+  'keyword research',
+]
+
 export const getInputs = () => [
   {
     inputType: 'text',
@@ -18,6 +31,13 @@ export const getInputs = () => [
     options: {
       required: true,
       pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email address' },
+      validate: value => {
+        const domain = value.toLowerCase().split('@')[1] ?? ''
+        const blocked = BLOCKED_DOMAINS.some(
+          b => domain === b || domain.endsWith(`.${b}`)
+        )
+        return !blocked || 'This email domain is not allowed'
+      },
     },
   },
   {
@@ -30,6 +50,13 @@ export const getInputs = () => [
       maxLength: {
         value: 1500,
         message: 'Messages cannot exceed 1500 characters',
+      },
+      validate: value => {
+        const lower = value.toLowerCase()
+        const isSpam = SEO_SPAM_KEYWORDS.some(keyword =>
+          lower.includes(keyword)
+        )
+        return !isSpam || 'Your message was flagged as spam'
       },
     },
   },

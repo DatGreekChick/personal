@@ -61,6 +61,35 @@ describe('getInputs', () => {
       const { pattern } = getInputs()[1].options
       expect(pattern.message).toBe('Invalid email address')
     })
+
+    describe('blocked domains', () => {
+      it('rejects emails from jmailservice.com', () => {
+        const { validate } = getInputs()[1].options
+        expect(validate('spammer@jmailservice.com')).toBe(
+          'This email domain is not allowed'
+        )
+      })
+
+      it('rejects subdomains of blocked domains', () => {
+        const { validate } = getInputs()[1].options
+        expect(validate('spammer@mail.jmailservice.com')).toBe(
+          'This email domain is not allowed'
+        )
+      })
+
+      it('is case-insensitive', () => {
+        const { validate } = getInputs()[1].options
+        expect(validate('spammer@JMAILSERVICE.COM')).toBe(
+          'This email domain is not allowed'
+        )
+      })
+
+      it('allows legitimate email addresses', () => {
+        const { validate } = getInputs()[1].options
+        expect(validate('user@gmail.com')).toBe(true)
+        expect(validate('user@example.com')).toBe(true)
+      })
+    })
   })
 
   describe('message field', () => {
@@ -81,6 +110,35 @@ describe('getInputs', () => {
       expect(options.maxLength.message).toBe(
         'Messages cannot exceed 1500 characters'
       )
+    })
+
+    describe('spam filtering', () => {
+      it('rejects messages containing SEO spam keywords', () => {
+        const { validate } = getInputs()[2].options
+
+        expect(validate('We can improve your SEO rankings!')).toBe(
+          'Your message was flagged as spam'
+        )
+        expect(validate('Let us build backlinks for your site')).toBe(
+          'Your message was flagged as spam'
+        )
+        expect(validate('Boost your organic traffic today')).toBe(
+          'Your message was flagged as spam'
+        )
+      })
+
+      it('is case-insensitive', () => {
+        const { validate } = getInputs()[2].options
+        expect(validate('We specialize in Search Engine Optimization')).toBe(
+          'Your message was flagged as spam'
+        )
+      })
+
+      it('allows legitimate messages', () => {
+        const { validate } = getInputs()[2].options
+        expect(validate('Hi, I love your portfolio!')).toBe(true)
+        expect(validate("I'd like to discuss a project with you")).toBe(true)
+      })
     })
   })
 
