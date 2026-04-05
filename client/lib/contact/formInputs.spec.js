@@ -122,9 +122,17 @@ describe('getInputs', () => {
         expect(validate('Let us build backlinks for your site')).toBe(
           'Your message was flagged as spam'
         )
-        expect(validate('Boost your organic traffic today')).toBe(
+        expect(validate('Boost your traffic today')).toBe(
           'Your message was flagged as spam'
         )
+        expect(
+          validate(
+            'I can review your search volume and send traffic projections'
+          )
+        ).toBe('Your message was flagged as spam')
+        expect(
+          validate('I can identify high-value keywords in your industry')
+        ).toBe('Your message was flagged as spam')
       })
 
       it('is case-insensitive', () => {

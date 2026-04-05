@@ -5,10 +5,11 @@ const SEO_SPAM_KEYWORDS = [
   'search engine optimization',
   'backlink',
   'link building',
-  'organic traffic',
+  'traffic',
   'search ranking',
+  'search volume',
   'domain authority',
-  'keyword research',
+  'keyword',
 ]
 
 export const getInputs = () => [
