@@ -18,6 +18,15 @@
     "test": "bun test",
     "test:watch": "bun test --hot --watch"
   },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"],
+    "rules": {
+      "scope-enum": [2, "always", [
+        "about", "api", "app", "articles", "contact",
+        "deps", "fallbacks", "firebase", "home", "nav", "uses", "work"
+      ]]
+    }
+  },
   "prettier": {
     "trailingComma": "es5",
     "semi": false,
@@ -38,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@eslint/js": "^10.0.1",
     "@happy-dom/global-registrator": "^20.9.0",
     "@testing-library/jest-dom": "^6.9.1",
