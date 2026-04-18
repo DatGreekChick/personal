@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "build": "NODE_ENV=production bun run build.js",
-    "clean": "rm public/chunk*.js public/chunk*.css LICENSE.txt firebase-debug.log",
+    "clean": "rm public/chunk*.js public/chunk*.css public/main.css public/main.js LICENSE.txt firebase-debug.log",
     "deploy": "bun run build && bun x firebase deploy",
     "lint": "bun x eslint .",
     "lint:fix": "bun run lint --fix",

@@ -92,3 +92,4 @@ sketch
 public/chunk*.js
 public/chunk*.css
 public/main.js
+public/main.css
