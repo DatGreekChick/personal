@@ -1,10 +1,10 @@
-const CACHE_NAME = 'v2'
+const CACHE_NAME = 'v3'
 const urlsToCache = [
   '/',
   '/assets/img/CreamLogo.png',
   '/main.js',
   '/index.html',
-  'https://fonts.googleapis.com/css?family=Open+Sans:300,800',
+  'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap',
 ]
 
 // https://stackoverflow.com/a/70863551
