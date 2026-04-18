@@ -36,7 +36,7 @@ export const Navbar = () => (
           <Logo
             src='/assets/img/CreamLogo.png'
             alt='eak-logo-cream'
-            fetchpriority='high'
+            fetchPriority='high'
           />
         </picture>
       </NavLink>
