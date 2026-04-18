@@ -1,47 +1,26 @@
 import { ErrorBoundary } from 'react-error-boundary'
 import { NavLink, Outlet } from 'react-router'
-import { styled } from 'styled-components'
 
-import { ErrorFallback, Hamburger } from '.'
-
-const Nav = styled.nav`
-  position: sticky;
-  top: 0;
-  font-size: 23px;
-  font-weight: 800;
-  color: ghostwhite;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 2%;
-  padding: 1rem 0;
-  vertical-align: text-top;
-  background-color: rgba(0, 0, 0, 1);
-  z-index: 3;
-`
-
-const Logo = styled.img`
-  display: flex;
-  align-items: center;
-  min-width: 15%;
-  max-height: 30px;
-`
+import { Hamburger } from './Hamburger'
+import styles from './Navbar.module.css'
+import { ErrorFallback } from '../fallbacks'
 
 export const Navbar = () => (
   <>
-    <Nav role='navigation'>
+    <nav role='navigation' className={styles.nav}>
       <NavLink to='/' style={{ zIndex: 4, paddingLeft: '5px' }}>
         <picture>
           <source srcSet='/assets/img/CreamLogo.webp' type='image/webp' />
-          <Logo
+          <img
             src='/assets/img/CreamLogo.png'
             alt='eak-logo-cream'
             fetchPriority='high'
+            className={styles.logo}
           />
         </picture>
       </NavLink>
       <Hamburger />
-    </Nav>
+    </nav>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Outlet />
     </ErrorBoundary>

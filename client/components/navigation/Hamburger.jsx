@@ -2,55 +2,11 @@ import { useState } from 'react'
 
 import { NavLink } from 'react-router'
 import { Sling } from 'hamburger-react'
-import { styled } from 'styled-components'
-import { usePrefetch } from '../../api/firebase'
+
+import styles from './Hamburger.module.css'
+import { usePrefetch } from '../../../api/firebase'
 
 const LINKS = ['Home', 'About', 'Work', 'Articles', 'Uses', 'Contact']
-
-const MenuList = styled.ul`
-  list-style: none;
-  flex-direction: column;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  top: 8.5%;
-  z-index: 1;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 4rem);
-  background-color: rgba(0, 0, 0, 1);
-`
-
-const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  position: relative;
-  color: ghostwhite;
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #e0bf9f;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  &:hover&:before {
-    color: #e0bf9f;
-    visibility: visible;
-    transform: scaleX(1);
-  }
-
-  &.active {
-    border-bottom: 2px solid #e0bf9f;
-    color: inherit;
-  }
-`
 
 export const Hamburger = () => {
   const [open, setOpen] = useState(false)
@@ -76,19 +32,24 @@ export const Hamburger = () => {
         isOpen={open}
       />
       {open && (
-        <MenuList>
+        <ul className={styles.menuList}>
           {LINKS.map(link => (
             <li key={link} style={{ margin: 0, padding: '1%' }}>
-              <StyledNavLink
+              <NavLink
                 to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
                 onClick={toggleMenu}
                 onMouseEnter={prefetchHandlers[link]}
+                className={({ isActive }) =>
+                  [styles.navLink, isActive && styles.navLinkActive]
+                    .filter(Boolean)
+                    .join(' ')
+                }
               >
                 {link}
-              </StyledNavLink>
+              </NavLink>
             </li>
           ))}
-        </MenuList>
+        </ul>
       )}
     </>
   )
