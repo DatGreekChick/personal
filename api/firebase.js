@@ -1,16 +1,24 @@
 import { api } from './base'
-import { fetchData } from '../firebase-app'
 
 export const firebaseApi = api.injectEndpoints({
   endpoints: build => ({
     fetchProjects: build.query({
-      queryFn: () => fetchData('projects'),
+      queryFn: async () => {
+        const { fetchData } = await import('../firebase-app')
+        return fetchData('projects')
+      },
     }),
     fetchArticles: build.query({
-      queryFn: () => fetchData('articles'),
+      queryFn: async () => {
+        const { fetchData } = await import('../firebase-app')
+        return fetchData('articles')
+      },
     }),
     fetchUses: build.query({
-      queryFn: () => fetchData('uses'),
+      queryFn: async () => {
+        const { fetchData } = await import('../firebase-app')
+        return fetchData('uses')
+      },
     }),
   }),
 })
