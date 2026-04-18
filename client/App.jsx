@@ -2,13 +2,19 @@ import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import { About, Footer, Home, Loading, Navbar, Uses } from './components'
+import { Footer, Home, Loading, Navbar } from './components'
 
+const About = lazy(() =>
+  import('./components/About').then(module => ({ default: module.About }))
+)
 const Articles = lazy(() =>
   import('./components/Articles').then(module => ({ default: module.Articles }))
 )
 const Contact = lazy(() =>
   import('./components/Contact').then(module => ({ default: module.Contact }))
+)
+const Uses = lazy(() =>
+  import('./components/uses').then(module => ({ default: module.Uses }))
 )
 const Work = lazy(() =>
   import('./components/Work').then(module => ({ default: module.Work }))
