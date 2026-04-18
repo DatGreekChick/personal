@@ -85,7 +85,7 @@ export const Home = () => {
         return { text: ME[nextIdx], key: Date.now() }
       })
     }, 3000)
-    return () => clearTimeout(intervalId)
+    return () => clearInterval(intervalId)
   }, [])
 
   return (

@@ -34,10 +34,12 @@ const Icon = styled.a`
   }
 `
 
+const CURRENT_YEAR = new Date().getFullYear()
+
 export const Footer = () => (
   <StyledFooter role='contentinfo'>
     <span style={{ color: '#858686' }}>
-      &copy; {`${new Date().getFullYear()} Eleni Konior`}
+      &copy; {`${CURRENT_YEAR} Eleni Konior`}
     </span>
     <div>
       {SOCIAL_LINKS.map(([href, SocialIcon, color]) => (
