@@ -38,6 +38,30 @@ template (run once):
 git config commit.template .gitmessage
 ```
 
+## Pull Request Descriptions
+
+PR descriptions use the same five sections as the commit body template but with `####` markdown
+headers before each emoji label. This allows GitHub to render them as navigable headings.
+
+```
+#### 🎯 Motivation
+<why>
+
+#### ✅ What's Changed
+- Add ...
+
+#### 🧪 Testing
+<how verified>
+
+#### 📝 Note
+<optional>
+
+#### 🔗 Links
+- [Label]
+
+[label]: https://...
+```
+
 ## Validation rules
 
 A `commit-msg` git hook runs `commitlint` on every commit. A Claude Code `PreToolUse` hook
