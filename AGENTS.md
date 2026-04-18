@@ -2,7 +2,7 @@
 
 ## Commit Messages
 
-All commits must follow [Conventional Commits](https://www.conventionalcommits.org/).
+All commits must follow [Conventional Commits].
 
 ### Subject line format
 
@@ -31,7 +31,7 @@ Scope is optional. If present, it must be from the allowed list.
 
 ### Commit body
 
-Follow the template in [`.gitmessage`](.gitmessage). To activate it as your local commit
+Follow the template in [`.gitmessage`]. To activate it as your local commit
 template (run once):
 
 ```sh
@@ -45,3 +45,6 @@ intercepts `git commit -m` commands before they reach git.
 
 **Never bypass hooks** — `--no-verify` is forbidden. On hook failure, rewrite the commit
 message and retry without user intervention.
+
+[Conventional Commits]: https://www.conventionalcommits.org/
+[`.gitmessage`]: .gitmessage
