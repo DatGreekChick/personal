@@ -31,7 +31,14 @@ export const Navbar = () => (
   <>
     <Nav role='navigation'>
       <NavLink to='/' style={{ zIndex: 4, paddingLeft: '5px' }}>
-        <Logo src='/assets/img/CreamLogo.png' alt='eak-logo-cream' />
+        <picture>
+          <source srcSet='/assets/img/CreamLogo.webp' type='image/webp' />
+          <Logo
+            src='/assets/img/CreamLogo.png'
+            alt='eak-logo-cream'
+            fetchPriority='high'
+          />
+        </picture>
       </NavLink>
       <Hamburger />
     </Nav>
