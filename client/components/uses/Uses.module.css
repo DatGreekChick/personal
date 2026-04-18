@@ -21,7 +21,7 @@
   padding-right: 10px;
 }
 
-.routerLink:hover .copyIcon {
+.routerLink:hover .icon {
   opacity: 1;
   visibility: visible;
 }
@@ -40,6 +40,7 @@
 
 .iconVisible {
   color: #ace1af;
+  opacity: 1;
   visibility: visible;
 }
 

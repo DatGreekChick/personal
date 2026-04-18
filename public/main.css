@@ -359,7 +359,7 @@ a {
   color: #e0bf9f;
   padding-right: 10px;
 }
-.routerLink_MyfTcg:hover .copyIcon_MyfTcg {
+.routerLink_MyfTcg:hover .icon_MyfTcg {
   opacity: 1;
   visibility: visible;
 }
@@ -376,6 +376,7 @@ a {
 }
 .iconVisible_MyfTcg {
   color: #ace1af;
+  opacity: 1;
   visibility: visible;
 }
 .icon_MyfTcg:hover {
