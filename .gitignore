@@ -90,4 +90,5 @@ sketch
 
 # Compilation artifacts
 public/chunk*.js
+public/chunk*.css
 public/main.js

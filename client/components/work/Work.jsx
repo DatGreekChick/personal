@@ -1,18 +1,9 @@
-import { useFetchProjectsQuery } from '../../api'
-
-import { Link, Loading } from '.'
-import { useExpansion } from '../hooks'
-
-import {
-  CenterStyledButton,
-  Description,
-  Detail,
-  Lines,
-  ProjectLinkButton,
-  ProjectStyle,
-  Role,
-  Tech,
-} from '../styles'
+import styles from './Work.module.css'
+import btnStyles from '../../button.module.css'
+import { Loading } from '../fallbacks'
+import { Link } from '../navigation'
+import { useExpansion } from '../../hooks'
+import { useFetchProjectsQuery } from '../../../api'
 
 const determineProjectButtonText = link =>
   link.includes('github')
@@ -27,33 +18,37 @@ export const Work = () => {
 
   return (
     <>
-      <CenterStyledButton>
+      <button className={btnStyles.btnCenter}>
         <Link href='/assets/EleniArvanitisKoniorResume.pdf'>View Resume</Link>
-      </CenterStyledButton>
+      </button>
       {!projects && <Loading />}
       {projects &&
         projects.map(({ name, role, description, technologies, links }) => (
-          <ProjectStyle key={name}>
-            <Lines onClick={toggle}>{name.toUpperCase()}</Lines>
+          <div key={name} className={styles.projectStyle}>
+            <span className={styles.lines} onClick={toggle}>
+              {name.toUpperCase()}
+            </span>
             {isExpanded && expandedItem === name.toUpperCase() && (
-              <Detail>
-                <Role>{role}</Role>
-                <Description>{description}</Description>
+              <div className={styles.detail}>
+                <p className={styles.role}>{role}</p>
+                <p className={styles.description}>{description}</p>
                 <br />
                 {technologies.map(technology => (
-                  <Tech key={technology}>{technology.toUpperCase()}</Tech>
+                  <span key={technology} className={styles.tech}>
+                    {technology.toUpperCase()}
+                  </span>
                 ))}
                 <br />
                 {links.map((link, i) => (
                   <Link key={`${name}-${link}${i}`} href={link}>
-                    <ProjectLinkButton>
+                    <button className={btnStyles.btnProject}>
                       {determineProjectButtonText(link)}
-                    </ProjectLinkButton>
+                    </button>
                   </Link>
                 ))}
-              </Detail>
+              </div>
             )}
-          </ProjectStyle>
+          </div>
         ))}
     </>
   )

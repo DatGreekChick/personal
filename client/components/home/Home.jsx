@@ -1,61 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { keyframes, styled } from 'styled-components'
+import { NavLink } from 'react-router'
 
-import { StyledButton, StyledNavLink } from '../styles'
-
-const slideIn = keyframes`
-  from { opacity: 0; transform: translateY(100%); }
-  to { opacity: 1; transform: translateY(0%); }
-`
-
-const slideOut = keyframes`
-  from { opacity: 1; transform: translateY(0%); }
-  to { opacity: 0; transform: translateY(-100%); }
-`
-
-const Me = styled.div`
-  display: flex;
-  padding-top: 5%;
-  font-size: 18pt;
-  flex-flow: column nowrap;
-  margin: 0 auto;
-  width: 80%;
-
-  @media (min-width: 0px) and (max-width: 320px) {
-    font-size: 12pt;
-  }
-`
-
-const CarouselWrapper = styled.span`
-  position: relative;
-  display: inline-flex;
-`
-
-const Carousel = styled.span`
-  display: inline-flex;
-  white-space: nowrap;
-  font-weight: 600;
-  color: #e0bf9f;
-  animation: ${({ $leaving }) => ($leaving ? slideOut : slideIn)} 300ms ease
-    forwards;
-  ${({ $leaving }) => $leaving && 'position: absolute;'}
-`
-
-const Description = styled.p`
-  font-size: 14pt;
-  font-weight: 300;
-  padding-top: 2%;
-  padding-bottom: 2%;
-
-  @media (min-width: 0px) and (max-width: 319px) {
-    font-size: 12pt;
-  }
-
-  @media (min-width: 320px) and (max-width: 767px) {
-    font-size: 13pt;
-  }
-`
+import styles from './Home.module.css'
+import btnStyles from '../../button.module.css'
 
 const ME = [
   'a software engineer 👩🏻‍💻',
@@ -89,23 +37,25 @@ export const Home = () => {
   }, [])
 
   return (
-    <Me>
+    <div className={styles.me}>
       <span>
         I am{' '}
-        <CarouselWrapper>
-          <Carousel key={current.key}>{current.text}</Carousel>
+        <span className={styles.carouselWrapper}>
+          <span key={current.key} className={styles.entering}>
+            {current.text}
+          </span>
           {prev && (
-            <Carousel
-              $leaving
+            <span
               key={prev.key}
+              className={styles.leaving}
               onAnimationEnd={() => setPrev(null)}
             >
               {prev.text}
-            </Carousel>
+            </span>
           )}
-        </CarouselWrapper>
+        </span>
       </span>
-      <Description>
+      <p className={styles.description}>
         After graduating from NYU with a B.A. in Economics, I decided to tap
         into my creative side and follow in my parents&apos; entrepreneurial
         footsteps by launching a graphic design company. I learned so much
@@ -118,11 +68,11 @@ export const Home = () => {
           leading cross-company collaboration, and driving performance
           improvements at Cisco Systems!
         </p>
-      </Description>
-      <StyledButton>
-        <StyledNavLink to='/contact' />
+      </p>
+      <button className={btnStyles.btn}>
+        <NavLink to='/contact' className={btnStyles.navLink} />
         Say hi
-      </StyledButton>
-    </Me>
+      </button>
+    </div>
   )
 }

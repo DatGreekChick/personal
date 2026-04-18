@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: clamp(70%, 90%, 100%);
+  }
+}
+
+.asterisk::before {
+  color: red;
+  content: '* ';
+}
+
+.inputBase {
+  font-size: 14pt;
+  text-align: center;
+  width: 100%;
+  padding: 1% 0;
+  margin: 0 auto 10% auto;
+  background: transparent;
+  border: transparent;
+  border-bottom: thin solid gray;
+}
+
+.inputBase:focus {
+  border-bottom: thin solid #e0bf9f;
+  transition: all 0.25s ease-in-out;
+}
+
+.textarea {
+  composes: inputBase;
+  resize: none;
+  max-height: 300px;
+}

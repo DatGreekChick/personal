@@ -2,32 +2,16 @@ import { Fragment, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { FiCheck, FiCopy } from 'react-icons/fi'
-import { styled } from 'styled-components'
 
 import { CallToAction } from './CallToAction'
-import { Link } from '..'
+import styles from './Uses.module.css'
+import { Link } from '../navigation'
 import { scrollToSection } from '../../lib/scroll'
-import {
-  StyledH3,
-  StyledIcon,
-  StyledParagraph,
-  StyledRouterLink,
-} from '../../styles'
 
-// Call-to-action links for specific sections
 const CTA_LINKS = {
   podcasts:
     'https://podcasts.apple.com/us/podcast/299-eleni-konior-senior-staff-software-engineer-at/id1464180320?i=1000743464724',
 }
-
-// there's a conflict on Link when this goes in styles/uses.js
-const StyledLink = styled(Link)`
-  font-weight: bold;
-
-  &:hover {
-    color: #e0bf9f;
-  }
-`
 
 const renderItems = items => {
   const sortedItems = [...items].sort((a, b) => a.title.localeCompare(b.title))
@@ -36,15 +20,17 @@ const renderItems = items => {
     <Fragment key={item.title}>
       {item.items ? (
         <Fragment>
-          <StyledH3 style={index === 0 ? { marginTop: 0 } : {}}>
+          <h3 className={styles.h3} style={index === 0 ? { marginTop: 0 } : {}}>
             {item.title}
-          </StyledH3>
+          </h3>
           {renderItems(item.items)}
         </Fragment>
       ) : (
         <ul style={{ margin: 0 }}>
           <li>
-            <StyledLink href={item.link}>{item.title}</StyledLink>
+            <Link href={item.link} className={styles.link}>
+              {item.title}
+            </Link>
             {item.description && ` - ${item.description}`}
           </li>
         </ul>
@@ -54,7 +40,7 @@ const renderItems = items => {
 }
 
 export const UsesSection = ({ section }) => {
-  const [visibility, setVisibility] = useState('hidden')
+  const [isVisible, setIsVisible] = useState(false)
   const navigate = useNavigate()
 
   const sectionTitle = section.title.toLowerCase().split(' ').join('-')
@@ -63,29 +49,35 @@ export const UsesSection = ({ section }) => {
   const handleClick = sectionTitle => evt => {
     evt.preventDefault()
 
-    // copy link text to user's clipboard
     navigator.clipboard.writeText(`${location.href}${hash}`).then(() => {
-      setVisibility('visible')
+      setIsVisible(true)
 
-      // update the URL in the browser, scroll to section top, reset visibility
       navigate(hash)
       scrollToSection(sectionTitle)
-      setTimeout(() => setVisibility('hidden'), 1000)
+      setTimeout(() => setIsVisible(false), 1000)
     })
   }
 
   return (
     <section id={sectionTitle}>
       <h2>
-        <StyledRouterLink to={hash} onClick={handleClick(sectionTitle)}>
+        <a
+          href={hash}
+          className={styles.routerLink}
+          onClick={handleClick(sectionTitle)}
+        >
           {section.title}
-          <StyledIcon className='copy-icon' visibility={visibility}>
-            {visibility === 'visible' ? <FiCheck /> : <FiCopy />}
-          </StyledIcon>
-        </StyledRouterLink>
+          <span
+            className={[styles.icon, isVisible && styles.iconVisible]
+              .filter(Boolean)
+              .join(' ')}
+          >
+            {isVisible ? <FiCheck /> : <FiCopy />}
+          </span>
+        </a>
       </h2>
       {section.description && (
-        <StyledParagraph>{section.description}</StyledParagraph>
+        <p className={styles.paragraph}>{section.description}</p>
       )}
       {section.title.toLowerCase() === 'podcasts' && (
         <CallToAction

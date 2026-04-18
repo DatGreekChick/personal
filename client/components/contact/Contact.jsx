@@ -1,7 +1,8 @@
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
-import { Form, Link } from '.'
-import { Disclaimer, Header, StyledContact } from '../styles'
+import { Form } from './Form'
+import styles from './Contact.module.css'
+import { Link } from '../navigation'
 
 const GOOGLE_PRIVACY_POLICY = 'https://policies.google.com/privacy?hl=en-US'
 const GOOGLE_TERMS_OF_SERVICE = 'https://policies.google.com/terms?hl=en-US'
@@ -11,14 +12,14 @@ export const Contact = () => (
     reCaptchaKey={process.env.ENTERPRISE_RECAPTCHA_SITE_KEY}
     useEnterprise
   >
-    <StyledContact>
-      <Header fontSize='45'>Let&apos;s Work Together!</Header>
+    <div className={styles.contact}>
+      <h1 style={{ fontSize: '45pt' }}>Let&apos;s Work Together!</h1>
       <Form />
-      <Disclaimer>
+      <p className={styles.disclaimer}>
         This site is protected by reCAPTCHA and the Google{' '}
         <Link href={GOOGLE_PRIVACY_POLICY}>Privacy Policy</Link> and{' '}
         <Link href={GOOGLE_TERMS_OF_SERVICE}>Terms of Service</Link> apply.
-      </Disclaimer>
-    </StyledContact>
+      </p>
+    </div>
   </GoogleReCaptchaProvider>
 )

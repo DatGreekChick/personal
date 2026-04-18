@@ -1,0 +1,14 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+.disclaimer {
+  font-size: 5pt;
+  font-style: italic;
+}

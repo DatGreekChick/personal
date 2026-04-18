@@ -1,17 +1,11 @@
-import { styled } from 'styled-components'
+import { NavLink } from 'react-router'
 
-import { Header, StyledButton, StyledNavLink } from '../styles'
-
-const StyledAbout = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  margin: 0 auto;
-  width: 80%;
-`
+import styles from './About.module.css'
+import btnStyles from '../../button.module.css'
 
 export const About = () => (
-  <StyledAbout>
-    <Header fontSize='30'>Creating useful and engaging software</Header>
+  <div className={styles.about}>
+    <h1 style={{ fontSize: '30pt' }}>Creating useful and engaging software</h1>
     <div style={{ fontSize: '14pt' }}>
       <p>
         Every day I get to ride the insatiable roller coaster that is software
@@ -37,9 +31,9 @@ export const About = () => (
         game of soccer, or strumming my bass guitar.
       </p>
     </div>
-    <StyledButton>
-      <StyledNavLink to='/work' />
+    <button className={btnStyles.btn}>
+      <NavLink to='/work' className={btnStyles.navLink} />
       See my work
-    </StyledButton>
-  </StyledAbout>
+    </button>
+  </div>
 )

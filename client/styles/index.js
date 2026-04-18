@@ -1,6 +1,0 @@
-export * from './button'
-export * from './contact'
-export * from './GlobalStyles'
-export * from './header'
-export * from './uses'
-export * from './work'

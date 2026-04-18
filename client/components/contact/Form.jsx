@@ -7,14 +7,15 @@ import { send } from '@emailjs/browser'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import toast, { Toaster } from 'react-hot-toast'
 
+import styles from './Form.module.css'
+import btnStyles from '../../button.module.css'
 import {
   createEmailTemplate,
   EMAIL_JS_OPTIONS,
   getInputs,
   SERVICE_ID,
   TEMPLATE_ID,
-} from '../lib'
-import { Asterisk, Input, StyledForm, SubmitButton, TextArea } from '../styles'
+} from '../../lib'
 
 export const Form = () => {
   const { executeRecaptcha } = useGoogleReCaptcha()
@@ -53,38 +54,48 @@ export const Form = () => {
 
   const inputs = getInputs()
   return (
-    <StyledForm onSubmit={handleSubmit(sendEmail)}>
+    <form className={styles.form} onSubmit={handleSubmit(sendEmail)}>
       <Toaster duration={3000} />
       {inputs.map(({ inputType, name, placeholder, options }) => (
         <label key={name}>
-          <Asterisk /> {name.charAt(0).toUpperCase() + name.slice(1)}
+          <span className={styles.asterisk} />{' '}
+          {name.charAt(0).toUpperCase() + name.slice(1)}
           {name !== 'message' ? (
-            <Input
+            <input
+              required
               {...register(name, options)}
               type={inputType}
               autoComplete={name}
               disabled={isSubmitting}
               placeholder={placeholder}
               aria-describedby={`required-${name}`}
+              className={styles.inputBase}
             />
           ) : (
-            <TextArea
+            <textarea
+              required
+              rows={2}
               {...register(name, options)}
               name={name}
               disabled={isSubmitting}
               placeholder={placeholder}
               onInput={handleTextAreaInput}
               aria-describedby={`required-${name}`}
+              className={styles.textarea}
             />
           )}
         </label>
       ))}
       <span style={{ fontSize: '10pt', paddingBottom: '20px' }}>
-        <Asterisk /> Required field
+        <span className={styles.asterisk} /> Required field
       </span>
-      <SubmitButton type='submit' disabled={isSubmitting}>
+      <button
+        type='submit'
+        disabled={isSubmitting}
+        className={btnStyles.btnSubmit}
+      >
         {isSubmitting ? 'Submitting...' : 'Submit'}
-      </SubmitButton>
-    </StyledForm>
+      </button>
+    </form>
   )
 }
