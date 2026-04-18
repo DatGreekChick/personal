@@ -1,17 +1,15 @@
 import { api } from './base'
-import { fetchData } from '../firebase-app'
+
+const lazyFetch = async path => {
+  const { fetchData } = await import('../firebase-app')
+  return fetchData(path)
+}
 
 export const firebaseApi = api.injectEndpoints({
   endpoints: build => ({
-    fetchProjects: build.query({
-      queryFn: () => fetchData('projects'),
-    }),
-    fetchArticles: build.query({
-      queryFn: () => fetchData('articles'),
-    }),
-    fetchUses: build.query({
-      queryFn: () => fetchData('uses'),
-    }),
+    fetchProjects: build.query({ queryFn: () => lazyFetch('projects') }),
+    fetchArticles: build.query({ queryFn: () => lazyFetch('articles') }),
+    fetchUses: build.query({ queryFn: () => lazyFetch('uses') }),
   }),
 })
 
