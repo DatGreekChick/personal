@@ -1,0 +1,80 @@
+.btn {
+  margin: 10px auto 10px 0;
+  padding: 10px 25px;
+  border: 2px solid #e0bf9f;
+  text-transform: uppercase;
+  font-size: large;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+  background-color: transparent;
+  color: ghostwhite;
+}
+
+.btn::after {
+  position: absolute;
+  transition: 0.4s;
+  content: '';
+  width: 100%;
+  bottom: 0;
+  background: #e0bf9f;
+  height: 120%;
+  left: -110%;
+  transform: skewX(20deg);
+  z-index: -1;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.btn:hover::after {
+  left: -10%;
+  width: 150%;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .btn {
+    font-size: medium;
+  }
+}
+
+.btnCenter {
+  composes: btn;
+  display: flex;
+  margin: 50px auto 10px auto;
+}
+
+.btnCenter:hover a {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.btnProject {
+  composes: btn;
+  margin: 4% 1% 0 1%;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .btnProject {
+    margin: 7% 1% 0 1%;
+  }
+}
+
+.btnSubmit {
+  composes: btn;
+  margin: 0 auto 8% auto;
+}
+
+.navLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}

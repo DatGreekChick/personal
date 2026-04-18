@@ -1,23 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router'
-import { styled } from 'styled-components'
 
+import styles from './ErrorFallback.module.css'
+import btnStyles from '../../button.module.css'
 import {
   useCreateGitHubIssueMutation,
   useFetchGitHubIssuesQuery,
   useUpdateGitHubIssueMutation,
-} from '../../api'
-
-import { CenterStyledButton } from '../styles'
-
-const StyledError = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-`
+} from '../../../api'
 
 export const ErrorFallback = ({ error, resetErrorBoundary }) => {
-  // skip fetching GitHub data or producing issues when in development
   const skip = process.env.NODE_ENV === 'development'
 
   const location = useLocation()
@@ -34,8 +26,6 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
 
     const formattedStack = `### Error occurred at \`${location.pathname}\` on: ${new Date()}\n\`\`\`console\n${error.stack}\n\`\`\``
 
-    // search for any existing GitHub issues with the error.message title
-    // if issues exist, update all of them, otherwise create a new issue
     const foundIssues = data?.filter(issue => issue.title === error.message)
     if (foundIssues?.length > 0) {
       foundIssues.forEach(issue =>
@@ -66,13 +56,13 @@ export const ErrorFallback = ({ error, resetErrorBoundary }) => {
   }, [location, resetErrorBoundary])
 
   return (
-    <StyledError>
+    <div className={styles.error}>
       <h2>Uh oh! Something went wrong 🫠</h2>
       <pre style={{ color: 'red' }}>Error: {error.message}</pre>
       <p>Please click the button to try again or navigate to another route.</p>
-      <CenterStyledButton onClick={resetErrorBoundary}>
+      <button className={btnStyles.btnCenter} onClick={resetErrorBoundary}>
         Try again
-      </CenterStyledButton>
-    </StyledError>
+      </button>
+    </div>
   )
 }

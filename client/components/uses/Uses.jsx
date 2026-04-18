@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 
 import { UsesSection } from './UsesSection'
-import { useFetchUsesQuery } from '../../../api'
-
-import { Loading } from '..'
+import styles from './Uses.module.css'
+import { Loading } from '../fallbacks'
 import { scrollToSection } from '../../lib/scroll'
-import { Header, StyledParagraph, StyledUses } from '../../styles'
+import { useFetchUsesQuery } from '../../../api'
 
 export const Uses = () => {
   const { data: sections } = useFetchUsesQuery()
@@ -18,17 +17,17 @@ export const Uses = () => {
   }, [])
 
   return (
-    <StyledUses>
-      <Header fontSize='35'>What I Use</Header>
-      <StyledParagraph>
+    <div className={styles.uses}>
+      <h1 style={{ fontSize: '35pt' }}>What I Use</h1>
+      <p className={styles.paragraph}>
         Most of the listed items are items I also use at work but some reflect
         my personal use.
-      </StyledParagraph>
+      </p>
       {!sections && <Loading />}
       {sections &&
         sections.map(section => (
           <UsesSection key={section.title} section={section} />
         ))}
-    </StyledUses>
+    </div>
   )
 }

@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  padding-top: 10%;
+  align-items: center;
+  justify-content: center;
+}
+
+.animatedPath {
+  stroke-dasharray: 2.427766571px, 242.776657104px;
+  stroke-dashoffset: 0;
+  animation: spin 1.6s linear infinite;
+}

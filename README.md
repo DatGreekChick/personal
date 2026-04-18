@@ -12,7 +12,6 @@ For information on my journey to becoming a Software Engineer, check out my
 - ⚛️ [React] for speed, scalability, and simplicity
 - ️⚒️ [RTK Query] for cleaner Firebase queries and built-in caching
 - 🔥 [Firebase] for painless deployment and realtime data storage/display
-- 💅🏾 [`styled-components`] for easy CSS styling
 - 📧 [EmailJS] for server-less contact form submissions direct to my inbox
 - 🦀 [bun] for fast development, build times, and building all assets
 - 🧪️ [@testing-library/react] and [msw] for robust frontend testing
@@ -43,7 +42,6 @@ v3, which is invisible.
 [react]: https://reactjs.org/
 [rtk query]: https://redux-toolkit.js.org/rtk-query/overview
 [firebase]: https://firebase.google.com/
-[`styled-components`]: https://styled-components.com/
 [emailjs]: https://www.emailjs.com/
 [bun]: https://bun.com/docs/
 [@testing-library/react]: https://testing-library.com/docs/

@@ -1,29 +1,8 @@
-import { styled } from 'styled-components'
-
-const Text = styled.p`
-  color: ghostwhite;
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1;
-`
-
-const CallToActionAnchor = styled.a`
-  color: #e0bf9f;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1;
-  padding-bottom: 10px;
-
-  &:focus {
-    outline: none;
-  }
-`
+import styles from './Uses.module.css'
 
 export const CallToAction = ({ text = '', href, linkText }) => {
   if (!href || !text) return null
 
-  // If a linkText is provided and exists inside the text, wrap only that
   const index = linkText ? text.indexOf(linkText) : -1
 
   if (linkText && index !== -1) {
@@ -31,30 +10,31 @@ export const CallToAction = ({ text = '', href, linkText }) => {
     const after = text.slice(index + linkText.length)
 
     return (
-      <Text>
+      <p className={styles.callToActionText}>
         {before}
-        <CallToActionAnchor
+        <a
           href={href}
           target='_blank'
           rel='noopener noreferrer'
           aria-label={linkText}
+          className={styles.callToActionAnchor}
         >
           {linkText}
-        </CallToActionAnchor>
+        </a>
         {after}
-      </Text>
+      </p>
     )
   }
 
-  // Fallback: if linkText not found, make the whole sentence the link
   return (
-    <CallToActionAnchor
+    <a
       href={href}
       target='_blank'
       rel='noopener noreferrer'
       aria-label={text}
+      className={styles.callToActionAnchor}
     >
       {text}
-    </CallToActionAnchor>
+    </a>
   )
 }
