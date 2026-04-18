@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router'
 import { Sling } from 'hamburger-react'
 import { styled } from 'styled-components'
+import { usePrefetch } from '../../api/firebase'
 
 const LINKS = ['Home', 'About', 'Work', 'Articles', 'Uses', 'Contact']
 
@@ -55,6 +56,16 @@ export const Hamburger = () => {
   const [open, setOpen] = useState(false)
   const toggleMenu = () => setOpen(!open)
 
+  const prefetchProjects = usePrefetch('fetchProjects')
+  const prefetchArticles = usePrefetch('fetchArticles')
+  const prefetchUses = usePrefetch('fetchUses')
+
+  const prefetchHandlers = {
+    Work: () => prefetchProjects(),
+    Articles: () => prefetchArticles(),
+    Uses: () => prefetchUses(),
+  }
+
   return (
     <>
       <Sling
@@ -71,6 +82,7 @@ export const Hamburger = () => {
               <StyledNavLink
                 to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
                 onClick={toggleMenu}
+                onMouseEnter={prefetchHandlers[link]}
               >
                 {link}
               </StyledNavLink>
