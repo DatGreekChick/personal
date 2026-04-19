@@ -38,6 +38,7 @@
     }
   },
   "release": {
+    "repositoryUrl": "https://github.com/DatGreekChick/personal.git",
     "branches": ["main"],
     "plugins": [
       "@semantic-release/commit-analyzer",
