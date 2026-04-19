@@ -9,21 +9,22 @@ export const About = () => (
     <div style={{ fontSize: '14pt' }}>
       <p>
         Every day I get to ride the insatiable roller coaster that is software
-        engineering! I&apos;ve built extensible Python pip packages, streamlined
-        aggregation engines in C++, created valuable HTTP REST APIs using Flask
-        or Rails, designed beautiful React frontends with millions of monthly
+        engineering, and I&apos;ve been strapped in for the AI wave since day
+        one. I&apos;ve built industry-first AI-powered network intelligence
+        products, grown and led teams around them, shipped MCP servers at both
+        product and company scale, and evangelized AI-first thinking across a
+        Fortune 100. Before all that: extensible Python packages, C++
+        aggregation engines, REST APIs, React frontends with millions of monthly
         hits. I&apos;m an engaging speaker, produce minimalist code, design
-        simple but powerful systems, write killer documentation, and test
-        everything. I absolutely love to learn, get a thrill when teaching
-        others, and really dig pair programming.
+        simple but powerful systems, write killer documentation, test
+        everything, and get a genuine thrill when teaching others what&apos;s
+        possible.
       </p>
       <p>
-        I&apos;m advanced in Python, TypeScript, Ruby/Rails, C++, Webpack, SQL
-        and NoSQL databases, Firebase, React, HTML, and CSS. I also have
-        experience with AWS (Lambda, S3), Docker, Grafana, and Splunk. I thrive
-        in environments that constantly push me to learn and want to learn more
-        programming languages, including Swift and Go. For more of my
-        experience, check out my work below!
+        I work across the full stack: Python, TypeScript, Ruby/Rails, C++,
+        React, SQL and NoSQL, AWS, Docker, and Splunk; plus AI models from
+        Anthropic, OpenAI, and Google, build with fastMCP, and thrive with
+        Cursor. For more of my experience, check out my work below!
       </p>
       <p>
         When I&apos;m not on the job, I love to venture outdoors either via
