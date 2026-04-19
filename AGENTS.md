@@ -64,8 +64,7 @@ headers before each emoji label. This allows GitHub to render them as navigable 
 
 ## Validation rules
 
-A `commit-msg` git hook runs `commitlint` on every commit. A Claude Code `PreToolUse` hook
-intercepts `git commit -m` commands before they reach git.
+A `commit-msg` git hook runs `commitlint` on every commit.
 
 **Never bypass hooks** — `--no-verify` is forbidden. On hook failure, rewrite the commit
 message and retry without user intervention.
