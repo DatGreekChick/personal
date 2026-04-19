@@ -1,0 +1,25 @@
+# Subject: <type>(<scope>): <short description>
+# Types: feat fix docs style refactor perf test build ci chore revert
+# Scopes (optional): about api app articles contact deps fallbacks firebase home nav uses work
+# ──────────────────────────────────────────────────────────────────────────────
+
+🎯 Motivation
+
+
+✅ What's Changed
+# Imperative bullets — Add ... / Fix ... / Remove ... / Update ...
+-
+
+
+🧪 Testing
+
+
+📝 Note
+# Optional — remove this section if not needed
+
+
+🔗 Links
+# Optional — remove this section if not needed
+# - [Label]
+#
+# [label]: https://...
