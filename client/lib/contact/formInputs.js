@@ -1,4 +1,5 @@
 const BLOCKED_DOMAINS = ['jmailservice.com']
+const BLOCKED_EMAILS = ['tokelo043@gmail.com']
 
 const SEO_SPAM_KEYWORDS = [
   'seo',
@@ -34,10 +35,14 @@ export const getInputs = () => [
       pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email address' },
       validate: value => {
         const domain = value.toLowerCase().split('@')[1] ?? ''
-        const blocked = BLOCKED_DOMAINS.some(
+        const blockedDomain = BLOCKED_DOMAINS.some(
           b => domain === b || domain.endsWith(`.${b}`)
         )
-        return !blocked || 'This email domain is not allowed'
+        const blocked =
+          blockedDomain ||
+          BLOCKED_EMAILS.findIndex(email => email === value.toLowerCase()) > -1
+
+        return !blocked || 'This email and/or domain is not allowed'
       },
     },
   },

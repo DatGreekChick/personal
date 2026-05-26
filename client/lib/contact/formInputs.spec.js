@@ -66,21 +66,21 @@ describe('getInputs', () => {
       it('rejects emails from jmailservice.com', () => {
         const { validate } = getInputs()[1].options
         expect(validate('spammer@jmailservice.com')).toBe(
-          'This email domain is not allowed'
+          'This email and/or domain is not allowed'
         )
       })
 
       it('rejects subdomains of blocked domains', () => {
         const { validate } = getInputs()[1].options
         expect(validate('spammer@mail.jmailservice.com')).toBe(
-          'This email domain is not allowed'
+          'This email and/or domain is not allowed'
         )
       })
 
       it('is case-insensitive', () => {
         const { validate } = getInputs()[1].options
         expect(validate('spammer@JMAILSERVICE.COM')).toBe(
-          'This email domain is not allowed'
+          'This email and/or domain is not allowed'
         )
       })
 
