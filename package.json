@@ -54,17 +54,6 @@
     "arrowParens": "avoid",
     "proseWrap": "always"
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "bun run prettier --",
-      "bun run lint:fix --",
-      "git add --"
-    ],
-    "*.{md,css}": [
-      "bun run prettier --",
-      "git add --"
-    ]
-  },
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
@@ -80,8 +69,7 @@
     "eslint-plugin-react": "^7.37.5",
     "firebase-tools": "^15.18.0",
     "globals": "^17.6.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^17.0.5",
+    "lefthook": "^2.1.8",
     "msw": "^2.14.6",
     "open": "^11.0.0",
     "picocolors": "^1.1.1",
