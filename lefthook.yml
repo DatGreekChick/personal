@@ -1,0 +1,17 @@
+pre-commit:
+  commands:
+    prettier:
+      glob: "*.{js,jsx,md,css}"
+      run: bun x prettier --write {staged_files}
+      stage_fixed: true
+    lint:
+      glob: "*.{js,jsx}"
+      run: bun x eslint --fix {staged_files}
+      stage_fixed: true
+    test:
+      run: bun test
+
+commit-msg:
+  commands:
+    commitlint:
+      run: bun x commitlint --edit {1}
