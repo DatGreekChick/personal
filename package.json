@@ -67,7 +67,7 @@
     "eslint": "^10.4.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
-    "firebase-tools": "^15.18.0",
+    "firebase-tools": "^15.19.0",
     "globals": "^17.6.0",
     "lefthook": "^2.1.8",
     "msw": "^2.14.6",
