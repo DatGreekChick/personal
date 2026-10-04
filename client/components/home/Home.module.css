@@ -15,24 +15,50 @@
 
 .carouselWrapper {
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-areas: 'stack';
+  vertical-align: top;
+  overflow: hidden;
 }
 
-.entering {
+.entering,
+.leaving {
+  grid-area: stack;
   display: inline-flex;
+  align-items: center;
   white-space: nowrap;
   font-weight: 600;
   color: #e0bf9f;
+}
+
+.entering {
   animation: slideIn 300ms ease forwards;
 }
 
 .leaving {
-  display: inline-flex;
-  white-space: nowrap;
-  font-weight: 600;
-  color: #e0bf9f;
   animation: slideOut 300ms ease forwards;
-  position: absolute;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
 
 .description {
