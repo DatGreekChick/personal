@@ -30,7 +30,7 @@ export const Home = () => {
       const nextIdx = Math.floor(Math.random() * ME.length)
       setCurrent(c => {
         setPrev(c)
-        return { text: ME[nextIdx], key: Date.now() }
+        return { text: ME[nextIdx], key: ME[nextIdx] }
       })
     }, 3000)
     return () => clearInterval(intervalId)
