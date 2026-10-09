@@ -77,7 +77,7 @@
     "semantic-release": "^25.0.9"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
+    "@emailjs/browser": "^5.0.2",
     "@reduxjs/toolkit": "^2.13.0",
     "firebase": "^12.19.0",
     "hamburger-react": "^2.5.2",
